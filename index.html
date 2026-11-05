@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-02';
+const SNAPSHOT_DATE = '2026-11-05';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -730,149 +730,368 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
-  { date:'2026-05-26', brand:'miniso', type:'财报', market:'全球', impact:5,
-    title:'2026 Q1 营收 56.9 亿元，同比 +28.5%',
-    note:'经调整净利润 6.3 亿元，同比 +8.1%。利润增速显著低于收入增速。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
-    kpi:{ rev:'56.9 亿元', yoy:'+28.5%', np:'6.3 亿元', npYoy:'+8.1%' } },
-
-  { date:'2026-05-26', brand:'miniso', type:'开店', market:'全球', impact:4,
-    title:'全球门店达 8,565 家，海外 3,617 家',
-    note:'名创品牌 8,210 家：国内 4,593（同比净增 318）、海外 3,617（同比净增 404）。海外占比 44.1%。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
-    kpi:{ stores:'8,565', overseas:'3,617', share:'44.1%' } },
-
-  { date:'2026-05-26', brand:'miniso', type:'财报', market:'中国', impact:4,
-    title:'中国内地营收 32.3 亿元，连续第五个季度加速',
-    note:'同比 +29.6%，是国内消费复苏背景下少见的连续加速。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
-
-  { date:'2026-05-26', brand:'topoy', type:'开店', market:'全球', impact:3,
-    title:'TOP TOY 全球门店 355 家，海外仅 39 家',
-    note:'门店规模仍小，但 Q1 收入同比 +51.4%，是集团内增速最快的板块。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
-    kpi:{ stores:'355', overseas:'39', yoy:'+51.4%' } },
-
-  { date:'2026-05-26', brand:'topoy', type:'IP', market:'中国', impact:3,
-    title:'自有 IP 小玉、堆堆、孢绒绒集中推出',
-    note:'TOP TOY 从「渠道品牌」向「IP 品牌」迁移的关键动作。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
-
-  { date:'2026-05-26', brand:'miniso', type:'战略', market:'全球', impact:4,
-    title:'乐园系店态落地：海南双首店、新加坡与越南首家 MINISO FRIENDS',
-    note:'MINISO SPACE / LAND / FRIENDS 三种大店形态开始向海外复制，是「开好店、开大店」战略的落点。',
-    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
-
-  { date:'2026-08-20', brand:'poptoy', type:'财报', market:'全球', impact:5,
-    title:'2026 H1 营收 171.7 亿元，同比 +23.8%',
-    note:'经调整净利润 51.6 亿元，净利率 30%，毛利率 69.7%。增速低于市场约 199.8 亿元的预期。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
-    kpi:{ rev:'171.7 亿元', yoy:'+23.8%', npm:'30%', gm:'69.7%' } },
-
-  { date:'2026-08-20', brand:'poptoy', type:'开店', market:'全球', impact:4,
-    title:'全球 676 家门店 + 2,827 台机器人商店',
-    note:'半年净增 46 家店、190 台机器人商店。海外门店 221 家：亚太 90、美洲 86、欧洲及其他 45。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
-    kpi:{ stores:'676', overseas:'221', rb:'2,827' } },
-
-  { date:'2026-08-20', brand:'poptoy', type:'IP', market:'全球', impact:5,
-    title:'星星人营收 26.5 亿元，同比 +580.6%',
-    note:'THE MONSTERS（含 LABUBU）营收 44.5 亿元、占集团 26%；CRYBABY 16.3 亿、DIMOO 16.2 亿、SKULLPANDA 15.5 亿、Hirono 10.1 亿、MOLLY 9.0 亿。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
-    kpi:{ monsters:'44.5 亿元', share:'26%', star:'26.5 亿元', starYoy:'+580.6%' } },
-
-  { date:'2026-08-20', brand:'poptoy', type:'新品', market:'全球', impact:4,
-    title:'毛绒品类营收 98.2 亿元，同比 +60%',
-    note:'品类结构从「盲盒收藏」向「毛绒 / 挂件」迁移，单价与复购同步抬升。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
-
-  { date:'2026-08-20', brand:'poptoy', type:'品牌', market:'全球', impact:3,
-    title:'全球注册会员破 1 亿，会员销售占比 92.9%',
-    note:'会员复购率 51.6%，中国内地会员 8,244 万。私域运营是这家公司最容易被低估的资产。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
-
-  { date:'2026-08-20', brand:'poptoy', type:'新品', market:'中国', impact:3,
-    title:'城市乐园新增四大主题区，POP BAKERY 全国首店落地阿那亚',
-    note:'从零售向「体验业态」外延，是 IP 变现半径的试探。',
-    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
-
-  { date:'2026-08-31', brand:'miniso', type:'财报', market:'全球', impact:5,
-    title:'2026 Q2 净亏 2.92 亿元，销售费用同比 +39.6%',
-    note:'H1 收入同比 +22%，但股价年内腰斩。海外代理转直营与 6,000 家门店改造是主要利润拖累。',
-    source:'东方财富', url:'https://finance.eastmoney.com/a/202608313860297312.html',
-    kpi:{ np:'-2.92 亿元', expense:'+39.6%' } },
-
-  { date:'2026-05-26', brand:'miniso', type:'战略', market:'中国', impact:4,
-    title:'启动 6,000 家门店升级，转型 IP 生态',
-    note:'「腾笼换鸟」：以大店替换低效小店，用 IP 场景提升单店产出。短期压利润，长期拼坪效。',
-    source:'公开报道', url:'' },
-
-  { date:'2026-02-05', brand:'miniso', type:'品牌', market:'中国', impact:3,
-    title:'成为总台《2026 年春节联欢晚会》潮玩合作品牌',
-    note:'春节档的国民级曝光，配合生肖与年货场景做 IP 联名。',
-    source:'央视', url:'https://1118.cctv.com/2026/02/05/ARTI0pHjvcAnGJuUkumgaq0l260205.shtml' },
-
-  { date:'2025-06-01', brand:'miniso', type:'IP', market:'中国', impact:3,
-    title:'原创 IP「YOYO（右右酱）」上市',
-    note:'名创自有 IP 的一次试水，用于降低对授权 IP 的依赖。',
-    source:'公开报道', url:'' },
-
-  { date:'2026-06-15', brand:'miniso', type:'联名', market:'中国', impact:4,
-    title:'名创优品 × 三丽鸥 × 吉伊卡哇 三方联名',
-    note:'把两个高热度日系 IP 叠在同一档期，是名创典型的「流量叠加」打法。具体月份为公开报道推断，待核。',
-    source:'公开报道', url:'', approx:true },
-
-  { date:'2026-07-10', brand:'industry', type:'趋势', market:'中国', impact:3,
-    title:'潮玩传统赛道加速转型，AI 等新渠道或成破局关键',
-    note:'行业层面的渠道与产品结构变化，值得放进周报的「行业观察」。',
-    source:'新浪财经', url:'https://finance.sina.cn/tech/2026-07-10/detail-inihhkum8419852.d.html' },
-
-  { date:'2026-08-27', brand:'industry', type:'趋势', market:'中国', impact:4,
-    title:'谷子店接连倒闭，二次元经济进入新周期',
-    note:'授权 IP 的线下流量红利退潮，说明「拿授权就能卖」的阶段结束，自有 IP 与场景化店态成为分水岭。',
-    source:'央视', url:'https://business.cctv.com/2026/08/27/ARTIuSDp9X2dscsFs7Qa6vGR260827.shtml' },
-
-  { date:'2026-10-22', brand:'miniso', type:'开店', market:'北美', impact:5,
-    title:'美国首家 MINISO LAND 落地俄亥俄州哥伦布',
-    note:'把「乐园系」大店形态输出到美国本土，主打沉浸式 IP 体验。这是海外大店模型在发达市场的第一次正面验证。',
-    source:'MINISO 官方新闻稿',
-    url:'https://digital-release.kxan.com/business/press-releases/cision/20261022CN78921/miniso-opens-its-first-u-s-miniso-land-in-columbus-bringing-its-immersive-ip-experience-to-american-consumers/' },
-
-  { date:'2026-10-29', brand:'poptoy', type:'券商', market:'全球', impact:2,
-    title:'中泰证券维持买入，指海外市场筑底企稳',
-    note:'卖方对海外恢复节奏的判断，可作为下周关注的观察点。',
-    source:'证券之星', url:'http://hk.stockstar.com/IG2026102900017530.shtml' },
-
-  { date:'2026-10-30', brand:'poptoy', type:'券商', market:'全球', impact:2,
-    title:'国海证券维持买入，指高基数致业绩承压',
-    note:'高基数效应将在下半年集中体现，需跟踪单季增速能否回到 20% 以上。',
-    source:'证券之星', url:'https://hk.stockstar.com/IG2026103000022546.shtml' },
-
-  { date:'2026-09-07', brand:'miniso', type:'券商', market:'全球', impact:2,
-    title:'东吴证券维持买入，指估值低且现金回报高',
-    note:'与泡泡玛特的高估值形成对照，反映市场对两种模型的分歧。',
-    source:'证券之星', url:'http://hk.stockstar.com/IG2026090700015248.shtml' },
-
-  { date:'2026-02-28', brand:'daiso', type:'财报', market:'全球', impact:4,
-    title:'大创产业 FY2025 合并营收 7,710 亿日元，全球 5,891 家门店',
-    note:'日本百元店龙头的规模基线。门店数约为名创品牌的 72%，是海外扩张最直接的对标。',
-    source:'DAISO 官网', url:'https://www.daiso-sangyo.co.jp/info/news/48947',
-    kpi:{ rev:'7,710 亿日元', stores:'5,891' } },
-
-  { date:'2026-04-01', brand:'daiso', type:'开店', market:'拉美', impact:3,
-    title:'大创进入墨西哥市场',
-    note:'拉美是名创已重点布局、大创刚开始渗透的市场，值得跟踪份额变化。',
-    source:'DAISO 官网', url:'https://www.daiso-sangyo.co.jp/info/news/49934' },
-
-  { date:'2025-09-01', brand:'flyingtiger', type:'开店', market:'东南亚', impact:3,
-    title:'Flying Tiger Copenhagen 进入东南亚（新加坡 / 马来西亚 / 泰国）',
-    note:'北欧设计杂货品牌南下，与名创在东南亚形成直接竞争。',
-    source:'Flying Tiger 官网', url:'https://flyingtiger.com/en-fr/blogs/news/flying-tiger-copenhagen-expands-into-singapore-malaysia-thailand' },
-
-  { date:'2026-03-18', brand:'fivebelow', type:'财报', market:'北美', impact:2,
-    title:'Five Below 发布 FY2025 Q4 及全年业绩，门店扩张驱动增长',
-    note:'美国低价杂货连锁，单店模型与名创海外店高度可比，可作坪效对标参考。',
-    source:'Nasdaq', url:'https://www.nasdaq.com/press-release/five-below-inc-announces-fourth-quarter-and-fiscal-2025-financial-results-2026-03-18' }
+  {
+    "date": "2026-11-05",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "东南亚",
+    "impact": 4,
+    "title": "名创优品在雅加达开出东南亚首家SUPER MINISO",
+    "note": "印尼十年节点落地超级大店，验证IP体验型大店模式向东南亚复制，需跟踪其单店模型与本地化选品。",
+    "source": "Retail Asia",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNX0N5dlJCMXB3cTZrUDdSUkdldXlCRl9nd3MzbG0xQm8zSk95akR2WjRRVkpQU0xYRy1HMFFuSUV0M0gwanZKaC05a2w0WEZWU2NRTExpYUVtY0ttQS1HbjdsemszOWJEdm9MR19YUmlucVE5R3J2eFFXU0s5cG1GQldxek9fRTZRVFVHRUJZRk1YOFQtVjR2UllpN1VoUWI1?oc=5"
+  },
+  {
+    "date": "2026-11-05",
+    "brand": "daiso",
+    "type": "战略",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "马来西亚总理呼吁大创上架更多马国制造商品",
+    "note": "政策层施压本地采购，或改变大创东南亚供应链结构，需跟踪其成本与选品变化对区域价格竞争力的影响。",
+    "source": "NST Online",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQUGZDRUdIcVdrMkdWSVZBX0Z5a2o5Mm9SN3lpbndnTlU4VTFscTRzZDgtR2FSaDNvNVVSR0dYWnpOYzBJWXA2emoxWkczbHlSTHFPMUFRNUFKR1pldGhvMmxMVWxjcVhBMGVBNlBFcHVnWk1MaGUxVlJnSmdTLVZPbVlzcGNsbXVvcVRwanFwc2tzQTl2eDRSUndrT0U5TzV2djFfaHRjRGd5b1piSms0VTRueVpRQdIBuwFBVV95cUxOSkFqb1RnZXBiMjA1dl9ub1JyYjF0anBYVkJ4N1VrU0hCNWplWHZONVZRNUVIUTZsOTR1WE9DQ1Z6blJvU21JRnBfZEQyNjNqVWs2UVZjSVZ5WHZyZy10RXNXQTJISXgxcEc0UjEtRG15THpqaC1iM0RyWmJncEZJa1V0ZUo5RU12Y1R1a0wzdVdKZXdBUlMwMDZaNHFselRQaWJQSHZWRkY2cVhleVFjVDdMZjVoUXdURGNZ?oc=5"
+  },
+  {
+    "date": "2026-11-05",
+    "brand": "fivebelow",
+    "type": "战略",
+    "market": "北美",
+    "impact": 3,
+    "title": "Motley Fool对比Coupang与Five Below投资价值",
+    "note": "被纳入消费股对比讨论，反映其折扣零售定位受资本市场关注，需跟踪其估值预期与门店扩张节奏。",
+    "source": "The Motley Fool",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPSFA4TFFZLS1sdElQcnZWc0V3V1BfS3FZUzdjaURzajU2SXR4T1Fmc2wyM3RiLW44R2hRcHV6ZVBuRlZuUzBhT2VQXzBvd181cElYcHI3QTJ0VkdSZlU2dzZsVjdZdnFNRnNrakY0ZEJmNGtiRUU5Vm1JZGNfVjZDUlYxdFdTczRwVEcxT2xEQU1fSUt0U1BMdk41RUFodXVhUmVkQjAzY09lX0pLSkMtZUpoaTdCbzNvQmNQMVpockFkQ3Vkc2c?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "miniso",
+    "type": "营销",
+    "market": "中国",
+    "impact": 3,
+    "title": "时代少年团出任名创优品全球代言人",
+    "note": "启用顶流团体做全球代言，强化年轻客群与IP心智，需关注其联名周边与门店引流效果对同类品牌的客群分流。",
+    "source": "微博",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5RUU9NTmtKZFgzVFFkaVNicTNfanU2QVZialNpNlRQZVFvalctZERfVkZPWmUyb3Qwd3d6SEM0M1M1dkM5U1Z2ajFGUkNkV24zODI2TGwwQWJzR3gzTUV1d3RwRkliRV9MUmQ4UU9MYw?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "miniso",
+    "type": "产品",
+    "market": "全球",
+    "impact": 3,
+    "title": "CHOUCHOU系列获全球名流带货",
+    "note": "自有IP借名人效应破圈，显示其从渠道品牌向IP品牌转型，需评估该IP对泡泡玛特等潮玩竞品的替代威胁。",
+    "source": "三联生活周刊",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1ZU2ZnaXlYSC1EdlRDdkJXRlJ6eXVOSFRhcG5EaGVRMXhXX3ctMVRtWXJYcjlSR3dHUzRCb0dPZDVYM2tDZlNxWkVxcW1BS252VmZZZVJnRldxZktYb1c5TURvZ01OeTcxUUZObUlR?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "popmart",
+    "type": "财报",
+    "market": "中国",
+    "impact": 5,
+    "title": "泡泡玛特Q3收益同比降45%-50%",
+    "note": "头部潮玩收入大幅下滑，LABUBU退潮信号明确，行业进入调整期，需重估潮玩赛道景气度与名创IP策略的相对优势。",
+    "source": "亿邦动力网",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5FeFhibFZxNWFwNlR5S1lUcm9IX3ViTDBfblBsM0lvV3I0ejBRVEVEbDFOdVNjZmRiSmxCc0EzeTNRcnlLZXZHMFpRYkhfZmR6VWRQMGVR?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "popmart",
+    "type": "产品",
+    "market": "全球",
+    "impact": 3,
+    "title": "泡泡玛特推Angry Molly迪士尼公主系列",
+    "note": "借迪士尼IP联名对冲自有IP退潮，属防守型产品策略，需跟踪联名销售能否稳住客单价与复购。",
+    "source": "ConCall",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE96czVpY0pocXNleVl2Z0JHWTFicFlEZHNjeGh2Q2JNV2FUdTB6WnVDSVlDRFdqVVZUV185Q1ZiTFN4TTctV2F0S2xfckhsRnAwMlZkaWhyai1sVm1HU1JlNUczRQ?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "中国",
+    "impact": 2,
+    "title": "交通银行推泡泡玛特Zsiga联名信用卡",
+    "note": "金融联名扩触点，属低成本获客营销，反映其在下行周期加大跨界引流，需关注对年轻用户心智的争夺。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1CZGJGa0VRTE1mZWwxR0FWdzBTYW83LTlIckNhcHRfdENxbVI2cnZpZkxvSkdqZlAwWHFabzBUX2tZWUNWekdRaE9BdkR2TklxaFFsdWNyNF9EN3JOZkRjenZvUjI5OTFLZHJHYUFJbHZjMlpiMkRQLQ?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "daiso",
+    "type": "战略",
+    "market": "北美",
+    "impact": 2,
+    "title": "日系品牌加速墨西哥扩张",
+    "note": "日系零售集体加码墨西哥，大创或在列，提示拉美成为平价零售新战场，需关注名创在该区域的相对布局。",
+    "source": "Mexico Business News",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaDN0V0RCSzlDd29UWGtJdXhXcWtMa0c2c2I3ZXJpaW1wcUdlSWtSeG1Oemt0RkhfNXdpeVR1ZURvNF9PUktKeGVtT0dTcnVjd3pQa1VpSzZWdTd5MlpmU2RyTzE5c2I2UGhzZ2pPUHA1VmdKVDZGS3pqS2JXR204di1xNUlEVUxvTkR0TEMwUm9oU184U0hLamRIZWlYZDlWMXc?oc=5"
+  },
+  {
+    "date": "2026-11-04",
+    "brand": "fivebelow",
+    "type": "产品",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below推宠物家庭可水洗地毯新品",
+    "note": "围绕宠物家庭场景推新品，体现其低价家居选品思路，可作为名创北美家居品类对标的日常信号。",
+    "source": "PetHelpful",
+    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeWNNaXRYb2NnSzlnZDJUVm4teEhoQmRreXltQ2tSRXJNdU5wWTlQSGk4YmpORFQ5T0dhZTlzajJ5ak11VUlzQkRacVJxaGxIaENRdl9uMzdsQ0syYng3RWpVa1dOOHNIZUYyLUtNMFE2M1hjZG9RVkFQWlR4QUNIZGpvN1FyaU9iOHNJZkh1Y0U?oc=5"
+  },
+  {
+    "date": "2026-11-03",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "北美",
+    "impact": 4,
+    "title": "名创优品美国首家MINISO LAND门店落地",
+    "note": "美国首店采用LAND大店业态，标志其北美从铺量转向IP场景化升级，对当地平价零售竞品构成体验差异化压力。",
+    "source": "Simply Wall St",
+    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOY2FMdVZkOUlBTlJXemZVdjRVYkExRUJIVW84NFFRWWQ4QVY1MWZkbGFMekI5YVgtaVJVTGZXbUx2X3NHSldGRzdzejQteTR4VmVucHlfQzFkdWxlTG05bTY5RE02Mmp0dVUyTVVRQnh0c1pOSC1OTnZrWGw5WWxVZDNvV0pyWGoxMlNzX216NXh4V1FWb3M2aldCMFJLSnRKLTBDb29rNllWRW5LYTQ3SnFQbGRVZF9tZ2ZXa3NKTW1lS2VxeXRqR19uY1pOTHc20gHWAUFVX3lxTFBid3otN0NVT1l3ZGVqY25VcWEwc0p1UU9VYURVcVRkeUs5SFpuMXFnM3plczF4cm84djA3VGJGU2JpbjZSZHA4Ykhqa2E3dFFrN1BjVEMzcmJ6VUUxc21QMXBHM3l5T0stODFlckt5T2ZTWUNhZ09ZVHVLcG1uUVlBSFdnUVAzMkw1dnNNaS1IMS1VUnloRWF6YVY1cGFremlOWHJpWkhNbklVbG9RM0pFZHJCVnBCdVR5NjQ1elgwbXFhN3h6ZDJhLXh3RUZFRnVYei1FSnc?oc=5"
+  },
+  {
+    "date": "2026-11-03",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "名创优品定于11月17日发布9月季度财报",
+    "note": "季度业绩将披露海外扩张与IP战略成效，是评估其增长质量与对竞品挤压程度的关键节点，需提前建观察清单。",
+    "source": "Quantisnow",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcWlLeElQWFZZOV9nVGpPWHQ4UTUxODl4RWdVb0N6YlZPcEJ1bE1DM1NsYUFhNmFVLUg0empTTzVyTnllcUt2TzY1ZllzelZEVFBPRWR4SXlneGZzTFh0LW9lRURmZWNsNWdLVkZQZzNWb20yOG9NYXRwNTZqVmJESjE3VGpjVHYzbWhJejBnRXJzRWh4SGlwLXFDQW1Sa1Jqd0FVc3d2WTE?oc=5"
+  },
+  {
+    "date": "2026-11-03",
+    "brand": "popmart",
+    "type": "战略",
+    "market": "中国",
+    "impact": 4,
+    "title": "泡泡玛特20亿港元回购难挽跌势",
+    "note": "大额回购显示管理层护盘意图但市场不买账，反映估值与基本面分歧，是判断其战略收缩节奏的重要信号。",
+    "source": "中国经济网",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE53LVVNdFZhWkR1X0poMnlKMU9qUHdDa3llQ0ZWcXU4aGJHSkpUQjVZaUtLZTVkckdzdUZ1Szh4MHNGM2lrQklvRDVFNVc2NU5LbVBkNjBGSTE1Sk1sZEh4bUNLcVFIbTgwS0Nydk5DRzN4Zw?oc=5"
+  },
+  {
+    "date": "2026-11-03",
+    "brand": "daiso",
+    "type": "战略",
+    "market": "韩国",
+    "impact": 3,
+    "title": "韩媒称Olive Young、大创、Musinsa成商场必备三店",
+    "note": "大创在韩国被列为商场引流标配，印证其低价业态的渠道话语权，对名创在韩选址与客流竞争构成直接参照。",
+    "source": "Korea JoongAng Daily",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPUnc0VTZPelJFZVpkNXdWZjlfM1FvRDNyMHRud3lqSHVzWDNoNVRGMkRmQkZVWXoybnNkZzdkZU95TlR6VzBzSGV4Q1BlLTNtTGYtUVpRRzFNT3dTbHk4d3FNMnB6blc2MVhCbWY0dnh3RWx2a05VS0NPUXdsazVSRnI4azZfeTFBeVBQZHNBZUp0Nm5pTzhmZ1lGUFRfUXZDeFFhc29GZ1c4S25aUGdHTkNJdXhWQnJmX1BCRUtDYy1NQQ?oc=5"
+  },
+  {
+    "date": "2026-10-30",
+    "brand": "poptoy",
+    "type": "券商",
+    "market": "全球",
+    "impact": 2,
+    "title": "国海证券维持买入，指高基数致业绩承压",
+    "note": "高基数效应将在下半年集中体现，需跟踪单季增速能否回到 20% 以上。",
+    "source": "证券之星",
+    "url": "https://hk.stockstar.com/IG2026103000022546.shtml"
+  },
+  {
+    "date": "2026-10-29",
+    "brand": "poptoy",
+    "type": "券商",
+    "market": "全球",
+    "impact": 2,
+    "title": "中泰证券维持买入，指海外市场筑底企稳",
+    "note": "卖方对海外恢复节奏的判断，可作为下周关注的观察点。",
+    "source": "证券之星",
+    "url": "http://hk.stockstar.com/IG2026102900017530.shtml"
+  },
+  {
+    "date": "2026-10-22",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "北美",
+    "impact": 5,
+    "title": "美国首家 MINISO LAND 落地俄亥俄州哥伦布",
+    "note": "把「乐园系」大店形态输出到美国本土，主打沉浸式 IP 体验。这是海外大店模型在发达市场的第一次正面验证。",
+    "source": "MINISO 官方新闻稿",
+    "url": "https://digital-release.kxan.com/business/press-releases/cision/20261022CN78921/miniso-opens-its-first-u-s-miniso-land-in-columbus-bringing-its-immersive-ip-experience-to-american-consumers/"
+  },
+  {
+    "date": "2026-09-07",
+    "brand": "miniso",
+    "type": "券商",
+    "market": "全球",
+    "impact": 2,
+    "title": "东吴证券维持买入，指估值低且现金回报高",
+    "note": "与泡泡玛特的高估值形成对照，反映市场对两种模型的分歧。",
+    "source": "证券之星",
+    "url": "http://hk.stockstar.com/IG2026090700015248.shtml"
+  },
+  {
+    "date": "2026-08-31",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "2026 Q2 净亏 2.92 亿元，销售费用同比 +39.6%",
+    "note": "H1 收入同比 +22%，但股价年内腰斩。海外代理转直营与 6,000 家门店改造是主要利润拖累。",
+    "source": "东方财富",
+    "url": "https://finance.eastmoney.com/a/202608313860297312.html",
+    "kpi": {
+      "np": "-2.92 亿元",
+      "expense": "+39.6%"
+    }
+  },
+  {
+    "date": "2026-08-27",
+    "brand": "industry",
+    "type": "趋势",
+    "market": "中国",
+    "impact": 4,
+    "title": "谷子店接连倒闭，二次元经济进入新周期",
+    "note": "授权 IP 的线下流量红利退潮，说明「拿授权就能卖」的阶段结束，自有 IP 与场景化店态成为分水岭。",
+    "source": "央视",
+    "url": "https://business.cctv.com/2026/08/27/ARTIuSDp9X2dscsFs7Qa6vGR260827.shtml"
+  },
+  {
+    "date": "2026-08-20",
+    "brand": "poptoy",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "2026 H1 营收 171.7 亿元，同比 +23.8%",
+    "note": "经调整净利润 51.6 亿元，净利率 30%，毛利率 69.7%。增速低于市场约 199.8 亿元的预期。",
+    "source": "东方财富 / 广州日报",
+    "url": "https://finance.eastmoney.com/a/202608203848069435.html",
+    "kpi": {
+      "rev": "171.7 亿元",
+      "yoy": "+23.8%",
+      "npm": "30%",
+      "gm": "69.7%"
+    }
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "industry",
+    "type": "趋势",
+    "market": "中国",
+    "impact": 3,
+    "title": "潮玩传统赛道加速转型，AI 等新渠道或成破局关键",
+    "note": "行业层面的渠道与产品结构变化，值得放进周报的「行业观察」。",
+    "source": "新浪财经",
+    "url": "https://finance.sina.cn/tech/2026-07-10/detail-inihhkum8419852.d.html"
+  },
+  {
+    "date": "2026-06-15",
+    "brand": "miniso",
+    "type": "联名",
+    "market": "中国",
+    "impact": 4,
+    "title": "名创优品 × 三丽鸥 × 吉伊卡哇 三方联名",
+    "note": "把两个高热度日系 IP 叠在同一档期，是名创典型的「流量叠加」打法。具体月份为公开报道推断，待核。",
+    "source": "公开报道",
+    "url": "",
+    "approx": true
+  },
+  {
+    "date": "2026-05-26",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "2026 Q1 营收 56.9 亿元，同比 +28.5%",
+    "note": "经调整净利润 6.3 亿元，同比 +8.1%。利润增速显著低于收入增速。",
+    "source": "新华财经",
+    "url": "https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html",
+    "kpi": {
+      "rev": "56.9 亿元",
+      "yoy": "+28.5%",
+      "np": "6.3 亿元",
+      "npYoy": "+8.1%"
+    }
+  },
+  {
+    "date": "2026-05-26",
+    "brand": "miniso",
+    "type": "战略",
+    "market": "中国",
+    "impact": 4,
+    "title": "启动 6,000 家门店升级，转型 IP 生态",
+    "note": "「腾笼换鸟」：以大店替换低效小店，用 IP 场景提升单店产出。短期压利润，长期拼坪效。",
+    "source": "公开报道",
+    "url": ""
+  },
+  {
+    "date": "2026-04-01",
+    "brand": "daiso",
+    "type": "开店",
+    "market": "拉美",
+    "impact": 3,
+    "title": "大创进入墨西哥市场",
+    "note": "拉美是名创已重点布局、大创刚开始渗透的市场，值得跟踪份额变化。",
+    "source": "DAISO 官网",
+    "url": "https://www.daiso-sangyo.co.jp/info/news/49934"
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "fivebelow",
+    "type": "财报",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below 发布 FY2025 Q4 及全年业绩，门店扩张驱动增长",
+    "note": "美国低价杂货连锁，单店模型与名创海外店高度可比，可作坪效对标参考。",
+    "source": "Nasdaq",
+    "url": "https://www.nasdaq.com/press-release/five-below-inc-announces-fourth-quarter-and-fiscal-2025-financial-results-2026-03-18"
+  },
+  {
+    "date": "2026-02-28",
+    "brand": "daiso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 4,
+    "title": "大创产业 FY2025 合并营收 7,710 亿日元，全球 5,891 家门店",
+    "note": "日本百元店龙头的规模基线。门店数约为名创品牌的 72%，是海外扩张最直接的对标。",
+    "source": "DAISO 官网",
+    "url": "https://www.daiso-sangyo.co.jp/info/news/48947",
+    "kpi": {
+      "rev": "7,710 亿日元",
+      "stores": "5,891"
+    }
+  },
+  {
+    "date": "2026-02-05",
+    "brand": "miniso",
+    "type": "品牌",
+    "market": "中国",
+    "impact": 3,
+    "title": "成为总台《2026 年春节联欢晚会》潮玩合作品牌",
+    "note": "春节档的国民级曝光，配合生肖与年货场景做 IP 联名。",
+    "source": "央视",
+    "url": "https://1118.cctv.com/2026/02/05/ARTI0pHjvcAnGJuUkumgaq0l260205.shtml"
+  },
+  {
+    "date": "2025-09-01",
+    "brand": "flyingtiger",
+    "type": "开店",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "Flying Tiger Copenhagen 进入东南亚（新加坡 / 马来西亚 / 泰国）",
+    "note": "北欧设计杂货品牌南下，与名创在东南亚形成直接竞争。",
+    "source": "Flying Tiger 官网",
+    "url": "https://flyingtiger.com/en-fr/blogs/news/flying-tiger-copenhagen-expands-into-singapore-malaysia-thailand"
+  },
+  {
+    "date": "2025-06-01",
+    "brand": "miniso",
+    "type": "IP",
+    "market": "中国",
+    "impact": 3,
+    "title": "原创 IP「YOYO（右右酱）」上市",
+    "note": "名创自有 IP 的一次试水，用于降低对授权 IP 的依赖。",
+    "source": "公开报道",
+    "url": ""
+  }
 ];
 
 /* ---------- IP 数据（泡泡玛特 2026 H1，亿元） ---------- */
