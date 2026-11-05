@@ -1,0 +1,33 @@
+name: daily-data-update
+
+on:
+  schedule:
+    # UTC 16:00 = 北京时间 00:00,每天自动更新昨日数据
+    - cron: "0 16 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 运行数据更新脚本
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python3 update_data.py
+
+      - name: 有变化则提交推送
+        run: |
+          git config user.name "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "无新数据,跳过提交"
+          else
+            git add index.html events-latest.json
+            git commit -m "data: 自动更新数据快照 $(TZ=Asia/Shanghai date +%F)"
+            git push
+          fi
