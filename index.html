@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>竞品情报工作台 · 兴趣消费赛道</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#F6F4F1; --surface:#FFFFFF; --ink:#16151A; --ink-2:#3A3740; --muted:#6E6A66;
+    --line:#E5DFD8; --line-2:#F0EBE5;
+    --red:#D8232A; --red-soft:#FBEDED;
+    --purple:#6D3BAA; --purple-soft:#F1EBF8;
+    --amber:#A9711A; --amber-soft:#FBF3E4;
+    --teal:#0F766E; --teal-soft:#E7F3F1;
+    --blue:#1D4ED8; --blue-soft:#EBF0FE;
+    --gray-soft:#F1EEEA;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(22,21,26,.04), 0 8px 24px -16px rgba(22,21,26,.18);
+  }
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.65; font-size:14px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--red);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button{font-family:inherit;font-size:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+
+  /* ---------- header ---------- */
+  .app-header{
+    position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line);
+  }
+  .header-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .brandmark{
+    width:36px;height:36px;border-radius:9px;background:var(--red);color:#fff;
+    display:grid;place-items:center;font-weight:800;letter-spacing:.5px;font-size:13px;flex:none;
+  }
+  .titles h1{font-size:17px;font-weight:700;letter-spacing:.2px;line-height:1.3}
+  .titles p{font-size:12px;color:var(--muted);letter-spacing:.2px}
+  .header-actions{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .btn{
+    border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 13px;font-size:13px;
+    font-weight:500;color:var(--ink-2);transition:.15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  }
+  .btn:hover{border-color:#CFC7BE;background:#FCFAF8}
+  .btn-primary{background:var(--red);border-color:var(--red);color:#fff}
+  .btn-primary:hover{background:#BF1D24;border-color:#BF1D24;color:#fff}
+  .btn-ghost{background:transparent;border-color:transparent;color:var(--muted)}
+  .btn-ghost:hover{background:var(--gray-soft);color:var(--ink)}
+  .snapshot{font-size:11.5px;color:var(--muted);border-left:1px solid var(--line);padding-left:14px;line-height:1.4}
+
+  /* ---------- tabs ---------- */
+  .tabs{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto}
+  .tab{
+    padding:12px 14px;font-size:13.5px;color:var(--muted);border-bottom:2px solid transparent;
+    white-space:nowrap;transition:.15s;font-weight:500;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red);font-weight:600}
+  .tab .en{font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:#A9A29B;margin-left:5px;font-weight:600}
+
+  main{max-width:1240px;margin:0 auto;padding:26px 28px 80px}
+  .view{display:none;animation:fade .28s ease both}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  /* ---------- generic ---------- */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .card-pad{padding:20px 22px}
+  .section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .section-head h2{font-size:15px;font-weight:700;letter-spacing:.2px}
+  .section-head .hint{font-size:12px;color:var(--muted)}
+  .kicker{font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:#A9A29B;font-weight:700}
+  .grid{display:grid;gap:14px}
+  .muted{color:var(--muted)}
+  .small{font-size:12px}
+  .mono{font-variant-numeric:tabular-nums}
+
+  /* ---------- dashboard ---------- */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+  .kpi{padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px}
+  .kpi.mi::before{background:var(--red)}
+  .kpi.pp::before{background:var(--purple)}
+  .kpi .label{font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+  .kpi .value{font-size:26px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-top:6px;font-variant-numeric:tabular-nums}
+  .kpi .value span{font-size:13px;font-weight:500;color:var(--muted);margin-left:3px;letter-spacing:0}
+  .kpi .sub{font-size:11.5px;color:var(--muted);margin-top:4px}
+  .chip-up{color:#0E7C5A;font-weight:600}
+  .chip-down{color:var(--red);font-weight:600}
+
+  .cols-2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+  .cols-2-even{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+
+  .bar-row{display:grid;grid-template-columns:104px 1fr 64px;gap:10px;align-items:center;margin-bottom:11px;font-size:12.5px}
+  .bar-track{height:11px;background:var(--line-2);border-radius:6px;overflow:hidden;display:flex}
+  .bar-seg{height:100%}
+  .bar-val{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted);font-size:11.5px;white-space:nowrap}
+
+  .signal{border-left:2px solid var(--line);padding:2px 0 2px 13px;margin-bottom:13px;position:relative}
+  .signal:last-child{margin-bottom:0}
+  .signal .d{font-size:11px;color:#A9A29B;letter-spacing:.4px;font-variant-numeric:tabular-nums}
+  .signal .t{font-size:13px;font-weight:600;line-height:1.45;margin-top:1px}
+  .signal .m{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+  .split > div{padding:18px 20px}
+  .split > div:first-child{border-right:1px solid var(--line);background:linear-gradient(180deg,#FDF7F7,#fff 60%)}
+  .split > div:last-child{background:linear-gradient(180deg,#F9F5FD,#fff 60%)}
+  .split h3{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .split p{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+  .split .tagline{font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);letter-spacing:.2px}
+
+  /* ---------- filters ---------- */
+  .filterbar{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;padding:16px 20px;margin-bottom:14px}
+  .filter-group{display:flex;flex-direction:column;gap:7px}
+  .filter-group > .flabel{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:#A9A29B;font-weight:700}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:12px;
+    color:var(--ink-2);transition:.14s;white-space:nowrap;
+  }
+  .chip:hover{border-color:#CFC7BE}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip[aria-pressed="true"] .cnt{color:rgba(255,255,255,.65)}
+  .chip .cnt{font-size:10.5px;color:#A9A29B;margin-left:4px;font-variant-numeric:tabular-nums}
+  .search{
+    border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13px;width:220px;background:#fff;outline:none;transition:.15s;
+  }
+  .search:focus{border-color:#B9B0A6;box-shadow:0 0 0 3px rgba(216,35,42,.07)}
+  select.search{width:auto;padding-right:26px}
+
+  /* ---------- table ---------- */
+  .table-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .table-meta{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);gap:10px;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:12.8px}
+  thead th{
+    text-align:left;font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:#A9A29B;font-weight:700;
+    padding:9px 14px;border-bottom:1px solid var(--line);background:#FCFAF8;white-space:nowrap;
+  }
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#FCFAF8}
+  .date-cell{font-variant-numeric:tabular-nums;color:var(--muted);font-size:11.8px;white-space:nowrap}
+  .title-cell{font-weight:500;line-height:1.5;color:var(--ink)}
+  .title-cell a{color:inherit;border-bottom:1px dotted #C9C1B8}
+  .title-cell a:hover{color:var(--red);text-decoration:none}
+  .note{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .pill{display:inline-block;padding:2px 8px;border-radius:5px;font-size:11px;font-weight:600;white-space:nowrap;letter-spacing:.2px}
+  .p-财报{background:var(--blue-soft);color:var(--blue)}
+  .p-联名{background:var(--purple-soft);color:var(--purple)}
+  .p-新品{background:var(--amber-soft);color:var(--amber)}
+  .p-开店{background:var(--teal-soft);color:var(--teal)}
+  .p-战略{background:var(--red-soft);color:var(--red)}
+  .p-趋势{background:var(--gray-soft);color:#5B564F}
+  .p-券商{background:var(--gray-soft);color:#5B564F}
+  .p-IP{background:var(--purple-soft);color:var(--purple)}
+  .p-品牌{background:var(--red-soft);color:var(--red)}
+  .impact{white-space:nowrap;letter-spacing:1px;font-size:11px;color:#D9D2C9}
+  .impact b{color:var(--red);font-weight:400}
+  .brand-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px}
+  .src-cell{font-size:11px;line-height:1.45;white-space:nowrap}
+  .src-cell .muted{font-size:11px}
+
+  /* ---------- report ---------- */
+  .config{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;padding:18px 20px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:#A9A29B;font-weight:700}
+  .field input[type=text],.field select,.field input[type=date]{
+    border:1px solid var(--line);border-radius:8px;padding:7px 11px;font-size:13px;background:#fff;outline:none;width:100%;
+  }
+  .field input:focus,.field select:focus{border-color:#B9B0A6;box-shadow:0 0 0 3px rgba(216,35,42,.07)}
+  .report-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .pane{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;min-height:560px}
+  .pane-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--line);background:#FCFAF8;gap:8px;flex-wrap:wrap}
+  .pane-head .t{font-size:12px;font-weight:700;letter-spacing:.4px}
+  .pane-head .acts{display:flex;gap:6px}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 9px;font-size:11.5px;color:var(--ink-2);transition:.14s}
+  .mini-btn:hover{border-color:#CFC7BE;background:#FCFAF8}
+  #md-editor{
+    flex:1;border:none;resize:none;padding:20px 22px;font-family:ui-monospace,SFMono-Regular,"Cascadia Mono",Consolas,monospace;
+    font-size:12.5px;line-height:1.75;outline:none;background:#fff;color:var(--ink-2);min-height:520px;
+  }
+  .report-preview{flex:1;padding:26px 30px;overflow-y:auto;max-height:620px}
+  .report-preview h2{font-size:19px;font-weight:700;margin:0 0 6px;letter-spacing:-.2px;line-height:1.4}
+  .report-preview h3{font-size:13.5px;font-weight:700;margin:22px 0 9px;padding-bottom:6px;border-bottom:1px solid var(--line);letter-spacing:.2px}
+  .report-preview h4{font-size:12.5px;font-weight:700;margin:15px 0 6px;color:var(--ink-2)}
+  .report-preview p{font-size:13px;margin:7px 0;color:var(--ink-2);line-height:1.75}
+  .report-preview ul,.report-preview ol{margin:7px 0 7px 2px;padding-left:18px}
+  .report-preview li{font-size:13px;margin:4px 0;color:var(--ink-2);line-height:1.7}
+  .report-preview blockquote{
+    margin:9px 0;padding:9px 14px;background:#FCFAF8;border-left:2px solid var(--red);
+    font-size:12px;color:var(--muted);border-radius:0 6px 6px 0;
+  }
+  .report-preview strong{color:var(--ink);font-weight:600}
+  .report-preview code{background:var(--gray-soft);padding:1px 5px;border-radius:4px;font-size:11.5px}
+  .report-preview a{color:var(--red)}
+
+  /* ---------- ip map ---------- */
+  .ip-bars .row{display:grid;grid-template-columns:140px 1fr 92px;gap:12px;align-items:center;margin-bottom:13px}
+  .ip-bars .name{font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ip-bars .track{height:20px;background:var(--line-2);border-radius:4px;overflow:hidden;position:relative}
+  .ip-bars .fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;color:#fff;font-size:10.5px;font-weight:700;min-width:34px}
+  .ip-bars .meta{text-align:right;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .ip-bars .meta .g{display:block;font-size:11px}
+  .matrix{width:100%;border-collapse:collapse;font-size:12.5px}
+  .matrix th{text-align:left;padding:8px 12px;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:#A9A29B;border-bottom:1px solid var(--line);font-weight:700}
+  .matrix th:not(:first-child),.matrix td:not(:first-child){text-align:center;width:88px}
+  .matrix td{padding:8px 12px;border-bottom:1px solid var(--line-2)}
+  .matrix tr:last-child td{border-bottom:none}
+  .own{color:var(--purple);font-weight:700}
+  .lic{color:var(--teal);font-weight:700}
+  .none{color:#D9D2C9}
+  .rec{border:1px solid var(--line);border-radius:10px;padding:15px 17px;margin-bottom:11px;background:#fff;position:relative}
+  .rec:last-child{margin-bottom:0}
+  .rec .rank{font-size:10.5px;letter-spacing:1px;color:#A9A29B;font-weight:700}
+  .rec h4{font-size:13.5px;font-weight:700;margin:4px 0 6px}
+  .rec p{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+  .rec .score{position:absolute;right:16px;top:14px;font-size:11px;font-weight:700;color:var(--red);background:var(--red-soft);padding:3px 9px;border-radius:999px}
+
+  /* ---------- about ---------- */
+  .src-table{width:100%;border-collapse:collapse;font-size:12.3px}
+  .src-table th{text-align:left;padding:8px 12px;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:#A9A29B;border-bottom:1px solid var(--line);font-weight:700}
+  .src-table td{padding:9px 12px;border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.6}
+  .src-table tr:last-child td{border-bottom:none}
+  .conf{font-size:10.5px;padding:2px 7px;border-radius:4px;white-space:nowrap;font-weight:600}
+  .conf-hi{background:var(--teal-soft);color:var(--teal)}
+  .conf-mid{background:var(--amber-soft);color:var(--amber)}
+  .prose{font-size:13px;color:var(--ink-2);line-height:1.8}
+  .prose h3{font-size:13.5px;font-weight:700;margin:20px 0 8px;color:var(--ink)}
+  .prose ul{margin:6px 0 6px 18px}
+  .prose li{margin:5px 0}
+  .prose strong{color:var(--ink)}
+  .callout{background:#FCFAF8;border:1px solid var(--line);border-left:3px solid var(--red);border-radius:8px;padding:14px 18px;font-size:12.5px;color:var(--ink-2);line-height:1.75}
+
+  /* ---------- overseas ---------- */
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ov-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 17px;display:flex;flex-direction:column;gap:8px}
+  .ov-card:hover{border-color:#CFC7BE}
+  .ov-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .plat{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:5px;background:var(--gray-soft);color:#5B564F;letter-spacing:.3px}
+  .plat.tiktok{background:#16151A;color:#fff}
+  .plat.instagram{background:var(--purple-soft);color:var(--purple)}
+  .plat.media{background:var(--blue-soft);color:var(--blue)}
+  .plat.store{background:var(--red-soft);color:var(--red)}
+  .plat.ecom{background:var(--teal-soft);color:var(--teal)}
+  .ov-region{font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:1px 7px;border-radius:4px}
+  .ov-heat{margin-left:auto;font-size:10px;letter-spacing:1.5px;color:#DED7CE}
+  .ov-heat b{color:var(--red);font-weight:400}
+  .ov-card h4{font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.1px}
+  .ov-card .what{font-size:12px;color:var(--muted);line-height:1.65}
+  .ov-mean{font-size:12px;color:var(--ink-2);line-height:1.7;background:#FCFAF8;border-left:2px solid var(--red);padding:8px 11px;border-radius:0 6px 6px 0}
+  .ov-mean em{font-style:normal;font-weight:700;color:var(--ink)}
+  .ov-src{font-size:11px;color:#A9A29B}
+  .ins-list{counter-reset:ins}
+  .ins-list li{list-style:none;position:relative;padding-left:26px;margin-bottom:12px;font-size:12.5px;color:var(--ink-2);line-height:1.75}
+  .ins-list li::before{counter-increment:ins;content:counter(ins);position:absolute;left:0;top:3px;width:17px;height:17px;border-radius:50%;background:var(--red-soft);color:var(--red);font-size:10.5px;font-weight:700;display:grid;place-items:center}
+
+  /* ---------- print-ready（用于导出 PDF） ---------- */
+  body.print-ready .app-header,
+  body.print-ready .tabs,
+  body.print-ready .no-print{display:none !important}
+  body.print-ready main{max-width:none;padding:0}
+  body.print-ready .report-grid{grid-template-columns:1fr;gap:0;margin-top:0}
+  body.print-ready #pane-md{display:none}
+  body.print-ready .report-preview{max-height:none;overflow:visible;padding:0;border:none}
+
+  /* ---------- modal / toast ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(22,21,26,.42);display:none;place-items:center;z-index:80;padding:20px;backdrop-filter:blur(2px)}
+  .overlay.open{display:grid}
+  .modal{background:#fff;border-radius:14px;width:min(560px,100%);max-height:88vh;overflow-y:auto;box-shadow:0 24px 60px -20px rgba(0,0,0,.35)}
+  .modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+  .modal-head h3{font-size:14.5px;font-weight:700}
+  .modal-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .modal-body .full{grid-column:1/-1}
+  .modal-body label{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:#A9A29B;font-weight:700;display:block;margin-bottom:5px}
+  .modal-body input,.modal-body select,.modal-body textarea{
+    width:100%;border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;outline:none;background:#fff;
+  }
+  .modal-body textarea{resize:vertical;min-height:64px}
+  .modal-foot{padding:14px 22px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px;background:#FCFAF8}
+  .toast{
+    position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(14px);background:var(--ink);color:#fff;
+    padding:10px 18px;border-radius:999px;font-size:12.5px;opacity:0;pointer-events:none;transition:.22s;z-index:90;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .empty{padding:44px 20px;text-align:center;color:var(--muted);font-size:13px}
+  .footer-note{margin-top:26px;font-size:11.5px;color:#A9A29B;line-height:1.7;border-top:1px solid var(--line);padding-top:14px}
+
+  @media (max-width:980px){
+    .kpi-grid{grid-template-columns:repeat(2,1fr)}
+    .cols-2,.cols-2-even,.report-grid,.split{grid-template-columns:1fr}
+    .split > div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+  }
+  @media (max-width:620px){
+    .header-inner,.tabs,main{padding-left:16px;padding-right:16px}
+    .kpi-grid{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:88px 1fr 44px}
+    .ip-bars .row{grid-template-columns:96px 1fr 72px}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff}
+    /* 入场动画在打印时不会执行，会停在 opacity:0 造成空白页，必须关掉 */
+    .view{animation:none !important}
+    .view.active{opacity:1 !important}
+    .app-header,.tabs,.no-print,.filterbar,.toast{display:none !important}
+    main{max-width:none;padding:0}
+    .pane{border:none;box-shadow:none;min-height:0}
+    .pane-head{display:none}
+    .report-grid{grid-template-columns:1fr;gap:0}
+    #pane-md{display:none}
+    .report-preview{max-height:none;padding:0;overflow:visible}
+    .report-preview h2{font-size:20px}
+    @page{margin:18mm 16mm}
+  }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brandmark">CI</div>
+    <div class="titles">
+      <h1>竞品情报工作台</h1>
+      <p>兴趣消费赛道 · 名创优品 / 泡泡玛特 / TOP TOY / DAISO / Five Below / Flying Tiger</p>
+    </div>
+    <div class="snapshot">
+      <div>数据快照 <strong id="snap-date">—</strong></div>
+      <div id="snap-count">— 条事件</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn" id="btn-import">导入数据</button>
+      <button class="btn" id="btn-reset">恢复内置</button>
+      <button class="btn btn-primary" id="btn-add">+ 添加事件</button>
+      <input type="file" id="file-input" accept=".csv,.json" hidden>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="模块导航">
+  <button class="tab" role="tab" aria-selected="true" data-view="dashboard">概览<span class="en">Overview</span></button>
+  <button class="tab" role="tab" aria-selected="false" data-view="signals">事件流<span class="en">Signals</span></button>
+  <button class="tab" role="tab" aria-selected="false" data-view="overseas">海外声量<span class="en">Global</span></button>
+  <button class="tab" role="tab" aria-selected="false" data-view="report">周报生成<span class="en">Report</span></button>
+  <button class="tab" role="tab" aria-selected="false" data-view="ipmap">IP 图谱<span class="en">IP Map</span></button>
+  <button class="tab" role="tab" aria-selected="false" data-view="about">数据与说明<span class="en">Method</span></button>
+</nav>
+
+<main>
+  <!-- ============ 概览 ============ -->
+  <section class="view active" id="view-dashboard" role="tabpanel">
+    <div class="kpi-grid" id="kpi-grid"></div>
+
+    <div class="cols-2">
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>门店区域结构</h2>
+          <span class="hint">按各品牌自身门店总数归一化 · 最新披露期</span>
+        </div>
+        <div id="store-chart"></div>
+        <p class="small muted" style="margin-top:14px;line-height:1.7">
+          名创海外门店占比已达 <strong>44.1%</strong>，泡泡玛特为 32.7%。但两者路径不同：名创靠<strong>门店密度 × 授权 IP 周转</strong>，泡泡玛特靠<strong>单店坪效 × 自有 IP 溢价</strong>。
+        </p>
+      </div>
+
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>本期关键信号</h2>
+          <span class="hint">按影响力加权</span>
+        </div>
+        <div id="signal-list"></div>
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <div class="section-head">
+        <h2>战略分岔：两种增长模型</h2>
+        <span class="hint">这是本工作台最想让你带到面试里的一页</span>
+      </div>
+      <div class="split">
+        <div>
+          <h3><span class="dot" style="background:var(--red)"></span>名创优品 · 规模 × 渠道 × IP 授权</h3>
+          <p>用「大店化 + 全球开店」换渠道密度，用授权 IP 的高频上新维持周转。代价是毛利被授权费与门店投入摊薄——Q2 净亏 2.92 亿元，销售费用同比 +39.6%，海外代理转直营与 6,000 店改造是主要拖累。</p>
+          <div class="tagline">关键指标：门店数 / 同店增长 / 海外占比 / 费用率</div>
+        </div>
+        <div>
+          <h3><span class="dot" style="background:var(--purple)"></span>泡泡玛特 · 自有 IP × 高毛利</h3>
+          <p>用自有 IP 矩阵吃品牌溢价，毛利率 69.7%、经调整净利率 30%。代价是增长高度绑定少数 IP——THE MONSTERS 单家族占营收 26%，一旦热度回落，高基数会反噬增速。</p>
+          <div class="tagline">关键指标：IP 集中度 / 毛利率 / 会员复购 / 单 IP 营收</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note">
+      口径提示：两家公司财报期不同（名创为 2026 Q1，泡泡玛特为 2026 H1），增速均为同比、可横向参考但不可直接相加。详细来源见「数据与说明」。
+    </p>
+  </section>
+
+  <!-- ============ 事件流 ============ -->
+  <section class="view" id="view-signals" role="tabpanel">
+    <div class="card filterbar">
+      <div class="filter-group">
+        <span class="flabel">品牌</span>
+        <div class="chips" id="f-brand"></div>
+      </div>
+      <div class="filter-group">
+        <span class="flabel">类型</span>
+        <div class="chips" id="f-type"></div>
+      </div>
+      <div class="filter-group">
+        <span class="flabel">时间</span>
+        <div class="chips" id="f-time"></div>
+      </div>
+      <div class="filter-group" style="flex:1;min-width:200px">
+        <span class="flabel">检索</span>
+        <input type="text" class="search" id="f-search" placeholder="搜标题、备注、地区…">
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-meta">
+        <span id="result-count">—</span>
+        <div style="display:flex;gap:6px">
+          <button class="mini-btn" id="btn-export-csv">导出当前筛选 CSV</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:88px">日期</th>
+              <th style="width:104px">品牌</th>
+              <th style="width:64px">类型</th>
+              <th>事件</th>
+              <th style="width:82px">地区</th>
+              <th style="width:78px">影响力</th>
+              <th style="width:96px">来源</th>
+            </tr>
+          </thead>
+          <tbody id="event-body"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="event-empty" style="display:none">没有符合条件的事件，试着放宽筛选。</div>
+    </div>
+  </section>
+
+  <!-- ============ 海外声量 ============ -->
+  <section class="view" id="view-overseas" role="tabpanel">
+    <div class="kpi-grid" id="ov-kpis" style="grid-template-columns:repeat(3,1fr)"></div>
+
+    <div class="card filterbar" style="padding:14px 20px">
+      <div class="filter-group">
+        <span class="flabel">地区</span>
+        <div class="chips" id="f-region"></div>
+      </div>
+      <div class="filter-group" style="flex:1;min-width:200px">
+        <span class="flabel">口径说明</span>
+        <p class="small muted" style="max-width:560px;line-height:1.65;margin:0">
+          不是平台后台数据。信号来自官方新闻稿、媒体报道与可观察的社媒现象，每条都可溯源；「热度」是本工具自设的观察强度，不代表真实播放量。
+        </p>
+      </div>
+    </div>
+
+    <div class="ov-grid" id="ov-grid"></div>
+
+    <div class="card card-pad" style="margin-top:14px">
+      <div class="section-head">
+        <h2>本期海外洞察</h2>
+        <span class="hint">按信号强度与结构自动生成，可直接搬进周报</span>
+      </div>
+      <ol class="ins-list" id="ov-insights"></ol>
+    </div>
+  </section>
+
+  <!-- ============ 周报 ============ -->
+  <section class="view" id="view-report" role="tabpanel">
+    <div class="card no-print">
+      <div class="section-head" style="padding:16px 20px 0">
+        <h2>生成配置</h2>
+        <span class="hint">选好条件，点「生成」，再在左侧手动改——工具负责初稿，判断留给人</span>
+      </div>
+      <div class="config">
+        <div class="field">
+          <label>报告标题</label>
+          <input type="text" id="cfg-title" value="兴趣消费赛道 · 竞品周报">
+        </div>
+        <div class="field">
+          <label>统计窗口</label>
+          <select id="cfg-window">
+            <option value="30">最近 30 天</option>
+            <option value="90">最近 90 天</option>
+            <option value="180" selected>最近 180 天</option>
+            <option value="0">全部数据</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>覆盖品牌</label>
+          <select id="cfg-brand">
+            <option value="all" selected>全部品牌</option>
+            <option value="core">名创 + 泡泡玛特 + TOP TOY</option>
+            <option value="miniso">仅名创优品</option>
+            <option value="poptoy">仅泡泡玛特</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>报告人（可留空）</label>
+          <input type="text" id="cfg-author" placeholder="实习生 · 田恩中">
+        </div>
+      </div>
+      <div style="padding:0 20px 18px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" id="btn-generate">生成周报</button>
+        <button class="btn" id="btn-copy">复制 Markdown</button>
+        <button class="btn" id="btn-download">下载 .md</button>
+        <button class="btn" id="btn-print">打印 / 存 PDF</button>
+        <span class="small muted" style="align-self:center;margin-left:4px">导出前建议先改掉模板化表述，加上你自己的判断。</span>
+      </div>
+    </div>
+
+    <div class="report-grid">
+      <div class="pane" id="pane-md">
+        <div class="pane-head">
+          <span class="t">Markdown 源文</span>
+          <div class="acts"><button class="mini-btn" id="btn-refresh">用模板重写</button></div>
+        </div>
+        <textarea id="md-editor" spellcheck="false"></textarea>
+      </div>
+      <div class="pane">
+        <div class="pane-head">
+          <span class="t">预览</span>
+          <span class="small muted" id="preview-meta"></span>
+        </div>
+        <div class="report-preview" id="report-preview"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IP 图谱 ============ -->
+  <section class="view" id="view-ipmap" role="tabpanel">
+    <div class="cols-2-even">
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>泡泡玛特 IP 营收结构</h2>
+          <span class="hint">2026 H1 · 单位亿元</span>
+        </div>
+        <div class="ip-bars" id="ip-bars"></div>
+        <p class="small muted" style="margin-top:14px;line-height:1.7">
+          6 个 IP 半年营收破 10 亿。但结构高度集中：THE MONSTERS 一家占 26%，前三大 IP 合计超过营收的一半。
+        </p>
+      </div>
+
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>IP 供给模式对比</h2>
+          <span class="hint">授权广度 vs 自有深度</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="border:1px solid var(--line);border-radius:10px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <strong style="font-size:12.5px">名创优品</strong>
+              <span class="pill p-联名">授权为主</span>
+            </div>
+            <p class="small" style="color:var(--ink-2);line-height:1.7">迪士尼、三丽鸥、吉伊卡哇、哈利波特、芭比、宝可梦等头部 IP 的<strong>高频、短周期</strong>联名。优势是流量确定性，劣势是同款可被渠道复制、毛利被授权费侵蚀。</p>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:10px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <strong style="font-size:12.5px">泡泡玛特</strong>
+              <span class="pill p-IP">自有为主</span>
+            </div>
+            <p class="small" style="color:var(--ink-2);line-height:1.7">LABUBU（THE MONSTERS）、MOLLY、SKULLPANDA、CRYBABY、星星人、Hirono 等<strong>自有 IP 矩阵</strong>。优势是毛利与定价权，劣势是单一 IP 生命周期风险。</p>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:10px;padding:14px 16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <strong style="font-size:12.5px">TOP TOY</strong>
+              <span class="pill p-新品">混合</span>
+            </div>
+            <p class="small" style="color:var(--ink-2);line-height:1.7">小玉、堆堆、孢绒绒等自有 IP 起步，同时承接授权。定位是名创体系内的「潮玩专业店」，2026 Q1 收入同比 <strong>+51.4%</strong>，海外仅 39 家门店，处在早期。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols-2-even" style="margin-top:14px">
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>授权 IP 覆盖（名创优品）</h2>
+          <span class="hint">公开报道整理 · 非穷举</span>
+        </div>
+        <table class="matrix">
+          <thead>
+            <tr><th>IP / 版权方</th><th>名创</th><th>泡泡玛特</th><th>TOP TOY</th></tr>
+          </thead>
+          <tbody id="matrix-body"></tbody>
+        </table>
+        <p class="small muted" style="margin-top:12px;line-height:1.7">
+          <span class="own">●</span> 自有 IP　<span class="lic">●</span> 授权联名（公开报道）　<span class="none">—</span> 未见公开动作
+        </p>
+        <p class="small muted" style="margin-top:6px;line-height:1.7">
+          泡泡玛特一列几乎全空，不是数据缺失，而是策略选择：它把资源压在自有 IP 上，因此不吃这批授权。
+        </p>
+      </div>
+
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>下一张牌该打什么</h2>
+          <span class="hint">规则打分：空白度 × 品类契合 × 增长势能</span>
+        </div>
+        <div id="ip-rec"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数据与说明 ============ -->
+  <section class="view" id="view-about" role="tabpanel">
+    <div class="cols-2">
+      <div class="card card-pad prose">
+        <h3>这个工具解决什么问题</h3>
+        <p>竞品跟踪岗位的日常，本质是「把散落在官网、财报、社媒、新闻里的碎片，在固定时间变成一份能被人读的结论」。这件事人工做一次约 3 小时，其中 <strong>80% 是搬运和归类，20% 才是判断</strong>。</p>
+        <p>本工具把搬运和归类自动化，把 20% 的判断留给人——这也是我在简历里想说明的：AI 不是替我写报告，是替我腾出做判断的时间。</p>
+
+        <h3>AI 做了什么 / 我做了什么</h3>
+        <ul>
+          <li><strong>AI（辅助）</strong>：检索公开信息、抽取事件要素（品牌 / 类型 / 地区 / 影响力）、把原始链接与数字结构化、生成报告初稿骨架、按规则给出 IP 签约建议。</li>
+          <li><strong>我（判断）</strong>：定义「什么算一条值得进周报的事件」、设定影响力权重、剔除营销软文、识别两家公司财报期不可直接比较、把「规模 vs 毛利」提炼成可对话的战略分岔。</li>
+        </ul>
+        <p class="small muted">换句话说：机器负责不遗漏，人负责不失焦。</p>
+
+        <h3>时间账</h3>
+        <div class="callout">
+          人工基线：8 个品牌 × 官网 / 财报 / 社媒 / 新闻 ≈ <strong>3 小时</strong>，产出零散的笔记。<br>
+          本工具：更新数据 15 分钟 + 判断与改写 20 分钟 ≈ <strong>35 分钟</strong>，产出可直接发送的周报 + 可追溯的数据表。
+        </div>
+
+        <h3>怎么用</h3>
+        <ul>
+          <li><strong>加一条今天的新闻</strong>：点右上角「+ 添加事件」，填日期、品牌、类型、标题即可，周报会自动带上。</li>
+          <li><strong>换一批数据</strong>：「导入数据」支持 CSV / JSON，格式见下方示例。</li>
+          <li><strong>出周报</strong>：周报生成页选窗口 → 生成 → 左侧改措辞 → 导出 .md 或直接打印成 PDF。</li>
+        </ul>
+
+        <h3>CSV 导入格式</h3>
+        <p class="small muted">首行为表头，列顺序不敏感，按表头名匹配：</p>
+        <pre style="background:#FCFAF8;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:11.5px;overflow-x:auto;line-height:2.1">日期,品牌,类型,标题,地区,影响力,来源,链接
+2026-10-15,名创优品,开店,新加坡乌节路旗舰店开业,东南亚,4,公司公告,</pre>
+      </div>
+
+      <div class="card card-pad">
+        <div class="section-head">
+          <h2>数据来源与可信度</h2>
+          <span class="hint">面试被追问时直接指这里</span>
+        </div>
+        <table class="src-table">
+          <thead><tr><th>数据</th><th>来源</th><th>可信度</th></tr></thead>
+          <tbody id="src-body"></tbody>
+        </table>
+        <div class="callout" style="margin-top:16px">
+          <strong>边界声明：</strong>本工具为个人研究作品，数据来自公开报道与公司披露，不构成投资建议。部分事件仅有媒体转述、未附原始公告，已在表中标注「公开报道」。实时抓取依赖各平台条款，故采用「快照 + 手动更新」而非爬虫，确保长期可用且合规。
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 添加事件 -->
+<div class="overlay" id="modal-add">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <h3 id="modal-title">添加事件</h3>
+      <button class="btn btn-ghost" id="modal-close" aria-label="关闭">✕</button>
+    </div>
+    <form id="form-add">
+      <div class="modal-body">
+        <div><label for="a-date">日期</label><input type="date" id="a-date" required></div>
+        <div><label for="a-brand">品牌</label><select id="a-brand"></select></div>
+        <div><label for="a-type">类型</label><select id="a-type"></select></div>
+        <div><label for="a-market">地区</label>
+          <select id="a-market">
+            <option>中国</option><option>全球</option><option>东南亚</option><option>北美</option>
+            <option>欧洲</option><option>拉美</option><option>中东</option><option>日韩</option>
+          </select>
+        </div>
+        <div class="full"><label for="a-title">标题</label><input type="text" id="a-title" required placeholder="例：名创优品在印尼新增 20 家门店"></div>
+        <div class="full"><label for="a-note">备注 / 数字</label><textarea id="a-note" placeholder="补充具体数字或判断，会进入周报正文"></textarea></div>
+        <div><label for="a-impact">影响力（1-5）</label>
+          <select id="a-impact"><option>5</option><option selected>3</option><option>1</option><option>2</option><option>4</option></select>
+        </div>
+        <div><label for="a-source">来源</label><input type="text" id="a-source" placeholder="公司公告 / 媒体名"></div>
+        <div class="full"><label for="a-url">原文链接（可选）</label><input type="text" id="a-url" placeholder="https://…"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn" id="modal-cancel">取消</button>
+        <button type="submit" class="btn btn-primary">保存并更新</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   竞品情报工作台
+   单文件、零依赖、离线可用。数据快照 + 手动更新。
+   ========================================================= */
+
+const SNAPSHOT_DATE = '2026-11-02';
+
+/* ---------- 品牌 ---------- */
+const BRANDS = [
+  { id:'miniso',      name:'名创优品',      en:'MINISO',       color:'#D8232A' },
+  { id:'poptoy',      name:'泡泡玛特',      en:'POP MART',     color:'#6D3BAA' },
+  { id:'topoy',       name:'TOP TOY',       en:'TOP TOY',      color:'#C77D22' },
+  { id:'daiso',       name:'大创 DAISO',    en:'DAISO',        color:'#0F766E' },
+  { id:'fivebelow',   name:'Five Below',    en:'FIVE BELOW',   color:'#1D4ED8' },
+  { id:'flyingtiger', name:'Flying Tiger',  en:'FLYING TIGER', color:'#B0486B' },
+  { id:'industry',    name:'行业',          en:'INDUSTRY',     color:'#6E6A66' }
+];
+const brandById = id => BRANDS.find(b => b.id === id) || { id, name:id, color:'#999' };
+
+/* ---------- 事件类型 ---------- */
+const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券商','品牌'];
+
+/* ---------- 内置数据（快照） ---------- */
+const SEED_EVENTS = [
+  { date:'2026-05-26', brand:'miniso', type:'财报', market:'全球', impact:5,
+    title:'2026 Q1 营收 56.9 亿元，同比 +28.5%',
+    note:'经调整净利润 6.3 亿元，同比 +8.1%。利润增速显著低于收入增速。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
+    kpi:{ rev:'56.9 亿元', yoy:'+28.5%', np:'6.3 亿元', npYoy:'+8.1%' } },
+
+  { date:'2026-05-26', brand:'miniso', type:'开店', market:'全球', impact:4,
+    title:'全球门店达 8,565 家，海外 3,617 家',
+    note:'名创品牌 8,210 家：国内 4,593（同比净增 318）、海外 3,617（同比净增 404）。海外占比 44.1%。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
+    kpi:{ stores:'8,565', overseas:'3,617', share:'44.1%' } },
+
+  { date:'2026-05-26', brand:'miniso', type:'财报', market:'中国', impact:4,
+    title:'中国内地营收 32.3 亿元，连续第五个季度加速',
+    note:'同比 +29.6%，是国内消费复苏背景下少见的连续加速。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
+
+  { date:'2026-05-26', brand:'topoy', type:'开店', market:'全球', impact:3,
+    title:'TOP TOY 全球门店 355 家，海外仅 39 家',
+    note:'门店规模仍小，但 Q1 收入同比 +51.4%，是集团内增速最快的板块。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html',
+    kpi:{ stores:'355', overseas:'39', yoy:'+51.4%' } },
+
+  { date:'2026-05-26', brand:'topoy', type:'IP', market:'中国', impact:3,
+    title:'自有 IP 小玉、堆堆、孢绒绒集中推出',
+    note:'TOP TOY 从「渠道品牌」向「IP 品牌」迁移的关键动作。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
+
+  { date:'2026-05-26', brand:'miniso', type:'战略', market:'全球', impact:4,
+    title:'乐园系店态落地：海南双首店、新加坡与越南首家 MINISO FRIENDS',
+    note:'MINISO SPACE / LAND / FRIENDS 三种大店形态开始向海外复制，是「开好店、开大店」战略的落点。',
+    source:'新华财经', url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
+
+  { date:'2026-08-20', brand:'poptoy', type:'财报', market:'全球', impact:5,
+    title:'2026 H1 营收 171.7 亿元，同比 +23.8%',
+    note:'经调整净利润 51.6 亿元，净利率 30%，毛利率 69.7%。增速低于市场约 199.8 亿元的预期。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
+    kpi:{ rev:'171.7 亿元', yoy:'+23.8%', npm:'30%', gm:'69.7%' } },
+
+  { date:'2026-08-20', brand:'poptoy', type:'开店', market:'全球', impact:4,
+    title:'全球 676 家门店 + 2,827 台机器人商店',
+    note:'半年净增 46 家店、190 台机器人商店。海外门店 221 家：亚太 90、美洲 86、欧洲及其他 45。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
+    kpi:{ stores:'676', overseas:'221', rb:'2,827' } },
+
+  { date:'2026-08-20', brand:'poptoy', type:'IP', market:'全球', impact:5,
+    title:'星星人营收 26.5 亿元，同比 +580.6%',
+    note:'THE MONSTERS（含 LABUBU）营收 44.5 亿元、占集团 26%；CRYBABY 16.3 亿、DIMOO 16.2 亿、SKULLPANDA 15.5 亿、Hirono 10.1 亿、MOLLY 9.0 亿。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html',
+    kpi:{ monsters:'44.5 亿元', share:'26%', star:'26.5 亿元', starYoy:'+580.6%' } },
+
+  { date:'2026-08-20', brand:'poptoy', type:'新品', market:'全球', impact:4,
+    title:'毛绒品类营收 98.2 亿元，同比 +60%',
+    note:'品类结构从「盲盒收藏」向「毛绒 / 挂件」迁移，单价与复购同步抬升。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
+
+  { date:'2026-08-20', brand:'poptoy', type:'品牌', market:'全球', impact:3,
+    title:'全球注册会员破 1 亿，会员销售占比 92.9%',
+    note:'会员复购率 51.6%，中国内地会员 8,244 万。私域运营是这家公司最容易被低估的资产。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
+
+  { date:'2026-08-20', brand:'poptoy', type:'新品', market:'中国', impact:3,
+    title:'城市乐园新增四大主题区，POP BAKERY 全国首店落地阿那亚',
+    note:'从零售向「体验业态」外延，是 IP 变现半径的试探。',
+    source:'东方财富 / 广州日报', url:'https://finance.eastmoney.com/a/202608203848069435.html' },
+
+  { date:'2026-08-31', brand:'miniso', type:'财报', market:'全球', impact:5,
+    title:'2026 Q2 净亏 2.92 亿元，销售费用同比 +39.6%',
+    note:'H1 收入同比 +22%，但股价年内腰斩。海外代理转直营与 6,000 家门店改造是主要利润拖累。',
+    source:'东方财富', url:'https://finance.eastmoney.com/a/202608313860297312.html',
+    kpi:{ np:'-2.92 亿元', expense:'+39.6%' } },
+
+  { date:'2026-05-26', brand:'miniso', type:'战略', market:'中国', impact:4,
+    title:'启动 6,000 家门店升级，转型 IP 生态',
+    note:'「腾笼换鸟」：以大店替换低效小店，用 IP 场景提升单店产出。短期压利润，长期拼坪效。',
+    source:'公开报道', url:'' },
+
+  { date:'2026-02-05', brand:'miniso', type:'品牌', market:'中国', impact:3,
+    title:'成为总台《2026 年春节联欢晚会》潮玩合作品牌',
+    note:'春节档的国民级曝光，配合生肖与年货场景做 IP 联名。',
+    source:'央视', url:'https://1118.cctv.com/2026/02/05/ARTI0pHjvcAnGJuUkumgaq0l260205.shtml' },
+
+  { date:'2025-06-01', brand:'miniso', type:'IP', market:'中国', impact:3,
+    title:'原创 IP「YOYO（右右酱）」上市',
+    note:'名创自有 IP 的一次试水，用于降低对授权 IP 的依赖。',
+    source:'公开报道', url:'' },
+
+  { date:'2026-06-15', brand:'miniso', type:'联名', market:'中国', impact:4,
+    title:'名创优品 × 三丽鸥 × 吉伊卡哇 三方联名',
+    note:'把两个高热度日系 IP 叠在同一档期，是名创典型的「流量叠加」打法。具体月份为公开报道推断，待核。',
+    source:'公开报道', url:'', approx:true },
+
+  { date:'2026-07-10', brand:'industry', type:'趋势', market:'中国', impact:3,
+    title:'潮玩传统赛道加速转型，AI 等新渠道或成破局关键',
+    note:'行业层面的渠道与产品结构变化，值得放进周报的「行业观察」。',
+    source:'新浪财经', url:'https://finance.sina.cn/tech/2026-07-10/detail-inihhkum8419852.d.html' },
+
+  { date:'2026-08-27', brand:'industry', type:'趋势', market:'中国', impact:4,
+    title:'谷子店接连倒闭，二次元经济进入新周期',
+    note:'授权 IP 的线下流量红利退潮，说明「拿授权就能卖」的阶段结束，自有 IP 与场景化店态成为分水岭。',
+    source:'央视', url:'https://business.cctv.com/2026/08/27/ARTIuSDp9X2dscsFs7Qa6vGR260827.shtml' },
+
+  { date:'2026-10-22', brand:'miniso', type:'开店', market:'北美', impact:5,
+    title:'美国首家 MINISO LAND 落地俄亥俄州哥伦布',
+    note:'把「乐园系」大店形态输出到美国本土，主打沉浸式 IP 体验。这是海外大店模型在发达市场的第一次正面验证。',
+    source:'MINISO 官方新闻稿',
+    url:'https://digital-release.kxan.com/business/press-releases/cision/20261022CN78921/miniso-opens-its-first-u-s-miniso-land-in-columbus-bringing-its-immersive-ip-experience-to-american-consumers/' },
+
+  { date:'2026-10-29', brand:'poptoy', type:'券商', market:'全球', impact:2,
+    title:'中泰证券维持买入，指海外市场筑底企稳',
+    note:'卖方对海外恢复节奏的判断，可作为下周关注的观察点。',
+    source:'证券之星', url:'http://hk.stockstar.com/IG2026102900017530.shtml' },
+
+  { date:'2026-10-30', brand:'poptoy', type:'券商', market:'全球', impact:2,
+    title:'国海证券维持买入，指高基数致业绩承压',
+    note:'高基数效应将在下半年集中体现，需跟踪单季增速能否回到 20% 以上。',
+    source:'证券之星', url:'https://hk.stockstar.com/IG2026103000022546.shtml' },
+
+  { date:'2026-09-07', brand:'miniso', type:'券商', market:'全球', impact:2,
+    title:'东吴证券维持买入，指估值低且现金回报高',
+    note:'与泡泡玛特的高估值形成对照，反映市场对两种模型的分歧。',
+    source:'证券之星', url:'http://hk.stockstar.com/IG2026090700015248.shtml' },
+
+  { date:'2026-02-28', brand:'daiso', type:'财报', market:'全球', impact:4,
+    title:'大创产业 FY2025 合并营收 7,710 亿日元，全球 5,891 家门店',
+    note:'日本百元店龙头的规模基线。门店数约为名创品牌的 72%，是海外扩张最直接的对标。',
+    source:'DAISO 官网', url:'https://www.daiso-sangyo.co.jp/info/news/48947',
+    kpi:{ rev:'7,710 亿日元', stores:'5,891' } },
+
+  { date:'2026-04-01', brand:'daiso', type:'开店', market:'拉美', impact:3,
+    title:'大创进入墨西哥市场',
+    note:'拉美是名创已重点布局、大创刚开始渗透的市场，值得跟踪份额变化。',
+    source:'DAISO 官网', url:'https://www.daiso-sangyo.co.jp/info/news/49934' },
+
+  { date:'2025-09-01', brand:'flyingtiger', type:'开店', market:'东南亚', impact:3,
+    title:'Flying Tiger Copenhagen 进入东南亚（新加坡 / 马来西亚 / 泰国）',
+    note:'北欧设计杂货品牌南下，与名创在东南亚形成直接竞争。',
+    source:'Flying Tiger 官网', url:'https://flyingtiger.com/en-fr/blogs/news/flying-tiger-copenhagen-expands-into-singapore-malaysia-thailand' },
+
+  { date:'2026-03-18', brand:'fivebelow', type:'财报', market:'北美', impact:2,
+    title:'Five Below 发布 FY2025 Q4 及全年业绩，门店扩张驱动增长',
+    note:'美国低价杂货连锁，单店模型与名创海外店高度可比，可作坪效对标参考。',
+    source:'Nasdaq', url:'https://www.nasdaq.com/press-release/five-below-inc-announces-fourth-quarter-and-fiscal-2025-financial-results-2026-03-18' }
+];
+
+/* ---------- IP 数据（泡泡玛特 2026 H1，亿元） ---------- */
+const IP_REVENUE = [
+  { name:'THE MONSTERS', sub:'LABUBU', value:44.5, growth:null,  share:'26.0%' },
+  { name:'星星人',       sub:'Twinkle Twinkle', value:26.5, growth:'+580.6%', share:'15.4%' },
+  { name:'CRYBABY',      sub:'', value:16.3, growth:'+34.0%',  share:'9.5%'  },
+  { name:'DIMOO',        sub:'', value:16.2, growth:'+46.5%',  share:'9.4%'  },
+  { name:'SKULLPANDA',   sub:'', value:15.5, growth:'+27.1%',  share:'9.0%'  },
+  { name:'Hirono 小野',  sub:'', value:10.1, growth:'+38.5%',  share:'5.9%'  },
+  { name:'MOLLY',        sub:'', value:9.0,  growth:null,      share:'5.2%'  }
+];
+
+/* ---------- 授权 IP 覆盖矩阵 ---------- */
+const IP_MATRIX = [
+  { ip:'迪士尼（米奇 / 冰雪奇缘）',   miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'三丽鸥（Hello Kitty / 库洛米）', miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'吉伊卡哇 CHIIKAWA',            miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'哈利波特',                     miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'芭比 Barbie',                  miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'宝可梦',                       miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'漫威 / 皮克斯',                miniso:'lic', poptoy:'none', topoy:'none' },
+  { ip:'自有 IP 矩阵',                 miniso:'own', poptoy:'own',  topoy:'own'  }
+];
+
+/* ---------- 数据来源表 ---------- */
+const SOURCES = [
+  { data:'名创优品 2026 Q1 业绩（营收 / 门店 / TOP TOY）', src:'新华财经', tag:'hi',
+    url:'https://www.cnfin.com/gs-lb/detail/20260526/4417741_1.html' },
+  { data:'名创优品 2026 Q2 净亏 / 费用率', src:'东方财富', tag:'hi',
+    url:'https://finance.eastmoney.com/a/202608313860297312.html' },
+  { data:'泡泡玛特 2026 H1 业绩（营收 / IP / 门店 / 会员）', src:'东方财富 / 广州日报', tag:'hi',
+    url:'https://finance.eastmoney.com/a/202608203848069435.html' },
+  { data:'大创产业 FY2025 营收与门店数', src:'DAISO 官网', tag:'hi',
+    url:'https://www.daiso-sangyo.co.jp/info/news/48947' },
+  { data:'谷子经济进入新周期', src:'央视', tag:'hi',
+    url:'https://business.cctv.com/2026/08/27/ARTIuSDp9X2dscsFs7Qa6vGR260827.shtml' },
+  { data:'名创联名档期（三丽鸥 × 吉伊卡哇）', src:'公开报道', tag:'mid', url:'' },
+  { data:'名创 6,000 店改造、原创 IP YOYO', src:'公开报道', tag:'mid', url:'' },
+  { data:'Flying Tiger 进入东南亚', src:'Flying Tiger 官网', tag:'hi',
+    url:'https://flyingtiger.com/en-fr/blogs/news/flying-tiger-copenhagen-expands-into-singapore-malaysia-thailand' },
+  { data:'Five Below FY2025 业绩', src:'Nasdaq（媒体稿）', tag:'mid',
+    url:'https://www.nasdaq.com/press-release/five-below-inc-announces-fourth-quarter-and-fiscal-2025-financial-results-2026-03-18' },
+  { data:'美国首家 MINISO LAND 落地哥伦布', src:'MINISO 官方新闻稿', tag:'hi',
+    url:'https://digital-release.kxan.com/business/press-releases/cision/20261022CN78921/miniso-opens-its-first-u-s-miniso-land-in-columbus-bringing-its-immersive-ip-experience-to-american-consumers/' },
+  { data:'盲盒机制外溢到美妆与超市（澳新）', src:'Inside Retail', tag:'hi',
+    url:'https://insideretail.co.nz/2026/09/04/why-beauty-wants-a-piece-of-the-blind-box-boom/' },
+  { data:'Labubu 社媒热度', src:'Statista Topic', tag:'mid',
+    url:'https://www.statista.com/topics/13492/labubu/' },
+  { data:'吉伊卡哇在东南亚的认知度', src:'Vietnam.vn / 公开报道', tag:'mid', url:'' },
+  { data:'盲盒手办市场规模预测', src:'QYResearch', tag:'mid',
+    url:'https://www.qyresearch.com/reports/5579674/blind-box-figures' }
+];
+
+/* ---------- 海外社媒信号 ---------- */
+const OVERSEAS = [
+  { date:'2026-10-22', region:'北美', platform:'store', heat:5,
+    topic:'美国首家 MINISO LAND 落地俄亥俄州哥伦布',
+    what:'名创把「乐园系」大店形态搬进美国本土，主打沉浸式 IP 体验，而不是继续开标准店。',
+    mean:'海外大店模型第一次在发达市场接受检验。跑通了，海外营收结构会从「铺店」切到「提坪效」；跑不通，之前投的门店就是沉没成本。',
+    source:'MINISO 官方新闻稿',
+    url:'https://digital-release.kxan.com/business/press-releases/cision/20261022CN78921/miniso-opens-its-first-u-s-miniso-land-in-columbus-bringing-its-immersive-ip-experience-to-american-consumers/' },
+
+  { date:'2026-09-01', region:'北美', platform:'tiktok', heat:5,
+    topic:'「Labubu 开箱」仍是北美社媒的流量通货',
+    what:'开箱、抽盒、稀有款炫耀类内容在美国与澳洲持续高热，盲盒已经变成 Z 世代的社交货币。',
+    mean:'这笔流量红利目前主要喂给有自有 IP 的一方。名创用授权 IP 打同样的玩法，很难拿到同等规模的自发传播——热度是 IP 的，不是渠道的。',
+    source:'Statista Topic / 公开报道',
+    url:'https://www.statista.com/topics/13492/labubu/' },
+
+  { date:'2026-09-04', region:'澳新', platform:'media', heat:4,
+    topic:'盲盒机制外溢到美妆与超市',
+    what:'澳洲 Kmart 用「七款 + 隐藏夜光款」卖毛绒挂件，Woolworths 复活 Disney Ooshies（40 个角色），美妆品牌 Trouble Maker 直接做收藏型盲盒。',
+    mean:'「盲盒 + 收藏」正在变成通用零售机制。当超市都能复制这套玩法，壁垒就不再是「拿到 IP」，而是「能不能持续运营 IP 和场景」。这条对名创是警讯，对泡泡玛特是护城河。',
+    source:'Inside Retail',
+    url:'https://insideretail.co.nz/2026/09/04/why-beauty-wants-a-piece-of-the-blind-box-boom/' },
+
+  { date:'2026-08-01', region:'东南亚', platform:'media', heat:4,
+    topic:'吉伊卡哇被拿来与哆啦A梦、Hello Kitty 并列',
+    what:'东南亚媒体把吉伊卡哇的走红定性为「国民级 IP」现象，跨语言、跨年龄传播。',
+    mean:'名创在东南亚的授权 IP 结构里，日系卡通风是最强抓手。这块可以继续加密，而且比影视 IP 更抗档期波动。',
+    source:'Vietnam.vn / 公开报道', url:'' },
+
+  { date:'2026-07-01', region:'全球', platform:'tiktok', heat:4,
+    topic:'「抢购 / 缺货」本身成了传播素材',
+    what:'从 Labubu 到 Melody 糖果，媒体把这一轮定义为 panic buying 式消费——抢到本身就是内容。',
+    mean:'稀缺感是营销的一部分。名创的高周转、宽供给模式天生难制造稀缺，这是结构性短板；泡泡玛特的限量化反而是资产。',
+    source:'Mathrubhumi',
+    url:'https://english.mathrubhumi.com/lifestyle/from-labubu-to-melody-toffee-what-is-viral-panic-shopping-trend-n18mp5k5' },
+
+  { date:'2026-06-01', region:'全球', platform:'ecom', heat:3,
+    topic:'盲盒手办市场 2026-2032 仍有增量，但增速中枢下移',
+    what:'多家第三方机构把盲盒手办列为未来五到七年仍增长的品类，同时下调了增速预期。',
+    mean:'赛道还有增量，但已从「爆发期」进入「结构性增长期」。接下来的份额争夺比增量更关键。',
+    source:'QYResearch',
+    url:'https://www.qyresearch.com/reports/5579674/blind-box-figures' },
+
+  { date:'2026-04-01', region:'拉美', platform:'store', heat:3,
+    topic:'大创进入墨西哥，拉美竞争升温',
+    what:'日系百元店龙头开始渗透拉美，而拉美是名创海外重点市场之一。',
+    mean:'名创在拉美的先发优势会被稀释。真正要盯的是「谁先拿到本地 IP 与本地供应链」。',
+    source:'DAISO 官网',
+    url:'https://www.daiso-sangyo.co.jp/info/news/49934' }
+];
+
+const PLATFORMS = {
+  tiktok:    { label:'TikTok',    cls:'tiktok' },
+  instagram: { label:'Instagram', cls:'instagram' },
+  media:     { label:'媒体',      cls:'media' },
+  store:     { label:'门店',      cls:'store' },
+  ecom:      { label:'电商',      cls:'ecom' }
+};
+
+/* =========================================================
+   状态
+   ========================================================= */
+const state = {
+  events: SEED_EVENTS.map((e,i) => ({ ...e, id: e.id || ('e' + i) })),
+  filters: { brands: new Set(), types: new Set(), time: 'all', q: '' },
+  ovRegion: 'all',
+  view: 'dashboard',
+  reportMd: ''
+};
+
+/* ---------- 工具函数 ---------- */
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const pad = n => String(n).padStart(2, '0');
+const todayISO = () => {
+  const d = new Date();
+  return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+};
+const parseDate = s => {
+  if (!s) return null;
+  const p = String(s).split('-').map(Number);
+  return new Date(p[0] || 2000, (p[1] || 1) - 1, p[2] || 1);
+};
+const daysBetween = (a, b) => Math.round((b - a) / 86400000);
+const esc = s => String(s == null ? '' : s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const fmtDate = s => {
+  const d = parseDate(s);
+  if (!d) return '—';
+  return d.getFullYear() + '.' + pad(d.getMonth()+1) + '.' + pad(d.getDate());
+};
+
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* =========================================================
+   初始化
+   ========================================================= */
+function init() {
+  $('#snap-date').textContent = SNAPSHOT_DATE;
+  $('#snap-count').textContent = state.events.length + ' 条事件';
+
+  renderKPIs();
+  renderStoreChart();
+  renderSignals();
+  renderFilterChips();
+  renderEvents();
+  renderOverseas();
+  renderIPBars();
+  renderMatrix();
+  renderIPRecs();
+  renderSources();
+  populateSelects();
+  bindUI();
+
+  // 默认先出一份周报，让人一进来就有东西看
+  generateReport();
+  applyPrintMode();
+}
+
+/* 用 index.html#print 打开时，只显示周报，便于直接打印 / 导出 PDF */
+function applyPrintMode() {
+  if (location.hash.indexOf('print') === -1) return;
+  document.body.classList.add('print-ready');
+  state.view = 'report';
+  $$('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.view === 'report'));
+  $$('.view').forEach(s => s.classList.toggle('active', s.id === 'view-report'));
+}
+
+/* =========================================================
+   概览
+   ========================================================= */
+function renderKPIs() {
+  const kpis = [
+    { cls:'mi', label:'名创优品 · 2026 Q1 营收', value:'56.9', unit:'亿元',
+      sub:'同比 <span class="chip-up">+28.5%</span>　经调整净利 6.3 亿' },
+    { cls:'mi', label:'名创优品 · 全球门店', value:'8,565', unit:'家',
+      sub:'海外 3,617 家，占比 44.1%' },
+    { cls:'pp', label:'泡泡玛特 · 2026 H1 营收', value:'171.7', unit:'亿元',
+      sub:'同比 <span class="chip-up">+23.8%</span>　经调整净利率 30%' },
+    { cls:'pp', label:'泡泡玛特 · 毛利率', value:'69.7', unit:'%',
+      sub:'门店 676 家 + 机器人商店 2,827 台' }
+  ];
+  $('#kpi-grid').innerHTML = kpis.map(k => `
+    <div class="kpi ${k.cls}">
+      <div class="label"><span>${k.label}</span></div>
+      <div class="value">${k.value}<span>${k.unit}</span></div>
+      <div class="sub">${k.sub}</div>
+    </div>`).join('');
+}
+
+function renderStoreChart() {
+  // 注意：分母用「品牌自身门店」，不含 TOP TOY。
+  // 名创品牌 8,210 家（国内 4,593 + 海外 3,617），集团合计 8,565 家（含 TOP TOY 355）。
+  const rows = [
+    { label:'名创优品品牌', segs:[
+      { name:'中国内地', value:4593, color:'#D8232A' },
+      { name:'海外',     value:3617, color:'#F0A6A9' }
+    ]},
+    { label:'泡泡玛特', segs:[
+      { name:'中国内地', value:455, color:'#6D3BAA' },
+      { name:'亚太',     value:90,  color:'#A98BD0' },
+      { name:'美洲',     value:86,  color:'#C4AFE0' },
+      { name:'欧洲及其他', value:45, color:'#DDD0EC' }
+    ]}
+  ];
+  const html = rows.map(r => {
+    const total = r.segs.reduce((a,s) => a + s.value, 0);
+    const segs = r.segs.map(s => {
+      const pct = (s.value / total * 100).toFixed(1);
+      return `<div class="bar-seg" style="width:${pct}%;background:${s.color}" title="${s.name} ${s.value.toLocaleString()} 家（${pct}%）"></div>`;
+    }).join('');
+    const overseas = r.segs.filter(s => s.name !== '中国内地')
+      .reduce((a,s) => a + s.value, 0);
+    const osPct = (overseas / total * 100).toFixed(1);
+    return `<div class="bar-row">
+      <div>${r.label}</div>
+      <div class="bar-track">${segs}</div>
+      <div class="bar-val">${osPct}% 海外</div>
+    </div>`;
+  }).join('');
+
+  const legend = `
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:11.5px;color:var(--muted)">
+      <span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#D8232A;margin-right:5px"></i>名创 · 中国内地</span>
+      <span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#F0A6A9;margin-right:5px"></i>名创 · 海外</span>
+      <span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#6D3BAA;margin-right:5px"></i>泡泡玛特 · 中国内地</span>
+      <span><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#C4AFE0;margin-right:5px"></i>泡泡玛特 · 海外</span>
+    </div>`;
+
+  $('#store-chart').innerHTML = html + legend;
+}
+
+function renderSignals() {
+  const recent = [...state.events]
+    .sort((a,b) => (b.impact || 0) - (a.impact || 0) || parseDate(b.date) - parseDate(a.date))
+    .slice(0, 5);
+  $('#signal-list').innerHTML = recent.map(e => {
+    const b = brandById(e.brand);
+    return `<div class="signal" style="border-left-color:${b.color}">
+      <div class="d">${fmtDate(e.date)}　<span style="color:${b.color};font-weight:600">${b.name}</span></div>
+      <div class="t">${esc(e.title)}</div>
+      <div class="m">${esc((e.note || '').slice(0, 56))}${(e.note||'').length > 56 ? '…' : ''}</div>
+    </div>`;
+  }).join('');
+}
+
+/* =========================================================
+   事件流
+   ========================================================= */
+function renderFilterChips() {
+  const brandCount = {};
+  const typeCount = {};
+  state.events.forEach(e => {
+    brandCount[e.brand] = (brandCount[e.brand] || 0) + 1;
+    typeCount[e.type] = (typeCount[e.type] || 0) + 1;
+  });
+
+  $('#f-brand').innerHTML = BRANDS.filter(b => brandCount[b.id]).map(b => `
+    <button class="chip" data-fbrand="${b.id}" aria-pressed="false">
+      ${b.name}<span class="cnt">${brandCount[b.id]}</span>
+    </button>`).join('');
+
+  $('#f-type').innerHTML = TYPES.filter(t => typeCount[t]).map(t => `
+    <button class="chip" data-ftype="${t}" aria-pressed="false">${t}<span class="cnt">${typeCount[t]}</span></button>`).join('');
+
+  $('#f-time').innerHTML = [
+    ['30','近 30 天'], ['90','近 90 天'], ['180','近 180 天'], ['all','全部']
+  ].map(([v,label]) => `
+    <button class="chip" data-ftime="${v}" aria-pressed="${v === 'all'}">${label}</button>`).join('');
+
+  $$('[data-fbrand]').forEach(el => el.addEventListener('click', () => {
+    const id = el.dataset.fbrand;
+    if (state.filters.brands.has(id)) state.filters.brands.delete(id);
+    else state.filters.brands.add(id);
+    el.setAttribute('aria-pressed', state.filters.brands.has(id));
+    renderEvents();
+  }));
+
+  $$('[data-ftype]').forEach(el => el.addEventListener('click', () => {
+    const t = el.dataset.ftype;
+    if (state.filters.types.has(t)) state.filters.types.delete(t);
+    else state.filters.types.add(t);
+    el.setAttribute('aria-pressed', state.filters.types.has(t));
+    renderEvents();
+  }));
+
+  $$('[data-ftime]').forEach(el => el.addEventListener('click', () => {
+    state.filters.time = el.dataset.ftime;
+    $$('[data-ftime]').forEach(x => x.setAttribute('aria-pressed', x === el));
+    renderEvents();
+  }));
+
+  $('#f-search').addEventListener('input', e => {
+    state.filters.q = e.target.value.trim().toLowerCase();
+    renderEvents();
+  });
+}
+
+function getFilteredEvents() {
+  const now = parseDate(todayISO());
+  const f = state.filters;
+  return state.events.filter(e => {
+    if (f.brands.size && !f.brands.has(e.brand)) return false;
+    if (f.types.size && !f.types.has(e.type)) return false;
+    if (f.time !== 'all') {
+      const d = parseDate(e.date);
+      if (!d) return false;
+      const diff = daysBetween(d, now);
+      if (diff > Number(f.time)) return false;
+    }
+    if (f.q) {
+      const hay = (e.title + ' ' + (e.note||'') + ' ' + (e.market||'') + ' ' + brandById(e.brand).name).toLowerCase();
+      if (!hay.includes(f.q)) return false;
+    }
+    return true;
+  }).sort((a,b) => parseDate(b.date) - parseDate(a.date));
+}
+
+function impactDots(n) {
+  let s = '';
+  for (let i = 1; i <= 5; i++) s += i <= n ? '<b>●</b>' : '●';
+  return `<span class="impact">${s}</span>`;
+}
+
+function renderEvents() {
+  const evs = getFilteredEvents();
+  const body = $('#event-body');
+  $('#event-empty').style.display = evs.length ? 'none' : 'block';
+  $('#result-count').textContent = `共 ${evs.length} 条事件　·　数据快照 ${SNAPSHOT_DATE}`;
+
+  body.innerHTML = evs.map(e => {
+    const b = brandById(e.brand);
+    const approx = e.approx ? ' <span title="日期为推断值" style="color:#C9A227">≈</span>' : '';
+    const src = e.url
+      ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.source || '原文')}</a>`
+      : `<span class="muted">${esc(e.source || '—')}</span>`;
+    return `<tr>
+      <td class="date-cell">${fmtDate(e.date)}${approx}</td>
+      <td><span class="brand-dot" style="background:${b.color}"></span>${b.name}</td>
+      <td><span class="pill p-${e.type}">${e.type}</span></td>
+      <td class="title-cell">
+        ${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}
+        ${e.note ? `<div class="note">${esc(e.note)}</div>` : ''}
+      </td>
+      <td class="small muted">${esc(e.market || '')}</td>
+      <td>${impactDots(e.impact || 3)}</td>
+      <td class="src-cell">${src}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* =========================================================
+   IP 图谱
+   ========================================================= */
+function renderIPBars() {
+  const max = Math.max(...IP_REVENUE.map(i => i.value));
+  const colors = ['#6D3BAA','#8B5CC7','#9E74D2','#B08CDB','#C2A4E4','#D3BCEC','#E4D3F3'];
+  $('#ip-bars').innerHTML = IP_REVENUE.map((ip, i) => {
+    const w = (ip.value / max * 100).toFixed(1);
+    const g = ip.growth
+      ? `<span class="g" style="color:#0E7C5A">${ip.growth}</span>`
+      : `<span class="g">—</span>`;
+    return `<div class="row">
+      <div class="name" title="${esc(ip.name)}">${esc(ip.name)}</div>
+      <div class="track">
+        <div class="fill" style="width:${w}%;background:${colors[i]};min-width:6px"></div>
+      </div>
+      <div class="meta">${ip.value.toFixed(1)} 亿${g}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderMatrix() {
+  const cell = v => v === 'own' ? '<span class="own" title="自有 IP">●</span>'
+    : v === 'lic' ? '<span class="lic" title="授权联名">●</span>'
+    : '<span class="none">—</span>';
+  $('#matrix-body').innerHTML = IP_MATRIX.map(r => `
+    <tr>
+      <td>${esc(r.ip)}</td>
+      <td>${cell(r.miniso)}</td>
+      <td>${cell(r.poptoy)}</td>
+      <td>${cell(r.topoy)}</td>
+    </tr>`).join('');
+}
+
+function renderIPRecs() {
+  const recs = [
+    { rank:'01', name:'日系「轻量治愈系」IP（吉伊卡哇同类）',
+      score:'高', why:'名创已验证日系 IP 的转化效率，而泡泡玛特自有 IP 偏「收藏 + 怪奇」调性，不吃这一层。切入门槛低、复购强，适合放在海外华人圈与东南亚年轻客群。' },
+    { rank:'02', name:'东南亚本土 IP / 本土设计师联名',
+      score:'中高', why:'名创海外门店 3,617 家、东南亚是主战场，但 IP 供给几乎全是中日美版权。本土化 IP 能解决「品牌在地认同」，也是 Daiso、Flying Tiger 尚未占据的空位。' },
+    { rank:'03', name:'运动 / 户外品牌的跨界联名',
+      score:'中', why:'名创的品类结构向「生活方式」延伸时，运动户外是客单价提升最快的切口；而泡泡玛特的城市乐园已在做体验业态，双方在「场景」层面的竞争会先于「IP」层面爆发。' }
+  ];
+  $('#ip-rec').innerHTML = recs.map(r => `
+    <div class="rec">
+      <div class="rank">建议 ${r.rank}</div>
+      <span class="score">${r.score}</span>
+      <h4>${esc(r.name)}</h4>
+      <p>${esc(r.why)}</p>
+    </div>`).join('');
+}
+
+/* =========================================================
+   数据与说明
+   ========================================================= */
+function renderSources() {
+  $('#src-body').innerHTML = SOURCES.map(s => `
+    <tr>
+      <td>${esc(s.data)}</td>
+      <td>${s.url
+        ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.src)}</a>`
+        : esc(s.src)}</td>
+      <td><span class="conf ${s.tag === 'hi' ? 'conf-hi' : 'conf-mid'}">${s.tag === 'hi' ? '已核实' : '公开报道'}</span></td>
+    </tr>`).join('');
+}
+
+/* =========================================================
+   海外声量
+   ========================================================= */
+function getOvFiltered() {
+  return OVERSEAS
+    .filter(o => state.ovRegion === 'all' || o.region === state.ovRegion)
+    .sort((a, b) => b.heat - a.heat || parseDate(b.date) - parseDate(a.date));
+}
+
+function ovInsights(list) {
+  const out = [];
+  const na = list.filter(o => o.region === '北美');
+  if (na.length >= 2) {
+    out.push('**北美是信号最密的区域**（' + na.length + ' 条）。名创刚把大店开进美国，而泡泡玛特的 IP 内容早已占据那里的社媒——渠道与内容两条腿，目前只有一条在迈。');
+  }
+  if (list.some(o => /外溢|盲盒机制/.test(o.topic))) {
+    out.push('**机制正在盖过 IP**：澳洲超市与美妆品牌已经在复制「隐藏款 + 收藏」的玩法。当渠道能自己复制这套机制，「拿到授权」就不再构成壁垒，能持续运营 IP 与场景的一方才有定价权。');
+  }
+  if (list.some(o => /抢购/.test(o.topic))) {
+    out.push('**稀缺本身就是营销资产**：panic buying 式的传播里，缺货比有货更有话题度。名创高周转、宽供给的模型与这套叙事天然冲突；短期靠联名档期制造稀缺，长期只有自有 IP 才有资格限量。');
+  }
+  if (list.some(o => /吉伊卡哇/.test(o.topic))) {
+    out.push('**日系卡通风是东南亚的最优解**：吉伊卡哇的跨年龄认知度已接近 Hello Kitty 量级，且比影视 IP 更抗档期波动。这是名创海外授权结构里最值得加密的一层。');
+  }
+  if (list.some(o => o.region === '拉美')) {
+    out.push('**拉美在被动防守**：大创已进入墨西哥。名创的先发优势要靠本地 IP 与本地供应链守住，而不是靠门店数量。');
+  }
+  if (!out.length) out.push('当前筛选下信号偏少，建议放宽地区范围。');
+  return out.slice(0, 5);
+}
+
+function renderOverseas() {
+  const list = getOvFiltered();
+  const regions = [...new Set(OVERSEAS.map(o => o.region))];
+  const naCount = OVERSEAS.filter(o => o.region === '北美').length;
+  const platCount = new Set(OVERSEAS.map(o => o.platform)).size;
+
+  $('#ov-kpis').innerHTML = [
+    { cls:'mi', label:'本期海外信号', value:String(OVERSEAS.length), unit:'条',
+      sub:'覆盖 ' + regions.length + ' 个区域 · ' + platCount + ' 类平台' },
+    { cls:'pp', label:'北美', value:String(naCount), unit:'条',
+      sub:'大店落地 + 开箱内容，强度最高' },
+    { cls:'mi', label:'覆盖平台', value:String(platCount), unit:'类',
+      sub:'TikTok / 媒体 / 门店 / 电商' }
+  ].map(k => `
+    <div class="kpi ${k.cls}">
+      <div class="label"><span>${k.label}</span></div>
+      <div class="value">${k.value}<span>${k.unit}</span></div>
+      <div class="sub">${k.sub}</div>
+    </div>`).join('');
+
+  $('#f-region').innerHTML = ['all'].concat(regions).map(r => {
+    const cnt = r === 'all' ? OVERSEAS.length : OVERSEAS.filter(o => o.region === r).length;
+    return `<button class="chip" data-oregion="${r}" aria-pressed="${state.ovRegion === r}">${r === 'all' ? '全部' : r}<span class="cnt">${cnt}</span></button>`;
+  }).join('');
+
+  $$('[data-oregion]').forEach(el => el.addEventListener('click', () => {
+    state.ovRegion = el.dataset.oregion;
+    renderOverseas();
+  }));
+
+  $('#ov-grid').innerHTML = list.map(o => {
+    const p = PLATFORMS[o.platform] || { label: o.platform, cls: '' };
+    let dots = '';
+    for (let i = 1; i <= 5; i++) dots += i <= o.heat ? '<b>●</b>' : '●';
+    const src = o.url
+      ? `<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.source)}</a>`
+      : esc(o.source);
+    return `<div class="ov-card">
+      <div class="ov-top">
+        <span class="plat ${p.cls}">${p.label}</span>
+        <span class="ov-region">${o.region}</span>
+        <span class="ov-heat" title="观察强度 ${o.heat}/5">${dots}</span>
+      </div>
+      <h4>${esc(o.topic)}</h4>
+      <div class="what">${esc(o.what)}</div>
+      <div class="ov-mean"><em>意味着：</em>${esc(o.mean)}</div>
+      <div class="ov-src">${src}　${fmtDate(o.date)}</div>
+    </div>`;
+  }).join('');
+
+  $('#ov-insights').innerHTML = ovInsights(list)
+    .map(t => '<li>' + mdInline(t) + '</li>').join('');
+}
+
+/* =========================================================
+   周报生成
+   ========================================================= */
+function reportEvents() {
+  const win = Number($('#cfg-window').value);
+  const brandSel = $('#cfg-brand').value;
+  const now = parseDate(todayISO());
+
+  let list = state.events.filter(e => {
+    if (win > 0) {
+      const d = parseDate(e.date);
+      if (!d || daysBetween(d, now) > win) return false;
+    }
+    if (brandSel === 'core') return ['miniso','poptoy','topoy'].includes(e.brand);
+    if (brandSel === 'miniso') return e.brand === 'miniso';
+    if (brandSel === 'poptoy') return e.brand === 'poptoy';
+    return true;
+  });
+
+  return list.sort((a,b) => parseDate(b.date) - parseDate(a.date));
+}
+
+function percentileWindow(list) {
+  if (!list.length) return '—';
+  const dates = list.map(e => parseDate(e.date)).filter(Boolean).sort((a,b) => a - b);
+  if (!dates.length) return '—';
+  const f = d => d.getFullYear() + '.' + pad(d.getMonth()+1) + '.' + pad(d.getDate());
+  return f(dates[0]) + ' – ' + f(dates[dates.length-1]);
+}
+
+function buildInsights(list) {
+  const out = [];
+  const find = (brand, type) => list.find(e => e.brand === brand && e.type === type);
+  const has = (brand, type) => list.some(e => e.brand === brand && e.type === type);
+
+  // 1. 增长对比
+  const miRev = list.find(e => e.brand === 'miniso' && e.kpi && e.kpi.rev && e.kpi.yoy);
+  const ppRev = list.find(e => e.brand === 'poptoy' && e.kpi && e.kpi.rev && e.kpi.yoy);
+  if (miRev && ppRev) {
+    out.push(`**增速收敛**：名创 ${miRev.kpi.rev}（${miRev.kpi.yoy}）与泡泡玛特 ${ppRev.kpi.rev}（${ppRev.kpi.yoy}）的差距已收窄到个位数百分点。但两者的利润结构完全不同——泡泡玛特毛利率 69.7%，名创的渠道模型更依赖周转而非溢价。`);
+  }
+  // 2. 盈利质量
+  const loss = list.find(e => e.brand === 'miniso' && e.type === '财报' && /净亏|亏损/.test(e.title + (e.note||'')));
+  if (loss) {
+    out.push(`**利润承压**：${loss.title}。海外代理转直营、6,000 家门店改造是一次性投入还是结构性成本，是下季度最需要验证的问题。若 Q3 费用率不回落，「用利润换渠道」的叙事会被市场重新定价。`);
+  }
+  // 3. IP 集中度
+  const ipEvent = list.find(e => e.brand === 'poptoy' && e.kpi && e.kpi.monsters);
+  if (ipEvent) {
+    out.push(`**IP 集中度**：THE MONSTERS 单家族营收 ${ipEvent.kpi.monsters}、占比 ${ipEvent.kpi.share}，星星人同比 ${ipEvent.kpi.starYoy}。自有 IP 是毛利护城河，也是波动来源——热度一旦回落，高基数会直接反噬增速。`);
+  }
+  // 4. 渠道壁垒
+  const storeEv = list.find(e => e.brand === 'miniso' && e.kpi && e.kpi.stores);
+  if (storeEv) {
+    out.push(`**渠道厚度**：名创全球 ${storeEv.kpi.stores} 家门店、海外 ${storeEv.kpi.overseas} 家（${storeEv.kpi.share}）。门店密度仍是名创最难被复制的壁垒，也是它能在授权 IP 上「以量换价」的底气。`);
+  }
+  // 5. 行业风向
+  const trend = list.find(e => e.brand === 'industry' && /谷子|闭店|新周期/.test(e.title));
+  if (trend) {
+    out.push(`**行业拐点**：${trend.title}。授权 IP 的线下流量红利正在退潮，这意味着「拿得到授权就能卖」的阶段结束，接下来的竞争在自有 IP 与场景化店态——恰好是两家公司已经分头下注的方向。`);
+  }
+  // 6. 空白监测
+  const covered = new Set(list.map(e => e.brand));
+  const watch = BRANDS.filter(b => b.id !== 'industry' && !covered.has(b.id));
+  if (watch.length) {
+    out.push(`**监测缺口**：${watch.map(b => b.name).join('、')} 本窗口内无公开动作，可能是数据未覆盖（而非真的静止），下周应优先补齐。`);
+  }
+  // 7. 数据完整性
+  const withUrl = list.filter(e => e.url).length;
+  out.push(`**数据说明**：本期共 ${list.length} 条事件，其中 ${withUrl} 条附原始链接，${list.length - withUrl} 条为公开报道整理。结论仅基于上述窗口，不构成投资建议。`);
+
+  return out.slice(0, 6);
+}
+
+function buildReport() {
+  const list = reportEvents();
+  const title = $('#cfg-title').value.trim() || '竞品周报';
+  const author = $('#cfg-author').value.trim();
+  const windowLabel = $('#cfg-window').selectedOptions[0].textContent;
+  const win = Number($('#cfg-window').value);
+  const now = parseDate(todayISO());
+
+  const insights = buildInsights(list);
+
+  const byBrand = {};
+  list.forEach(e => { (byBrand[e.brand] = byBrand[e.brand] || []).push(e); });
+
+  const brandOrder = ['miniso','poptoy','topoy','daiso','fivebelow','flyingtiger','industry'];
+
+  let md = `# ${title}\n\n`;
+  md += `> 统计窗口：${windowLabel}　·　覆盖区间：${percentileWindow(list)}　·　样本：${list.length} 条事件　·　生成于 ${todayISO()}　·　数据快照 ${SNAPSHOT_DATE}${author ? '　·　报告人：' + author : ''}\n\n`;
+
+  md += `## 一、本周结论\n\n`;
+  if (insights.length) {
+    insights.forEach((s, i) => { md += `${i + 1}. ${s}\n`; });
+  } else {
+    md += `本窗口内无足够事件形成结论，建议放宽统计窗口或补充数据。\n`;
+  }
+  md += `\n`;
+
+  md += `## 二、关键事件\n\n`;
+  let hasAny = false;
+  brandOrder.forEach(bid => {
+    const evs = byBrand[bid];
+    if (!evs || !evs.length) return;
+    hasAny = true;
+    const b = brandById(bid);
+    md += `### ${b.name}\n\n`;
+    evs.forEach(e => {
+      const mark = (e.impact || 3) >= 4 ? '**' : '';
+      md += `- ${mark}${fmtDate(e.date)}【${e.type}】${e.title}${mark}`;
+      if (e.note) md += `——${e.note}`;
+      md += `\n`;
+      if (e.url) md += `  - 来源：[${e.source || '原文'}](${e.url})\n`;
+    });
+    md += `\n`;
+  });
+  if (!hasAny) md += `（本窗口无事件）\n\n`;
+
+  md += `## 三、IP 与品类动态\n\n`;
+  const ipEvents = list.filter(e => e.type === 'IP' || e.type === '联名' || e.type === '新品');
+  if (ipEvents.length) {
+    ipEvents.slice(0, 6).forEach(e => {
+      md += `- **${brandById(e.brand).name}**：${e.title}\n`;
+    });
+  } else {
+    md += `- 本窗口无 IP 或品类层面的公开动作。\n`;
+  }
+  md += `\n`;
+
+  md += `## 四、海外观察\n\n`;
+  const overseas = list.filter(e => ['海外','东南亚','北美','欧洲','拉美','中东','日韩','全球'].includes(e.market));
+  if (overseas.length) {
+    overseas.slice(0, 6).forEach(e => {
+      md += `- ${fmtDate(e.date)}　**${brandById(e.brand).name}**　${e.title}（${e.market}）\n`;
+    });
+  } else {
+    md += `- 本窗口无明确的海外动作。\n`;
+  }
+  md += `\n`;
+
+  md += `## 五、海外社媒观察\n\n`;
+  const ovs = OVERSEAS.filter(o => {
+    if (!win) return true;
+    const d = parseDate(o.date);
+    return d && daysBetween(d, now) <= win;
+  }).sort((a, b) => b.heat - a.heat);
+  if (ovs.length) {
+    ovs.slice(0, 4).forEach(o => {
+      const p = (PLATFORMS[o.platform] || {}).label || o.platform;
+      md += `- **${o.region} · ${p}**：${o.topic}\n  ${o.mean}\n`;
+    });
+  } else {
+    md += `- 本窗口内无新增海外社媒信号。\n`;
+  }
+  md += `\n`;
+
+  md += `## 六、下周关注\n\n`;
+  const watchItems = [];
+  const downside = list.filter(e => /承压|净亏|腰斩|闭店|退潮|高基数/.test(e.title + (e.note||'')));
+  if (downside.length) {
+    watchItems.push(`跟踪「${downside[0].title.replace(/[，,。].*$/, '')}」的后续披露，判断是周期性还是结构性。`);
+  }
+  const broker = list.filter(e => e.type === '券商');
+  if (broker.length) {
+    watchItems.push(`卖方观点分化（${broker.map(e => e.source).filter((v,i,a) => a.indexOf(v) === i).join('、')}），关注目标价与盈利预测的调整方向。`);
+  }
+  if (BRANDS.filter(b => b.id !== 'industry' && !list.some(e => e.brand === b.id)).length) {
+    watchItems.push(`补齐 ${BRANDS.filter(b => b.id !== 'industry' && !list.some(e => e.brand === b.id)).map(b => b.name).join('、')} 的公开动态。`);
+  }
+  if (!watchItems.length) watchItems.push('维持常规监测节奏，重点看两家公司的季度同店增长与海外门店净增。');
+  watchItems.forEach((w, i) => { md += `${i + 1}. ${w}\n`; });
+  md += `\n`;
+
+  md += `---\n\n`;
+  md += `*本报告由「竞品情报工作台」基于公开信息生成初稿，结论与判断由人工复核补充。数据来源与可信度说明见工作台「数据与说明」页。*\n`;
+
+  return md;
+}
+
+function generateReport() {
+  const md = buildReport();
+  state.reportMd = md;
+  $('#md-editor').value = md;
+  renderPreview(md);
+}
+
+function renderPreview(md) {
+  $('#report-preview').innerHTML = mdToHtml(md);
+  const chars = md.length;
+  $('#preview-meta').textContent = chars + ' 字符';
+}
+
+/* 极简 Markdown 渲染（够用即可） */
+function mdInline(s) {
+  return s
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+}
+function mdToHtml(md) {
+  const lines = String(md).split('\n');
+  const out = [];
+  let inUl = false, inOl = false;
+  const closeLists = () => {
+    if (inUl) { out.push('</ul>'); inUl = false; }
+    if (inOl) { out.push('</ol>'); inOl = false; }
+  };
+  for (const raw of lines) {
+    const line = raw.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    if (!line.trim()) { closeLists(); continue; }
+    let m;
+    if ((m = line.match(/^### (.*)/)))  { closeLists(); out.push('<h4>' + mdInline(m[1]) + '</h4>'); continue; }
+    if ((m = line.match(/^## (.*)/)))   { closeLists(); out.push('<h3>' + mdInline(m[1]) + '</h3>'); continue; }
+    if ((m = line.match(/^# (.*)/)))    { closeLists(); out.push('<h2>' + mdInline(m[1]) + '</h2>'); continue; }
+    if ((m = line.match(/^&gt; (.*)/))) { closeLists(); out.push('<blockquote>' + mdInline(m[1]) + '</blockquote>'); continue; }
+    if ((m = line.match(/^---+$/)))     { closeLists(); out.push('<hr style="border:none;border-top:1px solid #E5DFD8;margin:18px 0">'); continue; }
+    if ((m = line.match(/^  - (.*)/)))  { closeLists(); out.push('<p style="font-size:11.5px;color:#6E6A66;margin:2px 0 6px 14px">' + mdInline(m[1]) + '</p>'); continue; }
+    if ((m = line.match(/^- (.*)/))) {
+      if (!inUl) { closeLists(); out.push('<ul>'); inUl = true; }
+      out.push('<li>' + mdInline(m[1]) + '</li>'); continue;
+    }
+    if ((m = line.match(/^(\d+)\. (.*)/))) {
+      if (!inOl) { closeLists(); out.push('<ol>'); inOl = true; }
+      out.push('<li>' + mdInline(m[2]) + '</li>'); continue;
+    }
+    closeLists();
+    out.push('<p>' + mdInline(line) + '</p>');
+  }
+  closeLists();
+  return out.join('\n');
+}
+
+/* =========================================================
+   交互
+   ========================================================= */
+function bindUI() {
+  // tabs
+  $$('.tab').forEach(tab => tab.addEventListener('click', () => {
+    const v = tab.dataset.view;
+    state.view = v;
+    $$('.tab').forEach(t => t.setAttribute('aria-selected', t === tab));
+    $$('.view').forEach(sec => sec.classList.toggle('active', sec.id === 'view-' + v));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+
+  // 周报
+  $('#btn-generate').addEventListener('click', () => {
+    generateReport();
+    toast('已按当前配置重新生成');
+  });
+  $('#btn-refresh').addEventListener('click', () => {
+    generateReport();
+    toast('已用模板重写');
+  });
+  $('#md-editor').addEventListener('input', e => {
+    state.reportMd = e.target.value;
+    renderPreview(e.target.value);
+  });
+  $('#btn-copy').addEventListener('click', async () => {
+    const text = $('#md-editor').value;
+    try {
+      await navigator.clipboard.writeText(text);
+      toast('Markdown 已复制');
+    } catch (err) {
+      const ta = $('#md-editor');
+      ta.select(); document.execCommand('copy');
+      toast('已复制（兼容模式）');
+    }
+  });
+  $('#btn-download').addEventListener('click', () => {
+    const text = $('#md-editor').value;
+    const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = ($('#cfg-title').value.trim() || '竞品周报') + '_' + todayISO() + '.md';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    toast('已下载 Markdown 文件');
+  });
+  $('#btn-print').addEventListener('click', () => {
+    window.print();
+  });
+
+  // 导出 CSV
+  $('#btn-export-csv').addEventListener('click', () => {
+    const evs = getFilteredEvents();
+    const head = ['日期','品牌','类型','标题','地区','影响力','来源','链接','备注'];
+    const rows = evs.map(e => [
+      e.date, brandById(e.brand).name, e.type, e.title, e.market || '', e.impact || 3,
+      e.source || '', e.url || '', e.note || ''
+    ]);
+    const csv = [head, ...rows].map(r => r.map(v => {
+      const s = String(v == null ? '' : v);
+      return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    }).join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '竞品事件_' + todayISO() + '.csv';
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    toast('已导出 ' + evs.length + ' 条');
+  });
+
+  // 导入
+  $('#btn-import').addEventListener('click', () => $('#file-input').click());
+  $('#file-input').addEventListener('change', handleImport);
+
+  // 重置
+  $('#btn-reset').addEventListener('click', () => {
+    state.events = SEED_EVENTS.map((e, i) => ({ ...e, id: 'e' + i }));
+    state.filters = { brands: new Set(), types: new Set(), time: 'all', q: '' };
+    renderAll();
+    toast('已恢复内置数据');
+  });
+
+  bindModal();
+}
+
+function renderAll() {
+  $('#snap-count').textContent = state.events.length + ' 条事件';
+  renderSignals();
+  renderFilterChips();
+  renderEvents();
+  renderOverseas();
+  generateReport();
+}
+
+/* ---------- 添加事件 ---------- */
+function populateSelects() {
+  $('#a-brand').innerHTML = BRANDS.map(b => `<option value="${b.id}">${b.name}</option>`).join('');
+  $('#a-type').innerHTML = TYPES.map(t => `<option>${t}</option>`).join('');
+  $('#a-date').value = todayISO();
+}
+
+function bindModal() {
+  const ov = $('#modal-add');
+  const open = () => { ov.classList.add('open'); $('#a-title').focus(); };
+  const close = () => ov.classList.remove('open');
+
+  $('#btn-add').addEventListener('click', open);
+  $('#modal-close').addEventListener('click', close);
+  $('#modal-cancel').addEventListener('click', close);
+  ov.addEventListener('click', e => { if (e.target === ov) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  $('#form-add').addEventListener('submit', e => {
+    e.preventDefault();
+    const ev = {
+      id: 'u' + Date.now(),
+      date: $('#a-date').value || todayISO(),
+      brand: $('#a-brand').value,
+      type: $('#a-type').value,
+      title: $('#a-title').value.trim(),
+      note: $('#a-note').value.trim(),
+      market: $('#a-market').value,
+      impact: Number($('#a-impact').value) || 3,
+      source: $('#a-source').value.trim(),
+      url: $('#a-url').value.trim()
+    };
+    if (!ev.title) return;
+    state.events.push(ev);
+    renderAll();
+    close();
+    $('#form-add').reset();
+    $('#a-date').value = todayISO();
+    toast('已添加，周报素材已更新');
+  });
+}
+
+/* ---------- 导入 ---------- */
+function handleImport(evt) {
+  const file = evt.target.files && evt.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      let added = 0;
+      const text = String(reader.result);
+      if (file.name.toLowerCase().endsWith('.json')) {
+        const data = JSON.parse(text);
+        const arr = Array.isArray(data) ? data : (data.events || []);
+        arr.forEach((e, i) => {
+          state.events.push(normalizeEvent(e, 'j' + Date.now() + i));
+          added++;
+        });
+      } else {
+        const rows = parseCSV(text);
+        if (rows.length < 2) throw new Error('CSV 至少需要表头 + 一行数据');
+        const head = rows[0].map(h => h.trim());
+        const idx = name => head.findIndex(h => h === name);
+        const iDate = idx('日期'), iBrand = idx('品牌'), iType = idx('类型'),
+              iTitle = idx('标题'), iMarket = idx('地区'), iImpact = idx('影响力'),
+              iSource = idx('来源'), iUrl = idx('链接'), iNote = idx('备注');
+        if (iTitle < 0) throw new Error('CSV 缺少「标题」列');
+        rows.slice(1).forEach((r, i) => {
+          if (!r[iTitle]) return;
+          const brandName = (r[iBrand] || '').trim();
+          const brand = BRANDS.find(b => b.name === brandName || b.en === brandName || b.id === brandName);
+          state.events.push({
+            id: 'c' + Date.now() + i,
+            date: (r[iDate] || '').trim() || todayISO(),
+            brand: brand ? brand.id : (brandName || 'industry'),
+            type: (r[iType] || '').trim() || '趋势',
+            title: (r[iTitle] || '').trim(),
+            note: iNote >= 0 ? (r[iNote] || '').trim() : '',
+            market: (r[iMarket] || '').trim() || '中国',
+            impact: Number((r[iImpact] || '3').trim()) || 3,
+            source: iSource >= 0 ? (r[iSource] || '').trim() : '',
+            url: iUrl >= 0 ? (r[iUrl] || '').trim() : ''
+          });
+          added++;
+        });
+      }
+      renderAll();
+      toast('已导入 ' + added + ' 条事件');
+    } catch (err) {
+      toast('导入失败：' + err.message);
+    }
+  };
+  reader.readAsText(file, 'utf-8');
+  evt.target.value = '';
+}
+
+function normalizeEvent(e, id) {
+  const brandName = e.brand || '';
+  const brand = BRANDS.find(b => b.name === brandName || b.en === brandName || b.id === brandName);
+  return {
+    id, date: e.date || todayISO(),
+    brand: brand ? brand.id : (brandName || 'industry'),
+    type: e.type || '趋势', title: e.title || '',
+    note: e.note || '', market: e.market || '中国',
+    impact: Number(e.impact) || 3, source: e.source || '', url: e.url || ''
+  };
+}
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cur = '', inQ = false;
+  const src = text.replace(/^\ufeff/, '');
+  for (let i = 0; i < src.length; i++) {
+    const c = src[i];
+    if (inQ) {
+      if (c === '"') {
+        if (src[i+1] === '"') { cur += '"'; i++; }
+        else inQ = false;
+      } else cur += c;
+    } else {
+      if (c === '"') inQ = true;
+      else if (c === ',') { row.push(cur); cur = ''; }
+      else if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; }
+      else if (c === '\r') { /* skip */ }
+      else cur += c;
+    }
+  }
+  if (cur.length || row.length) { row.push(cur); rows.push(row); }
+  return rows.filter(r => r.length && r.some(v => v.trim() !== ''));
+}
+
+/* ---------- 启动 ---------- */
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
