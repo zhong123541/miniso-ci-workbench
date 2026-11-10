@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-10';
+const SNAPSHOT_DATE = '2026-11-11';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -731,26 +731,191 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
   {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "东南亚",
+    "impact": 4,
+    "title": "名创优品印尼十周年，东南亚首家SUPER MINISO开业",
+    "note": "东南亚首家超级店型落地印尼，标志大店IP化模式向海外复制，需跟踪其单店模型与本地化IP组合。",
+    "source": "MINISO",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE82R29vbGwtZGwzbURzMnFiZ2ZGY0FuUUFTcjVWQnRmaTJFQlZFemZmUDQxT1ZMd2dvTld6QjNjTjRhUFpUMXNaS0VUUDgxckE1QkZSaw?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "中国",
+    "impact": 3,
+    "title": "北京首家SUPER MINISO落地朝阳",
+    "note": "超级店型进入一线城市核心商圈，验证大店策略在国内的可复制性，关注后续门店数与坪效数据。",
+    "source": "International Web Portal of Beijing",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8zajhGZF94Q1MxR3NjUmZ3SlNTcGE0LW5QbFptVzFmdnYyYXBSNS12MWxzZ1FLTlFFTmRmWHg5SG02a1dOSEg2SHpOZ2hqWml2VzV1MERTNlB2UzJwYXRyUi1tZ3RFOEJOM0hldmJuc0ZSZVZyREpCWG9QSmQ?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "欧洲",
+    "impact": 3,
+    "title": "名创优品Miniso Friends新店型将在英国推出",
+    "note": "英国试水新零售概念店型，反映其欧洲业态创新，需关注是否影响当地竞品客流与IP合作策略。",
+    "source": "blooloop",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBIazlvNGh0YU9TdUsxajgwekIyZUFGQkNXNmlJaXdPOUx3dWVkd1ZobHhXYWVCcXdja1NfUl9HNkhTcW43V0l2XzZSdDNzdWRxS1FOZjZHNm1tVng1M1AyRlNld0Rtankwd3c?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "中国",
+    "impact": 2,
+    "title": "名创优品印度斋浦尔Pacific Mall新店开业",
+    "note": "印度市场持续加密门店网络，属常规扩张信号，可纳入区域开店节奏统计。",
+    "source": "Indian Retailer",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbUthWlJkdm1oTTVQOGE4dnQtVUtXYkhzSkxvWmY3QzQ3OGRBRGdpbXdYVkxOYUQ4OGVOVjBEejRqX0oxelBQT2xQeTRYMWp0QkxSZWJVemw4YWR6MWl1SmlhcUlCWkdqQk1WS1YtQkptSnNKdmowOXpxQlhXT1M3bmlMMm9VUS1wbzFIQ0JKc1lDUlhFTU9CREVmb3J0TFhJSGFQcDR2Qk0?oc=5"
+  },
+  {
+    "date": "2026-11-10",
     "brand": "popmart",
     "type": "联名",
     "market": "中国",
-    "impact": 4,
-    "title": "泡泡玛特联名CLOT推麻将，1999元10分钟售罄",
-    "note": "高客单联名验证IP溢价能力，名创可关注潮玩化生活方式品类的联名机会与定价上限。",
+    "impact": 3,
+    "title": "泡泡玛特联名CLOT麻将1999元10分钟售罄",
+    "note": "高单价联名验证IP溢价与潮玩向生活方式品类延伸，需关注其非盲盒品类扩张对名创IP联名的挤压。",
     "source": "上海热线",
     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaNk9XaTNWLThnUU5JWXRmQmh2Tjdxd2JLelhHYmhXR0NzN2hLSUJUR0xPc3I4V0plZFdYRU16X0VRbW5Ud3Uwc0xhUWcwZW9IUE4ycWVka0xBRjExaEtJcE83bjVxUWNuRkJ0SXh2WWNqdw?oc=5"
   },
   {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "brand": "popmart",
     "type": "联名",
     "market": "欧洲",
     "impact": 3,
     "title": "Robert Wun联名Skullpanda登陆泡泡玛特巴黎旗舰店",
-    "note": "巴黎旗舰店承接设计师联名，显示其欧洲高端化路径，名创欧洲门店需关注差异化定位。",
+    "note": "设计师联名在巴黎旗舰店落地，强化欧洲高端IP形象，关注其对名创欧洲IP合作的差异化压力。",
     "source": "WWD",
     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRU9VaEJzdGh5c01QQ0VNdzhRWWpMeU9iS25EcmVValBtNndiY1ljU21XenI3QjMxOVZKVV80YTlZX3BZU1pQUXZaQVl1VElLSkFMaEJGdlZYT3BNNUxpblYxRExPS2ZvV1BUbzVtSzNoclNUa0lHSUFGYVBkdTVOdEhodnhKVFpvd3dUbmFSel9fdXQ2ang1bFFBTFR6TFkxWkk2UUlHSjR5ZW5DNUNUbjlpdkhodw?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "全球",
+    "impact": 3,
+    "title": "泡泡玛特HACIPUPU与UGREEN绿联推出联名",
+    "note": "IP授权向3C配件延伸，显示其IP变现多元化，需跟踪跨品类授权对名创联名资源的争夺。",
+    "source": "UnGeek",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdGpOYkZQMUhVSWNzSGQ2cWxTUF81V3hSUkZwTEVrX05kZU9MYVNVZlpiWkd1UWltR3UtTEU3Mk5lN05KX2NZcXktM2tMM1JER0dRelQ4Z0UzRmQ0OC1PR2ZSUjdxbWdHdjBNUENtM1Z6M2M5MDEyRTFTYlZ6TUdPTzl4SkxnM3l0NV9HUmxRazlNYllsX3lQanJIOXk4Q1dQMEJnd3FLQWJ1WlRnTXc?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "全球",
+    "impact": 3,
+    "title": "泡泡玛特与斯凯奇Pucky联名鞋及匹克球套装",
+    "note": "IP联名进入运动鞋服品类，扩大海外触达，关注其对名创海外IP联名生态的竞争影响。",
+    "source": "FZINE Singapore",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9zZ1pOVExOaXVMM0pwdTU0MmNVZG43YWN3alllMGN6YzhWcVJSZjdrWnlwU2lvNWlzV2tucXlwN2FxX2F0OEppTTVFLUtSdWdDcGgxM240TVg5bEx5b09mWFBkUQ?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "全球",
+    "impact": 2,
+    "title": "泡泡玛特推出飞天小女警DC英雄系列",
+    "note": "经典IP授权新品，属常规产品节奏，可纳入其IP储备与上新频率监测。",
+    "source": "Superman Super Site",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeTA4eTdwbXIwMk1mX1NsTGRteGhiNGpzcHNlaTd4a1VxbUtRVUhiTmpMUXNYTTdfSmtlTmV3Z2lsUFdQUWJJd2tONVkzOFBsM3Ztai1CVWNncFBPTk50NlFnZW90alNfRWEwWFpEcy0zUEZKcmsxZ0VoTWE0Vkd1bkRNcw?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "战略",
+    "market": "中国",
+    "impact": 3,
+    "title": "泡泡玛特双展位亮相进博会，首度发布可持续发展愿景",
+    "note": "借进博会发布ESG愿景，提升品牌公共形象，关注其可持续议题对行业标准与竞品披露的带动。",
+    "source": "搜狐网",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaHJrU0swdWJLd2d0Vmp4VU15LUY3TFVYM19UZExFbm0xUi1xZ29nVFE0MDNNNEgxX2hMNVdMWDJkVzN4eU83UGNFY3RDVHYyUm1OR3hRZ0pjT0RBWTgwQlQtM1M4MzViOWFYWGhGaTFIZDZzVHFsa3ZJZ0xzcHE0cXlQTXJGaWF3dFpHbA?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "北美",
+    "impact": 4,
+    "title": "泡泡玛特美国营收大跌七成，Labubu热潮退烧",
+    "note": "北美销售大幅回落，若确认将影响其海外增长叙事，是名创评估北美IP需求与货架机会的关键信号。",
+    "source": "Sin Chew Daily",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5hWk5pbm12YXFGckJ2dTFmS0ZvS2lHQ2dTUWdkN1ZKanZxMGRqbHVRNjIzVjlUZnFrVFB5b3dabXlVUGdUUHZiS1otVlFOTFRvWmdZX0xmRGFFT1lBVzBRMWtyZ2ZtNHBSQzl2YkQ2OA?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "全球",
+    "impact": 3,
+    "title": "泡泡玛特全球销售腰斩，Labubu不再一娃难求",
+    "note": "多源报道指向IP热度回落，需评估其对潮玩整体需求与名创IP类目选品的连带影响。",
+    "source": "VOCO News",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9aWjlRZWZEbENCeHFuLVV4TjV2MEN3eG0yV0ZNVEdUQmN6cmREb0VlbDhJNl9PTGNpRmZEbENLekhJNjl5VW1NNXBWVHEtVzM2clBqSlhYbm1Od0tZUll0S0VvSmtmb2hoekpQODkydE5MbUpUeVg3bkd4X0xwWmM?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "战略",
+    "market": "中国",
+    "impact": 3,
+    "title": "Hitcard以6.8亿元入主亚玛顿，泡泡玛特为股东",
+    "note": "被投企业借壳上市，反映泡泡玛特在卡牌赛道的资本布局，关注其对潮玩卡牌竞争格局的影响。",
+    "source": "搜狐网",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUHVEZ3N1eVlZbXB1US10X0ZIN3lDU2tJQjJzNTJpS0ZNRlEzQzh1Y0xpUWItQXprSDdXMXJVX1Z6ZHhEOHA2eDZwR19icFdybHFCVlRjbHBDYmtueGcxVVJDMmhnZGFtR3VSTEYwQS0tMzZWdnpQOXVKSVhNVHU4bkxxazVYM2h1?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "daiso",
+    "type": "供应链",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "大创全球配送中心在马来西亚举行开幕仪式",
+    "note": "区域物流枢纽落地马来西亚，强化东南亚供货效率与成本优势，需跟踪其对名创东南亚价格与铺货的竞争压力。",
+    "source": "Embassy of Japan in Malaysia",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5MZk84Um1RY2QxTFAtbmluSmJyaHlsYWFRM0h3a1ozQ0I4SXgxVTdoaDF4TnFqeG84VEtjamNUeGQ3eHVPTWwtaGdSblR6b29sVVZLNURENmg1WkY2eG1oNFNBekJJcUNLOXVCSQ?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "daiso",
+    "type": "产品",
+    "market": "韩国",
+    "impact": 2,
+    "title": "韩国大创5000韩元化妆品升级为神性价比",
+    "note": "低价美妆强化性价比标签，可能分流名创在韩美妆客群，建议跟踪其品类结构与定价。",
+    "source": "Kagit",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9jbElNdEx5Q1ZVeEdlWlNIejU2cFBNUlpXbDNGT1hhUmNrOC1QZHdva2p2ZGRRUmU5Tzh1Q2poSWhydEJlc0ZqNnRXd3dVNXBUbHRscnJpV3JPaTNtbzNB?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "fivebelow",
+    "type": "营销",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below黑五门破价含NeeDoh与节日盲盒",
+    "note": "节日促销主打解压玩具与盲盒，直接对标潮玩客群，需关注其价格带对名创北美节庆销售的冲击。",
+    "source": "Good Housekeeping",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNT203a3Z1X2pqLVhqZThteEZBbUxfLVdRNWo5b1gtNFpIdkl3c3ltYTQ2XzJjN1VibGxaUnBaVzA1RWhTU21zcG0zNWQzR2pPWE1fTWVlUkNoQmhqNVdLUlduY3hzTDFTQ3Z3V3FVem05QWZsWnlJVWYxb2Z6UDEzN3lmTGVGWUtFUTRpMzRHUXhHYk9lZVFZeTJITUNjd3Rod2VRaTRiNDh4QVY1R0ZtMXlkcTl4QkVzQWZoblp6Y0l4Zw?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "fivebelow",
+    "type": "产品",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below推出3美元迷你圣诞树",
+    "note": "低价节庆装饰延续其极致性价比定位，可纳入其节日商品结构与价格带监测。",
+    "source": "Dengarden",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9SM0huRmJzZXNUaGlJZ1dHUGE0ejFzbnpBbUJBMUg0azB5clFib2ZIU05HSFRYSHVUeDE5RU1jX3ZHWVZnNHFfSFc4aEU2RDhYbFJCM1NrRW1DX0c2amdpVnNJN2hqb2xQSEx5Uk1qdTJpdnlFb29NWXBKNWc?oc=5"
   },
   {
     "date": "2026-11-09",
@@ -762,17 +927,6 @@ const SEED_EVENTS = [
     "note": "借全球热门影视IP扩圈，名创可对照其IP选择逻辑，评估自身影视联名的时效窗口。",
     "source": "IMDb",
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBWSUZZc2lpZ2pRWk9WMTJCc2lJNXprenRqWVoyYjBveGFGU3VNWEhBN1lDMUVnRTZxaUlZOE9WZmlESHlBYzdaTVNQYm5oTTgwd3Uxdk16bnZncHNFZDRKQlkybHJxQQ?oc=5"
-  },
-  {
-    "date": "2026-11-09",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "全球",
-    "impact": 3,
-    "title": "UGREEN联手泡泡玛特推HACIPUPU小森林法师",
-    "note": "IP授权向3C配件外溢，显示其IP变现边界扩张，名创可关注自有IP的跨品类授权。",
-    "source": "UnGeek",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdGpOYkZQMUhVSWNzSGQ2cWxTUF81V3hSUkZwTEVrX05kZU9MYVNVZlpiWkd1UWltR3UtTEU3Mk5lN05KX2NZcXktM2tMM1JER0dRelQ4Z0UzRmQ0OC1PR2ZSUjdxbWdHdjBNUENtM1Z6M2M5MDEyRTFTYlZ6TUdPTzl4SkxnM3l0NV9HUmxRazlNYllsX3lQanJIOXk4Q1dQMEJnd3FLQWJ1WlRnTXc?oc=5"
   },
   {
     "date": "2026-11-09",
@@ -795,17 +949,6 @@ const SEED_EVENTS = [
     "note": "低价配饰靠设计出圈但质量口碑存疑，需关注品控舆情对品牌信任度的侵蚀。",
     "source": "投资界",
     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5SLV9nM2hDQlJYRktiNlVJU25JZjZmU3BvWjV4dXpyX3dXYnlrdTZfSXlJd01ySmVnZldHR3I4cThkNDlsVjFXNzNheno4anhpZjBFOHd3?oc=5"
-  },
-  {
-    "date": "2026-11-09",
-    "brand": "fivebelow",
-    "type": "营销",
-    "market": "北美",
-    "impact": 3,
-    "title": "Five Below黑五门破价含NeeDoh与节日盲盒",
-    "note": "以解压玩具与盲盒做黑五引流，直接对标名创北美节日货盘，需关注其价格带。",
-    "source": "Good Housekeeping",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNT203a3Z1X2pqLVhqZThteEZBbUxfLVdRNWo5b1gtNFpIdkl3c3ltYTQ2XzJjN1VibGxaUnBaVzA1RWhTU21zcG0zNWQzR2pPWE1fTWVlUkNoQmhqNVdLUlduY3hzTDFTQ3Z3V3FVem05QWZsWnlJVWYxb2Z6UDEzN3lmTGVGWUtFUTRpMzRHUXhHYk9lZVFZeTJITUNjd3Rod2VRaTRiNDh4QVY1R0ZtMXlkcTl4QkVzQWZoblp6Y0l4Zw?oc=5"
   },
   {
     "date": "2026-11-09",
@@ -1136,149 +1279,6 @@ const SEED_EVENTS = [
     "note": "董事长公开定调全球化路径，可作为其海外扩张节奏与战略优先级的官方口径参考。",
     "source": "新华网客户端",
     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSnU4OVdSc0JwTnhyTlYwLWFMeDh5X3c2cHExUndjTWU5U0FlQ25YZDJuY2xRN3VxbG9FLUhvNnJUSTRHWXpjV3ZtVUJ6Vjl6ei1XRUdxbXFmUk5PdENDWlVmTDl5eWwtellwMDNTNTRPRS1lYlFvY1JTUW5JZWFFQ2dqblZIUVRaeWQ0bmxpRWtsRHZldHYzbHln?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "toptoy",
-    "type": "营销",
-    "market": "中国",
-    "impact": 3,
-    "title": "TOP TOY原创IP SISI上海来福士首站快闪",
-    "note": "加码自有原创IP并做线下快闪，是其从渠道商向IP运营商转型的关键动作，值得持续跟踪。",
-    "source": "手机新浪网",
-    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOUmpRdGFiVWZsUXBIUmtrWUEtNVRaV2w1SUxRaGFMdkFGQmJzZFNfRTBWbWJEbkNSU2pmV2Fha2J3Yy1fWmpEdDh3SW1HaXNYTjg3R2FBOVYxQTRJUFNoaWlHVEpORjhTMU4xLTZCN1pWVW5jRy1KS012QUZOWmVBWGNB?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "daiso",
-    "type": "供应链",
-    "market": "东南亚",
-    "impact": 5,
-    "title": "大创斥资12亿令吉在马来西亚建全球最大配送中心",
-    "note": "覆盖27个市场的全球枢纽落地，将显著提升其东南亚供货效率与成本优势，对名创区域扩张构成直接压力。",
-    "source": "The Edge Malaysia",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBTUGFLZERJS28xYl90YmhKSkR5enBBbFN1STNDbm9GWjJnSmJ3UHVtX1pjTXNCQVhETXhud0pXSlY0VFgtZXIwbl9KTUZVZWpD?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "daiso",
-    "type": "产品",
-    "market": "韩国",
-    "impact": 2,
-    "title": "大创5000韩元化妆品Fuciderm销量破百万件",
-    "note": "低价美妆单品爆量验证其韩妆供应链能力，是名创美妆品类在韩市场的直接对标信号。",
-    "source": "헤럴드경제",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE43bmIwM0dPTzJSV3QtR1dVOXh4WHlSX0ZsWkpZTVVBTmZ4YVlIdjAtVEtwaXJIM2lMQWVXcG1MeHllUHp1bkpET05oTVRDTEtxeTdLd2hHMA?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "东南亚",
-    "impact": 4,
-    "title": "名创优品印尼开东南亚首家SUPER MINISO",
-    "note": "印尼十年节点落地超级大店，验证大店+IP模式在东南亚复制能力，需跟踪其单店模型与本地竞品反应。",
-    "source": "Retail Asia",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNX0N5dlJCMXB3cTZrUDdSUkdldXlCRl9nd3MzbG0xQm8zSk95akR2WjRRVkpQU0xYRy1HMFFuSUV0M0gwanZKaC05a2w0WEZWU2NRTExpYUVtY0ttQS1HbjdsemszOWJEdm9MR19YUmlucVE5R3J2eFFXU0s5cG1GQldxek9fRTZRVFVHRUJZRk1YOFQtVjR2UllpN1VoUWI1?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "欧洲",
-    "impact": 3,
-    "title": "名创优品卡迪夫门店面积翻倍升级概念店",
-    "note": "英国市场以翻倍大店替换旧店，属门店结构升级信号，可观察其欧洲大店化策略对坪效的拉动。",
-    "source": "Completely Retail News",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNNG55NzRfaDl1MWRBZzdINXIybFViSlhUblNmNmdiUFFBemVKbFBRZTFpUEFXWERBSWROLUNBdzVTTldiMXdoSk9EQlVoN3ZKb0dpaXBtTGxTV1h3N0lPNVV0ZGF3SkxaMnhYLUZwRlc2LUxaaEhzQUg5NlZWdlB4NXV3TG5QU3VvenkwM3VFUjNZc0RTNkpoOGo2MnBsblZzQVJZY3JUMGJnc1VXWS1feWxoX3d3LTVm?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "popmart",
-    "type": "营销",
-    "market": "中国",
-    "impact": 3,
-    "title": "泡泡玛特首登进博会中国馆展非遗联名",
-    "note": "以非遗融合IP进入国家级展会，强化品牌文化背书，需关注其IP授权与本土化叙事对竞品的示范效应。",
-    "source": "劳动观察",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNS1lzV2ZvQkJVQTVmSTlFc3NDam9Kdm02MlNTaVYzbURuSEdBSThiMy01TnpweGxNX1NWSE9XZnNYcWk4bWdUUzc1cFV5d21xMTB2QjcwdjhRbkJJV2NqU25VWlRQbHhiTkFUSEVnVWRpWUxsMnRRa3J4YzB3S2JyRV8tWQ?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "daiso",
-    "type": "战略",
-    "market": "东南亚",
-    "impact": 3,
-    "title": "马来西亚总理呼吁大创上架更多马国制造商品",
-    "note": "政策层施压本地采购，或改变大创东南亚供应链结构，需跟踪其成本与选品变化对区域价格竞争力的影响。",
-    "source": "NST Online",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQUGZDRUdIcVdrMkdWSVZBX0Z5a2o5Mm9SN3lpbndnTlU4VTFscTRzZDgtR2FSaDNvNVVSR0dYWnpOYzBJWXA2emoxWkczbHlSTHFPMUFRNUFKR1pldGhvMmxMVWxjcVhBMGVBNlBFcHVnWk1MaGUxVlJnSmdTLVZPbVlzcGNsbXVvcVRwanFwc2tzQTl2eDRSUndrT0U5TzV2djFfaHRjRGd5b1piSms0VTRueVpRQdIBuwFBVV95cUxOSkFqb1RnZXBiMjA1dl9ub1JyYjF0anBYVkJ4N1VrU0hCNWplWHZONVZRNUVIUTZsOTR1WE9DQ1Z6blJvU21JRnBfZEQyNjNqVWs2UVZjSVZ5WHZyZy10RXNXQTJISXgxcEc0UjEtRG15THpqaC1iM0RyWmJncEZJa1V0ZUo5RU12Y1R1a0wzdVdKZXdBUlMwMDZaNHFselRQaWJQSHZWRkY2cVhleVFjVDdMZjVoUXdURGNZ?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "fivebelow",
-    "type": "战略",
-    "market": "北美",
-    "impact": 3,
-    "title": "Motley Fool对比Coupang与Five Below投资价值",
-    "note": "被纳入消费股对比讨论，反映其折扣零售定位受资本市场关注，需跟踪其估值预期与门店扩张节奏。",
-    "source": "The Motley Fool",
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPSFA4TFFZLS1sdElQcnZWc0V3V1BfS3FZUzdjaURzajU2SXR4T1Fmc2wyM3RiLW44R2hRcHV6ZVBuRlZuUzBhT2VQXzBvd181cElYcHI3QTJ0VkdSZlU2dzZsVjdZdnFNRnNrakY0ZEJmNGtiRUU5Vm1JZGNfVjZDUlYxdFdTczRwVEcxT2xEQU1fSUt0U1BMdk41RUFodXVhUmVkQjAzY09lX0pLSkMtZUpoaTdCbzNvQmNQMVpockFkQ3Vkc2c?oc=5"
-  },
-  {
-    "date": "2026-11-04",
-    "brand": "miniso",
-    "type": "舆情",
-    "market": "中国",
-    "impact": 3,
-    "title": "名创优品推广视频涉偷窥剧情致歉",
-    "note": "营销内容触碰性别议题引发负面舆情，反映其内容审核短板，需跟踪后续品牌声誉与社媒声量变化。",
-    "source": "content.foshanplus.com",
-    "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE15SDBxVmMxYlN2TWQ4NXVVZXQwTDdQNjF4dnZaZ2I3X2s2c2JxNkJ5d29BX3JlTjFfWWZIVjR3c1IwUEZCV1dQWFBJRFUxSndBTWZTRDhHclJGQUdVSUdWMTB1dEMzMmRueVNNQVlGaFJiOU1yMnNCUmRn?oc=5"
-  },
-  {
-    "date": "2026-11-04",
-    "brand": "miniso",
-    "type": "战略",
-    "market": "全球",
-    "impact": 3,
-    "title": "叶国富谈中国品牌闯入全球消费决赛圈",
-    "note": "创始人对外定调全球化路径，属战略口径信号，可从中提取其海外扩张与IP战略的优先级判断。",
-    "source": "新华网",
-    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPN2lGOTJOaWRLTUlLMEZJeEtNVEF3SnQySG1YM2tySDZUZFg5TzA5c0IwQmM4NU5NVEpRVXhnMGxPMHFEVmEwc2pvRjZTTExLLXZSQmhJdVhSTUFVeS03RERlcXlrRk5Nd1J5ZW03aHU1ZzBKWXJaR2tzODB6UndBakZsUHN5SkFE?oc=5"
-  },
-  {
-    "date": "2026-11-04",
-    "brand": "popmart",
-    "type": "财报",
-    "market": "中国",
-    "impact": 5,
-    "title": "泡泡玛特Q3收益同比降45%-50%",
-    "note": "头部潮玩收入大幅下滑，行业景气度转弱信号明确，需评估其对名创IP联名与潮玩品类销售的传导。",
-    "source": "亿邦动力网",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5FeFhibFZxNWFwNlR5S1lUcm9IX3ViTDBfblBsM0lvV3I0ejBRVEVEbDFOdVNjZmRiSmxCc0EzeTNRcnlLZXZHMFpRYkhfZmR6VWRQMGVR?oc=5"
-  },
-  {
-    "date": "2026-11-04",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "中国",
-    "impact": 3,
-    "title": "交通银行推泡泡玛特Zsiga联名信用卡",
-    "note": "金融联名扩展IP变现渠道，反映其IP授权向金融场景延伸，可跟踪联名品类扩张节奏。",
-    "source": "新浪财经",
-    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1CZGJGa0VRTE1mZWwxR0FWdzBTYW83LTlIckNhcHRfdENxbVI2cnZpZkxvSkdqZlAwWHFabzBUX2tZWUNWekdRaE9BdkR2TklxaFFsdWNyNF9EN3JOZkRjenZvUjI5OTFLZHJHYUFJbHZjMlpiMkRQLQ?oc=5"
-  },
-  {
-    "date": "2026-11-04",
-    "brand": "miniso",
-    "type": "营销",
-    "market": "中国",
-    "impact": 3,
-    "title": "时代少年团出任名创优品全球代言人",
-    "note": "启用顶流团体做全球代言，强化年轻客群与IP心智，需关注其联名周边与门店引流效果对同类品牌的客群分流。",
-    "source": "微博",
-    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5RUU9NTmtKZFgzVFFkaVNicTNfanU2QVZialNpNlRQZVFvalctZERfVkZPWmUyb3Qwd3d6SEM0M1M1dkM5U1Z2ajFGUkNkV24zODI2TGwwQWJzR3gzTUV1d3RwRkliRV9MUmQ4UU9MYw?oc=5"
   }
 ];
 
