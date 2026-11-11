@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-11';
+const SNAPSHOT_DATE = '2026-11-12';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -731,13 +731,112 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
   {
+    "date": "2026-11-11",
+    "brand": "miniso",
+    "type": "营销",
+    "market": "中国",
+    "impact": 3,
+    "title": "MINISO GALLERY首秀上海艺术周并亮相ART021",
+    "note": "名创以艺术化子品牌切入艺博会场景，意在提升品牌调性与客单价，需关注其后续门店化落地节奏。",
+    "source": "Sohu",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSDkzWm1xZ2o3bGxqbnNPdzFuX09lcFJwa2JaY194WFd2NHRSTVJUWFRXMWE4ZXRETzh6RXB3Mm1SMl80ZjJVY09pbUY3RC1MOXd6Z3dmeThzTzhfMHQyM2NJUUt2U3lOQ3B2Sy1ia3daV1RRVUs0b2NPdXZtVTdDUXBDVFpZVW5nS09CRlBnQQ?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "名创优品将于11月17日发布财报",
+    "note": "财报是本周最高优先级事件，需提前梳理分析师预期，重点看海外门店增速与IP产品占比变化。",
+    "source": "富途牛牛",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOVGFGcENvNG5XdS1OUTdvQnJKYkM5ZTVHbVotZWFEOFVLY09tS1ZFZnk3Slo5NzhJbmE0UHVmdWlITGtTbmxPdlZUTF9HNGNiN2R2VEt2cml2eVc2a0FGNkd0OE5RUnNiOHlnbmw2RXVLN3dzVi10dy1pMW1BX3pKZmtuSlRSZEljbm1aazRub2NidHVUQnRXQi1MdGYzWnZ6MEl5bHVJWQ?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "北美",
+    "impact": 3,
+    "title": "名创优品美国La Palmera Mall新店开业",
+    "note": "美国南部购物中心持续布点，说明其北美扩张从沿海向二线商圈下沉，可对照TOP TOY出海节奏。",
+    "source": "kiiitv.com",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNeFh2cmU4cVdFclJndlQ4MnY1cE1vdERKYlVJWk5mM1c3dTNPdU5GeS14UVQwT3lUZEcya3kyMm1hWGVKcFZYbjdCZE5yWkVHUnBHa2NUWHZVNDJIcGVhOF83Z1NoTFFUdTdSY0VLZ19nVVM1dEdtczBlRmg2b2hCY3l6M0ZNcEZWNExEUXZTUEZ1X0x1R0ZCcHRqSHEzX05fT2FYSW9RQUlDWDgtTi1VTzRXNFY5U1B4WENVd0RDUlJ0VE9MUEVlNWNn?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "东南亚",
+    "impact": 4,
+    "title": "MINISO LAND曼谷店落地，泰国大店模式扩张",
+    "note": "LAND大店在泰国复制，标志东南亚从铺量转向体验型大店，需跟踪单店面积与IP联名投入产出。",
+    "source": "Inside Retail Asia",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOeFhVRU9oRnZnd2I2M2lNdGUydmR3RlB4WFdpMUJ6and6V3hYN0JwLWF6UXNyUXBUN2s3QzhVYXV0cWFmcEdsaTRyd0ZtaFltU0RGbWt1T2ZrOTVLeUV4QmZGbnJiM0p3enJFbkRUZjZlUnc5aEo5QmcySDM5bEdZTW1pdkQwSnZG?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "popmart",
+    "type": "财报",
+    "market": "中国",
+    "impact": 5,
+    "title": "泡泡玛特Q3营收降45%",
+    "note": "营收大幅下滑是重大信号，需核实口径并评估潮玩行业降温对名创IP产品线的连带影响。",
+    "source": "亿邦动力",
+    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1WWVVhWTcyeHhhVGRSRG1yZmRSeEFfRzljeWlqUnFwUWstT09LWDRDa1dHdkhScWpyNnZIejI2cjlLVnhjcFE?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "UGREEN与泡泡玛特推出HACIPUPU联名系列",
+    "note": "IP授权向3C配件延伸，是泡泡玛特IP变现多元化的样本，名创可参考其非玩具品类授权路径。",
+    "source": "Pokde.Net",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE03S0RTd09INmhzM1ZKMzdDZ1UxZmlNX1RiZW1zZFA2T2Y4MU9mRlljYlNwa3phQkk0ZVRINnRuRHB3aVg3Vl9STUdIX09xVnZnQ3FQempHSW4tS045X2xNRnNpY0xwRUN3bVdj?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "daiso",
+    "type": "人事",
+    "market": "韩国",
+    "impact": 2,
+    "title": "韩国大创会长朴正富获EY年度企业家大师奖",
+    "note": "创始人获国际奖项提升品牌背书，属软性信号，可留意其后续在韩国市场的扩张表态。",
+    "source": "Seoul Economic Daily",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOTEdiUTlLc0k2TXAtRGhiNmJkTzEteXVVWTVReHR6YkRVY2lhbHRKUGtsSHFoYllQc0xLbEU2LXlEVkVUREpNZW1hVEFjUy0zc293dTlGT2I1OVU1bW45VFJJVmx5WnU3R0I3dlVnMGVKZThfaDZGRkxGdFExbnJ0eDRMNnE4MXljRzIzS0VKYjJGM0Yyd1E?oc=5"
+  },
+  {
+    "date": "2026-11-11",
+    "brand": "fivebelow",
+    "type": "营销",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below公布假日季优惠预告",
+    "note": "假日促销提前预热，是其Q4冲量的常规动作，可对照名创北美门店同期促销力度。",
+    "source": "The Knockturnal",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOQTNicE5QYkV2LTZSLUk2Q0NhZ21qT0dkTThtV1BPTHhwZjhVUUJHYml2YkhVaUJvVk1FdWtQRHNFNDBEX3VscjlTd29ldjdPSU42bnNKVTlJb2d2OEVELUo2V3d0bjNvcXZkdFY4NFRvdExvbjR5OGw5eEdBeUR3aWNqcmMwbDFVSGc?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "miniso",
+    "type": "开店",
+    "market": "欧洲",
+    "impact": 4,
+    "title": "MINISO Friends新店态将在英国推出",
+    "note": "英国首推Friends店态，是名创欧洲差异化店型试验，若跑通可能反向输入其他市场，值得持续跟踪。",
+    "source": "Blooloop",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBIazlvNGh0YU9TdUsxajgwekIyZUFGQkNXNmlJaXdPOUx3dWVkd1ZobHhXYWVCcXdja1NfUl9HNkhTcW43V0l2XzZSdDNzdWRxS1FOZjZHNm1tVng1M1AyRlNld0Rtankwd3c?oc=5"
+  },
+  {
     "date": "2026-11-10",
     "brand": "miniso",
     "type": "开店",
     "market": "东南亚",
     "impact": 4,
-    "title": "名创优品印尼十周年，东南亚首家SUPER MINISO开业",
-    "note": "东南亚首家超级店型落地印尼，标志大店IP化模式向海外复制，需跟踪其单店模型与本地化IP组合。",
+    "title": "名创印尼十周年，东南亚首家SUPER MINISO开业",
+    "note": "印尼十年节点推出超级大店，显示东南亚为战略重心，需评估其对当地潮玩与日杂竞品的挤压效应。",
     "source": "MINISO",
     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE82R29vbGwtZGwzbURzMnFiZ2ZGY0FuUUFTcjVWQnRmaTJFQlZFemZmUDQxT1ZMd2dvTld6QjNjTjRhUFpUMXNaS0VUUDgxckE1QkZSaw?oc=5"
   },
@@ -748,20 +847,75 @@ const SEED_EVENTS = [
     "market": "中国",
     "impact": 3,
     "title": "北京首家SUPER MINISO落地朝阳",
-    "note": "超级店型进入一线城市核心商圈，验证大店策略在国内的可复制性，关注后续门店数与坪效数据。",
+    "note": "超级大店向一线城市核心商圈渗透，是名创对抗潮玩品牌线下体验竞争的关键动作，需跟踪客流数据。",
     "source": "International Web Portal of Beijing",
     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8zajhGZF94Q1MxR3NjUmZ3SlNTcGE0LW5QbFptVzFmdnYyYXBSNS12MWxzZ1FLTlFFTmRmWHg5SG02a1dOSEg2SHpOZ2hqWml2VzV1MERTNlB2UzJwYXRyUi1tZ3RFOEJOM0hldmJuc0ZSZVZyREpCWG9QSmQ?oc=5"
   },
   {
     "date": "2026-11-10",
     "brand": "miniso",
-    "type": "开店",
-    "market": "欧洲",
+    "type": "战略",
+    "market": "北美",
+    "impact": 4,
+    "title": "名创优品加码加拿大扩张计划",
+    "note": "加拿大扩张升级，北美第二战场成型，需关注其与Five Below等折扣零售在价格带的正面竞争。",
+    "source": "strategyonline.ca",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA0ZHNuQlVzVExvMXoxTkxKUm1WSUxUNWNkdVpKRG42NnlrTXYxcVdqY0pacmRybk85RkVoVnl3bFJYYXhpSHBfU2hUWWNFeUdrdU9oV251MEN0N1FxejgtS1E3S1llZw?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "战略",
+    "market": "中国",
     "impact": 3,
-    "title": "名创优品Miniso Friends新店型将在英国推出",
-    "note": "英国试水新零售概念店型，反映其欧洲业态创新，需关注是否影响当地竞品客流与IP合作策略。",
-    "source": "blooloop",
-    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBIazlvNGh0YU9TdUsxajgwekIyZUFGQkNXNmlJaXdPOUx3dWVkd1ZobHhXYWVCcXdja1NfUl9HNkhTcW43V0l2XzZSdDNzdWRxS1FOZjZHNm1tVng1M1AyRlNld0Rtankwd3c?oc=5"
+    "title": "泡泡玛特双展位亮相进博会，首度发布可持续发展愿景",
+    "note": "借进博会发布ESG愿景，属品牌形象与合规布局，短期不影响销售，但影响其国际渠道合作话语权。",
+    "source": "搜狐网",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaHJrU0swdWJLd2d0Vmp4VU15LUY3TFVYM19UZExFbm0xUi1xZ29nVFE0MDNNNEgxX2hMNVdMWDJkVzN4eU83UGNFY3RDVHYyUm1OR3hRZ0pjT0RBWTgwQlQtM1M4MzViOWFYWGhGaTFIZDZzVHFsa3ZJZ0xzcHE0cXlQTXJGaWF3dFpHbA?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "Skechers与泡泡玛特Pucky联名鞋款及匹克球套装",
+    "note": "IP联名进入运动鞋服品类，显示泡泡玛特授权边界扩张，需关注其对名创联名资源的争夺。",
+    "source": "FZINE Singapore",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9zZ1pOVExOaXVMM0pwdTU0MmNVZG43YWN3alllMGN6YzhWcVJSZjdrWnlwU2lvNWlzV2tucXlwN2FxX2F0OEppTTVFLUtSdWdDcGgxM240TVg5bEx5b09mWFBkUQ?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "全球",
+    "impact": 3,
+    "title": "Labubu热度消退讨论升温，收藏者发声",
+    "note": "海外媒体开始质疑盲盒热潮退潮，若持续发酵将影响泡泡玛特海外估值，也提示名创IP选品需防过热。",
+    "source": "Fashion Times UK",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQa2V0VDd3ZWVGQ09SaHVXbWNrbzgyaldpU0xGY0FES251WW5tSjl1MkhOYURLNFZsZWdjb09GSXZLWnNULTJGVkVFUDUwRVc1WjNXOXEyT0NRYkFKNWNaYVhDRl9kaDBJMVVja0ZSa1Q5NGlLWmVVeW8yYmVhcUlUTF95X0Y?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "daiso",
+    "type": "供应链",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "大创马来西亚全球配送中心正式启用",
+    "note": "区域配送中心落地马来西亚，将强化大创东南亚成本与补货效率，对名创东南亚供应链形成直接压力。",
+    "source": "Embassy of Japan in Malaysia",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5MZk84Um1RY2QxTFAtbmluSmJyaHlsYWFRM0h3a1ozQ0I4SXgxVTdoaDF4TnFqeG84VEtjamNUeGQ3eHVPTWwtaGdSblR6b29sVVZLNURENmg1WkY2eG1oNFNBekJJcUNLOXVCSQ?oc=5"
+  },
+  {
+    "date": "2026-11-10",
+    "brand": "daiso",
+    "type": "产品",
+    "market": "韩国",
+    "impact": 2,
+    "title": "韩国大创5000韩元化妆品被评高性价比",
+    "note": "低价美妆持续强化性价比标签，是名创美妆品类在韩国的直接对手，需跟踪其爆品结构。",
+    "source": "Kagit",
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9jbElNdEx5Q1ZVeEdlWlNIejU2cFBNUlpXbDNGT1hhUmNrOC1QZHdva2p2ZGRRUmU5Tzh1Q2poSWhydEJlc0ZqNnRXd3dVNXBUbHRscnJpV3JPaTNtbzNB?oc=5"
   },
   {
     "date": "2026-11-10",
@@ -812,33 +966,11 @@ const SEED_EVENTS = [
     "brand": "popmart",
     "type": "联名",
     "market": "全球",
-    "impact": 3,
-    "title": "泡泡玛特与斯凯奇Pucky联名鞋及匹克球套装",
-    "note": "IP联名进入运动鞋服品类，扩大海外触达，关注其对名创海外IP联名生态的竞争影响。",
-    "source": "FZINE Singapore",
-    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9zZ1pOVExOaXVMM0pwdTU0MmNVZG43YWN3alllMGN6YzhWcVJSZjdrWnlwU2lvNWlzV2tucXlwN2FxX2F0OEppTTVFLUtSdWdDcGgxM240TVg5bEx5b09mWFBkUQ?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "全球",
     "impact": 2,
     "title": "泡泡玛特推出飞天小女警DC英雄系列",
     "note": "经典IP授权新品，属常规产品节奏，可纳入其IP储备与上新频率监测。",
     "source": "Superman Super Site",
     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQeTA4eTdwbXIwMk1mX1NsTGRteGhiNGpzcHNlaTd4a1VxbUtRVUhiTmpMUXNYTTdfSmtlTmV3Z2lsUFdQUWJJd2tONVkzOFBsM3Ztai1CVWNncFBPTk50NlFnZW90alNfRWEwWFpEcy0zUEZKcmsxZ0VoTWE0Vkd1bkRNcw?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "popmart",
-    "type": "战略",
-    "market": "中国",
-    "impact": 3,
-    "title": "泡泡玛特双展位亮相进博会，首度发布可持续发展愿景",
-    "note": "借进博会发布ESG愿景，提升品牌公共形象，关注其可持续议题对行业标准与竞品披露的带动。",
-    "source": "搜狐网",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNaHJrU0swdWJLd2d0Vmp4VU15LUY3TFVYM19UZExFbm0xUi1xZ29nVFE0MDNNNEgxX2hMNVdMWDJkVzN4eU83UGNFY3RDVHYyUm1OR3hRZ0pjT0RBWTgwQlQtM1M4MzViOWFYWGhGaTFIZDZzVHFsa3ZJZ0xzcHE0cXlQTXJGaWF3dFpHbA?oc=5"
   },
   {
     "date": "2026-11-10",
@@ -872,28 +1004,6 @@ const SEED_EVENTS = [
     "note": "被投企业借壳上市，反映泡泡玛特在卡牌赛道的资本布局，关注其对潮玩卡牌竞争格局的影响。",
     "source": "搜狐网",
     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUHVEZ3N1eVlZbXB1US10X0ZIN3lDU2tJQjJzNTJpS0ZNRlEzQzh1Y0xpUWItQXprSDdXMXJVX1Z6ZHhEOHA2eDZwR19icFdybHFCVlRjbHBDYmtueGcxVVJDMmhnZGFtR3VSTEYwQS0tMzZWdnpQOXVKSVhNVHU4bkxxazVYM2h1?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "daiso",
-    "type": "供应链",
-    "market": "东南亚",
-    "impact": 3,
-    "title": "大创全球配送中心在马来西亚举行开幕仪式",
-    "note": "区域物流枢纽落地马来西亚，强化东南亚供货效率与成本优势，需跟踪其对名创东南亚价格与铺货的竞争压力。",
-    "source": "Embassy of Japan in Malaysia",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5MZk84Um1RY2QxTFAtbmluSmJyaHlsYWFRM0h3a1ozQ0I4SXgxVTdoaDF4TnFqeG84VEtjamNUeGQ3eHVPTWwtaGdSblR6b29sVVZLNURENmg1WkY2eG1oNFNBekJJcUNLOXVCSQ?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "daiso",
-    "type": "产品",
-    "market": "韩国",
-    "impact": 2,
-    "title": "韩国大创5000韩元化妆品升级为神性价比",
-    "note": "低价美妆强化性价比标签，可能分流名创在韩美妆客群，建议跟踪其品类结构与定价。",
-    "source": "Kagit",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9jbElNdEx5Q1ZVeEdlWlNIejU2cFBNUlpXbDNGT1hhUmNrOC1QZHdva2p2ZGRRUmU5Tzh1Q2poSWhydEJlc0ZqNnRXd3dVNXBUbHRscnJpV3JPaTNtbzNB?oc=5"
   },
   {
     "date": "2026-11-10",
@@ -1169,116 +1279,6 @@ const SEED_EVENTS = [
     "note": "服务27个市场的区域枢纽落地，显著提升东南亚补货效率与成本优势，需评估其对名创东南亚的挤压。",
     "source": "EdgeProp",
     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOd0Z0NEhfTjQzVWlURlY5cEhvOF9jakZIajhPOVczaFZ6Q01seHU5WVlmakdhdy1rWkxOZjROQWh3aFFZVUNyTG1wRWlpb2VZOVNBV0NJTUpaanV6NzJoM0hWYy11Vng2d3g5T2NmNDYzLW16VTZZaEh2YllSVnlqWHNHa213LVc4LTgtNzhkdDJVcGVxc3JyQWo1YlM?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "fivebelow",
-    "type": "舆情",
-    "market": "北美",
-    "impact": 3,
-    "title": "拉斯维加斯Five Below门店发生致命枪击",
-    "note": "门店安全事件或引发舆论与安保成本上升，需关注其对客流及门店运营策略的后续影响。",
-    "source": "KLAS 8 News Now",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOC1KTmE1V0pQc0hoRTNUTGVIS2tjenYwUlE3QkFMMmFCNlFnRldxR0xhXzVBaWZrN1ZzSDRrME0tTEctSGRfUEJtbHl4Ml8yX2xycG1qT2RTZWwwWDQyQjhxS0VJRG9vazlDWTdVaVF0ZlBkNHZ0RlRjOHFMQ1V0aDBRUEQ2czkxMXAtOHo3bURyYW1Ud3hiR3c4NV9HOFVGWWxOT09JaXfSAa4BQVVfeXFMT1NNdGVZSy1NZGt5QWhQNkhZNnhUNzBIbEp6TWpKdGtYeUlTb3N4UXAxQ1p2cFNMTllTbDJIejBtNGFuVW1rSkpOQzJNM1UwbjdRdC10aFFVemExdXZTTUMxWEo0SmJrc2pPb29udndOTDZIRFJlMjhkVUR0VzVPWkRkaGl3bENZNVhHY2Rhb003NWEyQVFza2ZwNGFvcElpZ3lXRnk1R1NJRV92c253?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "fivebelow",
-    "type": "开店",
-    "market": "北美",
-    "impact": 3,
-    "title": "Five Below曼哈顿新店开业引投资者关注",
-    "note": "首次深入高租金城市核心区，测试其低价模型在都市商圈的适配性，需跟踪单店表现。",
-    "source": "Simply Wall St",
-    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZmMxRGJLLUVjY2JNeWdYWnRBV2QweVVNTWJjOU10VnVtYjcya1JycEFobVZNY0czQ1FJOGZ2SDdTdnJCQjYyNGc1Qm1FU1M1X0RqM2o1VDd6UHZ6TFdMWTZQQlhPeW1hTnk5V1hoVXl0QmR3dzJhaHFuWVhRXzlFT0tyVFI4RnQ5cTJqOXo1LTdzWHRjMU85NnI3M3JZY0w3WnRZQlpoeG4yVE5SWVlySURJRk9oTmpGMGZLcUFzbGRhUno5SlVxeGdTMNIBywFBVV95cUxOZmMxRGJLLUVjY2JNeWdYWnRBV2QweVVNTWJjOU10VnVtYjcya1JycEFobVZNY0czQ1FJOGZ2SDdTdnJCQjYyNGc1Qm1FU1M1X0RqM2o1VDd6UHZ6TFdMWTZQQlhPeW1hTnk5V1hoVXl0QmR3dzJhaHFuWVhRXzlFT0tyVFI4RnQ5cTJqOXo1LTdzWHRjMU85NnI3M3JZY0w3WnRZQlpoeG4yVE5SWVlySURJRk9oTmpGMGZLcUFzbGRhUno5SlVxeGdTMA?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "东南亚",
-    "impact": 4,
-    "title": "名创优品东南亚首家SUPER MINISO落地雅加达",
-    "note": "大店业态首次进入东南亚，验证超级门店模式可复制性，需跟踪其坪效与本地化选品。",
-    "source": "Marketing-Interactive",
-    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOMzFKUGE0RXVfSlJfTWg5NmQ2X3FSMVcwYVI4b3l4b0VMRzF0d0FUbWJfRU9PQ1dtNHpOMDhzRlJMMTRlYlNhbWdDSFFpckJJTzJSREVzMmN2T0NiQmZqcHRDN3FIWVI4WHdVSFIzUy1sZ0IyUC1mLVVQUHN1aThvWTVDU0JQYTBwMEhuUlhFMEJRaGkxb1JJNnU0R3dDWnkwcEpHMWMyUQ?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "中国",
-    "impact": 4,
-    "title": "泡泡玛特1999元CLOT联名麻将10分钟售罄",
-    "note": "高价联名验证IP溢价与潮玩跨界生活方式品类能力，二级市场溢价2660元显示稀缺性运营成熟。",
-    "source": "观点网",
-    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1vVFp3aTA3cUFxbjRWOVNLRlJNc1Vqa2JzMTBQMW96dl9ndVRIVnlkUkZTRWRtZjg1ZTR6dWFERUs0d2JOSHV2UG1NdDRLUGc5T1VmaUt0di0tTXRaRTdscEJB?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "popmart",
-    "type": "营销",
-    "market": "中国",
-    "impact": 3,
-    "title": "泡泡玛特首登进博会中国馆展非遗联名",
-    "note": "以非遗+IP切入国家级展会，强化文化背书与政企关系，是品牌向上与政策友好度的信号。",
-    "source": "21财经",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUjZBdWJqNWxlLU5vV3JhQXd3VFlWdExoZHgzUWF3OWNwb0M5T0pzbkJXcldpdXF1dmQyNDdjRG9pNGtZQTJsSEpqNXZyU1RDYWEwcGliVmV0SFVRWXdWQzgzMHFnWGJqZUtqbmRiRGx3VEoydlI1VGNtREs0ZjZ0ZXA4cXR1NjVqWXV4eElNOA?oc=5"
-  },
-  {
-    "date": "2026-11-06",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "东南亚",
-    "impact": 3,
-    "title": "Skechers与泡泡玛特Pucky联名鞋款发布",
-    "note": "IP授权延伸至鞋服品类，东南亚落地，显示其IP变现从盲盒向生活方式授权扩张。",
-    "source": "NYLON SINGAPORE",
-    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOHRuSkE0dkdXZ2N6Yk53djV0dC1WVW5PZDdGdU5TSjNQVEszQmw4N1MxN3hvc1BsY1JfaVJmVFEwZE1Ed2w0S1gzZlFuaENYRHZLeUQtV2JuUHR1MEVSUHcweFkza21hRDFpeFBvT29uclJDVTBBUGhQYkpyRFBuLUQ1UERLMkdscGg0X0xBU0g0Zmh1OUlSd2RVb3A?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "miniso",
-    "type": "产品",
-    "market": "全球",
-    "impact": 3,
-    "title": "名创优品YOYO系列单月全球销售额破2亿",
-    "note": "自有IP单品爆发力接近头部潮玩，说明其IP孵化开始见效，需关注是否形成系列化复购。",
-    "source": "维科号",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE13OWR4TF9DVnRKS2RFMndMY2ZUdmtmbXZ4b3k2ZjllaFVHTGNNeTdOd0laU056Z19BM0E1dlFHYWxScmhzM3FYemJYTmtNOHAt?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "fivebelow",
-    "type": "战略",
-    "market": "北美",
-    "impact": 3,
-    "title": "Truist称Five Below投资者担忧squish玩具动能流失",
-    "note": "核心爆品类增长可持续性受质疑，若失速将影响其低价引流模型，可观察其品类接续策略。",
-    "source": "Yahoo Finance",
-    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUmloM2JhNE5DWGFvVUx3dGJhbmlLd2VVN0I2d3ljYVRiZDNnUE5ISVJsXzNlRzNZdjhBTmdoYmw4ejcwdERZeVNlSEpXOUkyYnYyYmY3NWJKTk5HUk5MWG1ISC1hRXgydHVqY0ljbFROSXVNYUxIRWpMMzhENTgyOXdpLVNtMllaZmVuRjJLcVJvaXBaamprVFI0VGhoalZvdE1JZg?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "欧洲",
-    "impact": 3,
-    "title": "名创优品比利时首店将进驻Broeklin",
-    "note": "比利时为首个新进入市场，欧洲版图继续加密，可与Flying Tiger本土优势形成正面竞争。",
-    "source": "RetailDetail EU",
-    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNMWEyOUl0WEVaaGM2V2tjN19YVlNxcTY1T25rRnlOb2F3ajUydWFBNlI0WklGUE43c0JqOU9Vejc4N3J3aklrRkstaDhMUXhRbGF4RTN0TTEtTENRSHFuS0NmTzNWNDFnTU80blVqUkFyTjdCMTNBd0NzN0FSUTgzaFJfc0NiaV9Eb3FiOGM4OThRV2pGUUx6RHdhQXBCdFhWdElDR21FaVZ2OW1vZFVhZFhPY3VUeUw0VUd1bw?oc=5"
-  },
-  {
-    "date": "2026-11-05",
-    "brand": "miniso",
-    "type": "战略",
-    "market": "全球",
-    "impact": 3,
-    "title": "叶国富谈中国品牌闯入全球消费决赛圈",
-    "note": "董事长公开定调全球化路径，可作为其海外扩张节奏与战略优先级的官方口径参考。",
-    "source": "新华网客户端",
-    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSnU4OVdSc0JwTnhyTlYwLWFMeDh5X3c2cHExUndjTWU5U0FlQ25YZDJuY2xRN3VxbG9FLUhvNnJUSTRHWXpjV3ZtVUJ6Vjl6ei1XRUdxbXFmUk5PdENDWlVmTDl5eWwtellwMDNTNTRPRS1lYlFvY1JTUW5JZWFFQ2dqblZIUVRaeWQ0bmxpRWtsRHZldHYzbHln?oc=5"
   }
 ];
 
