@@ -1,25 +1,102 @@
 [
   {
-    "date": "2026-11-14",
+    "date": "2026-11-15",
     "brand": "popmart",
     "type": "舆情",
     "market": "全球",
     "impact": 4,
-    "title": "SCMP：LABUBU热潮见顶，泡泡玛特玩具销售下滑",
-    "note": "外媒定调LABUBU峰值已过，若销售持续下滑将影响其海外扩张节奏，为名创与TOP TOY争取IP合作与货架空间创造窗口。",
+    "title": "泡泡玛特销售下滑引外媒质疑Labubu热度消退",
+    "note": "南华早报等外媒聚焦其玩具销售骤降与IP生命周期风险，若持续发酵将影响海外渠道与投资者预期，需跟踪后续财报数据。",
     "source": "South China Morning Post",
     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdk1oNVRlcXhrYzRqdGdqVTFUb05GdVJZWjlISjZ3RVlCOGNxT0xhZGo2NHdheF9aSmhpRV9NRS1hWFFNMGJLd1Y3cHRxQXdqbVRWRkpZMlI4TS1LbDhFY0xTd09NaEZSc2g0VEx4UkYySEk3MFRsZ0VYeUNibm5FT24wOC1NbVpXdFd1N0lKei1uVVhHSW9LOHVjNWZGSW1TcTJBZHotb1UteVhIeEFjbGNNTHNKUXlRUVhuQk84X19VUQ?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "popmart",
+    "type": "供应链",
+    "market": "中国",
+    "impact": 3,
+    "title": "泡泡玛特持续回购股份并全部注销",
+    "note": "回购注销释放管理层对估值信心信号，但结合销售遇冷报道，反映其正以资本手段对冲市场情绪，需关注后续IP推新节奏。",
+    "source": "手机新浪网",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5wRzJhdC1taDBBaC1YSVhNVDc5QVRSaTZNcjQzM0NKb1FJMmtJb2YwbE5kOU5QV2Y2U21BckNmNEg5OFpaOVcyRUNHMVA4LW5JRW5RdEJEOGlJRk1ULWxHMEVJZG5rVXJmRzdRM0s5N1BqY0k?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "中国",
+    "impact": 3,
+    "title": "淄博琉璃×泡泡玛特MOLLY限量99个秒空",
+    "note": "非遗工艺联名强化IP文化溢价与稀缺营销，是区域限定打法样本，可观察名创在国潮联名上的差异化空间。",
+    "source": "Sohu",
+    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQS3RsdFYyanhqTFdHdkI1Q1pxa2JIdEphajR2YU5uc3JwbEpKZnpIM3FjbWJQN2RkVkdxTENPMnk1V2ZsdkRpdjU2YWctZ3RDcXhvZXQ1aE5aYkZodE5QLV9rUkg0OTJueEE2QW8tZldMM0hzNVZlWDgybkNaajBBa1h3ckhhand6U3U0eA?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "泡泡玛特HACIPUPU联名UGREEN推数码配件",
+    "note": "IP向3C配件延伸，拓宽使用场景与客单价，显示其跨界授权加速，名创可关注同类IP×实用品类组合机会。",
+    "source": "TechBarrista",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5ieTNhaWxTSWdnX3FvQ3ZaamlUZzllRmdVQk5VRjVIUkdWRmd6U3N6elh6YTNMOUxnQ0RTOUtTbjFUYWc4VDlVYWdqYVdRamZXcncySlJaa3lxZDNjLS1nTnVjY3Ztd3k0Z0hOUHItaHplWUk?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "fivebelow",
+    "type": "产品",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below推5美元史努比宠物玩具",
+    "note": "以低价IP宠物周边切入节日礼品场景，强化性价比心智，名创可对照其IP授权成本与选品节奏。",
+    "source": "AOL.com",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4wTU5uRGFlWVU2a0hKNERuRFZSVXZNTHdSMzlTSFNfLW9TU01QNC1zamJxOWxjeXpXTzRqdTZiaFdITmVaaG5BTFh4WUdkTHpQQ0czUkVaQjhtT1E3aEx1dFh4LUxlU1N6Q19uOU1Ga09pNVE2eG9SbHFreGQ0Zw?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "fivebelow",
+    "type": "人事",
+    "market": "北美",
+    "impact": 1,
+    "title": "Five Below首席会计官减持13.7万美元股票",
+    "note": "高管小额减持属常规披露，信号弱，仅作内部人交易动向备查。",
+    "source": "Investing.com",
+    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOay1aZ2FvNHJ2X2taQTE0RjFwLWgyNzZINUtVLWh4Sk1QOWJNYlBEd0lzVTRoUXBGS2hwRW9OZ2NfbjNUSEt1b0tjUS1PcXVvMFZfSlVqWGZpLVQ1OTVxTmdLYWNnLTdaYnp2bDRWOXY3THh2VmtLeFZiUFU1eFBja2VTeWtVVDZTZThrenhOM2haS2w4N1JhRExySGJyR2R5N2c4bjZUSHFjRXkzVGc0?oc=5"
+  },
+  {
+    "date": "2026-11-15",
+    "brand": "miniso",
+    "type": "战略",
+    "market": "北美",
+    "impact": 1,
+    "title": "名创优品ADR获券商共识目标价15.27美元",
+    "note": "仅汇总分析师目标价，无新增经营信息，属弱信号，可作投资者情绪参考。",
+    "source": "MarketBeat",
+    "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNSEZTVjF6X3hya1k2Z0R3T3F4WDhNT1VaTXVvWUZ6RnFEazBaWTBLRlA1dTJNX1ZUQlExOUdReGlWVDBJeEJ3anhMbmRTbERjWU5qeUFfMmVqWk42WU5ma2NqX0U4cU00eUJxM3hhRWo0YXQ1S1NYNFlMUHRidnRaSlB0QVV0UHRJY09BM1lxTkZVR1JwQkxUSDBpRDRCbVFJR2R4allvSHJ6d0E5WjhyWU50cldkYm5MTnBjRFdFSDdvZUx3ZEhkQUMyNWROaWNrblRxcVZ3TVh5Ym5uVDFyN2I1b1pmWVJSNzYzRXFnbVk2SnNSUndJaGR0R0l6dExyTUZpODFZNXNhaXlUMEVQRQ?oc=5"
   },
   {
     "date": "2026-11-14",
     "brand": "popmart",
     "type": "联名",
-    "market": "全球",
+    "market": "北美",
     "impact": 3,
-    "title": "泡泡玛特HACIPUPU与UGREEN绿联推出科技联名",
-    "note": "IP向3C配件延伸，显示泡泡玛特在生活方式品类扩张，可能挤压名创在数码周边联名的合作空间。",
-    "source": "TechBarrista",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5ieTNhaWxTSWdnX3FvQ3ZaamlUZzllRmdVQk5VRjVIUkdWRmd6U3N6elh6YTNMOUxnQ0RTOUtTbjFUYWc4VDlVYWdqYVdRamZXcncySlJaa3lxZDNjLS1nTnVjY3Ztd3k0Z0hOUHItaHplWUk?oc=5"
+    "title": "Skechers×泡泡玛特PUCKY推出联名服饰",
+    "note": "IP授权进入鞋服赛道，扩大北美曝光，属轻资产变现路径，需评估其对名创IP联名矩阵的挤压。",
+    "source": "Hype.MY",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdzhnWGJQMmw1NkxWRy1yOVhBRDdJNkl4ckJpLVMwVzJpZXJKMnV6eHAtY2JTLUFpNTlkRGZ2eVBCZzc1al9wVE1LTjNuLU0yWUVncHRjcHVlM1V1NjloVG5zc2s1SzVFVHB3eDRncVZHT2tqTnBIVHdlQTFXQlRnVWZkOTFOQ0JfQVhzZnBUNS1Ccktrb1l2dGtqT1lXRjFY?oc=5"
+  },
+  {
+    "date": "2026-11-14",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "中国",
+    "impact": 2,
+    "title": "外挂群控3000部手机抢LABUBU案宣判",
+    "note": "黄牛技术化抢购反映热门IP供需失衡与二级市场乱象，提示名创在限量发售机制上需前置风控。",
+    "source": "Sohu",
+    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBjeWJFTFVpYTNJd2x1QmdMMVhqNElTbmtpNlJRMzl3YjVEMTFDRkQzT0g5TTBBLVRMSzZaLTItcVhjYkIwUFhtdnVwQmQtdF95dUE?oc=5"
   },
   {
     "date": "2026-11-14",
@@ -86,17 +163,6 @@
     "note": "LABUBU热度回落引发估值重估，需跟踪其IP接续能力与海外销售数据，判断潮玩赛道整体景气度变化。",
     "source": "36Kr",
     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1kb2Q3MVo1V1laTm4zTUN4Q013S3AyVlJIbUxVM3FBWm10emRvNDQ4OG10RE11bHpJTXVTV2FuT1otSlBrbXlwVTZaUFJWTlFp?oc=5"
-  },
-  {
-    "date": "2026-11-13",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "全球",
-    "impact": 3,
-    "title": "Skechers与泡泡玛特PUCKY推出联名服饰系列",
-    "note": "PUCKY切入运动服饰联名，拓展IP授权边界，需关注其非盲盒收入占比提升对IP变现模型的验证。",
-    "source": "Hype.MY",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdzhnWGJQMmw1NkxWRy1yOVhBRDdJNkl4ckJpLVMwVzJpZXJKMnV6eHAtY2JTLUFpNTlkRGZ2eVBCZzc1al9wVE1LTjNuLU0yWUVncHRjcHVlM1V1NjloVG5zc2s1SzVFVHB3eDRncVZHT2tqTnBIVHdlQTFXQlRnVWZkOTFOQ0JfQVhzZnBUNS1Ccktrb1l2dGtqT1lXRjFY?oc=5"
   },
   {
     "date": "2026-11-13",
@@ -482,71 +548,5 @@
     "note": "海外媒体开始质疑盲盒热潮退潮，若持续发酵将影响泡泡玛特海外估值，也提示名创IP选品需防过热。",
     "source": "Fashion Times UK",
     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQa2V0VDd3ZWVGQ09SaHVXbWNrbzgyaldpU0xGY0FES251WW5tSjl1MkhOYURLNFZsZWdjb09GSXZLWnNULTJGVkVFUDUwRVc1WjNXOXEyT0NRYkFKNWNaYVhDRl9kaDBJMVVja0ZSa1Q5NGlLWmVVeW8yYmVhcUlUTF95X0Y?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "daiso",
-    "type": "供应链",
-    "market": "东南亚",
-    "impact": 3,
-    "title": "大创马来西亚全球配送中心正式启用",
-    "note": "区域配送中心落地马来西亚，将强化大创东南亚成本与补货效率，对名创东南亚供应链形成直接压力。",
-    "source": "Embassy of Japan in Malaysia",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5MZk84Um1RY2QxTFAtbmluSmJyaHlsYWFRM0h3a1ozQ0I4SXgxVTdoaDF4TnFqeG84VEtjamNUeGQ3eHVPTWwtaGdSblR6b29sVVZLNURENmg1WkY2eG1oNFNBekJJcUNLOXVCSQ?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "daiso",
-    "type": "产品",
-    "market": "韩国",
-    "impact": 2,
-    "title": "韩国大创5000韩元化妆品被评高性价比",
-    "note": "低价美妆持续强化性价比标签，是名创美妆品类在韩国的直接对手，需跟踪其爆品结构。",
-    "source": "Kagit",
-    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9jbElNdEx5Q1ZVeEdlWlNIejU2cFBNUlpXbDNGT1hhUmNrOC1QZHdva2p2ZGRRUmU5Tzh1Q2poSWhydEJlc0ZqNnRXd3dVNXBUbHRscnJpV3JPaTNtbzNB?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "中国",
-    "impact": 2,
-    "title": "名创优品印度斋浦尔Pacific Mall新店开业",
-    "note": "印度市场持续加密门店网络，属常规扩张信号，可纳入区域开店节奏统计。",
-    "source": "Indian Retailer",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbUthWlJkdm1oTTVQOGE4dnQtVUtXYkhzSkxvWmY3QzQ3OGRBRGdpbXdYVkxOYUQ4OGVOVjBEejRqX0oxelBQT2xQeTRYMWp0QkxSZWJVemw4YWR6MWl1SmlhcUlCWkdqQk1WS1YtQkptSnNKdmowOXpxQlhXT1M3bmlMMm9VUS1wbzFIQ0JKc1lDUlhFTU9CREVmb3J0TFhJSGFQcDR2Qk0?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "中国",
-    "impact": 3,
-    "title": "泡泡玛特联名CLOT麻将1999元10分钟售罄",
-    "note": "高单价联名验证IP溢价与潮玩向生活方式品类延伸，需关注其非盲盒品类扩张对名创IP联名的挤压。",
-    "source": "上海热线",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaNk9XaTNWLThnUU5JWXRmQmh2Tjdxd2JLelhHYmhXR0NzN2hLSUJUR0xPc3I4V0plZFdYRU16X0VRbW5Ud3Uwc0xhUWcwZW9IUE4ycWVka0xBRjExaEtJcE83bjVxUWNuRkJ0SXh2WWNqdw?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "欧洲",
-    "impact": 3,
-    "title": "Robert Wun联名Skullpanda登陆泡泡玛特巴黎旗舰店",
-    "note": "设计师联名在巴黎旗舰店落地，强化欧洲高端IP形象，关注其对名创欧洲IP合作的差异化压力。",
-    "source": "WWD",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRU9VaEJzdGh5c01QQ0VNdzhRWWpMeU9iS25EcmVValBtNndiY1ljU21XenI3QjMxOVZKVV80YTlZX3BZU1pQUXZaQVl1VElLSkFMaEJGdlZYT3BNNUxpblYxRExPS2ZvV1BUbzVtSzNoclNUa0lHSUFGYVBkdTVOdEhodnhKVFpvd3dUbmFSel9fdXQ2ang1bFFBTFR6TFkxWkk2UUlHSjR5ZW5DNUNUbjlpdkhodw?oc=5"
-  },
-  {
-    "date": "2026-11-10",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "全球",
-    "impact": 3,
-    "title": "泡泡玛特HACIPUPU与UGREEN绿联推出联名",
-    "note": "IP授权向3C配件延伸，显示其IP变现多元化，需跟踪跨品类授权对名创联名资源的争夺。",
-    "source": "UnGeek",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdGpOYkZQMUhVSWNzSGQ2cWxTUF81V3hSUkZwTEVrX05kZU9MYVNVZlpiWkd1UWltR3UtTEU3Mk5lN05KX2NZcXktM2tMM1JER0dRelQ4Z0UzRmQ0OC1PR2ZSUjdxbWdHdjBNUENtM1Z6M2M5MDEyRTFTYlZ6TUdPTzl4SkxnM3l0NV9HUmxRazlNYllsX3lQanJIOXk4Q1dQMEJnd3FLQWJ1WlRnTXc?oc=5"
   }
 ]
