@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-19';
+const SNAPSHOT_DATE = '2026-11-20';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -731,13 +731,79 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
   {
+    "date": "2026-11-19",
+    "brand": "miniso",
+    "type": "战略",
+    "market": "中国",
+    "impact": 5,
+    "title": "名创优品拟关数百家低效店，自有IP不考核利润",
+    "note": "门店结构优化叠加IP战略转向长期投入，短期利润承压，竞品可关注其渠道收缩让出的市场空间。",
+    "source": "星岛环球网",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1qVHNtWDIxdXVENnlHRHZId3VDZ0REQzFRYVFQLU9jX0txbC1KdUV4czlBZTRpNVlyUkN3bGhLakFTeV9ZaTFNN1RhV1FKd0djZkRwWmNvbWZUS0QxM1RyMVlEc0c?oc=5"
+  },
+  {
+    "date": "2026-11-19",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "中国",
+    "impact": 3,
+    "title": "泡泡玛特黄牛群控3000台手机抢LABUBU获刑",
+    "note": "首例潮玩黄牛刑案，反映其稀缺性炒作治理，竞品可关注其对二级市场热度与真实需求的信号。",
+    "source": "虎嗅",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA1d0lfSmloTkUxS2xaMFB2ODdMNGsxSFN4cEpXYmhUNEF2V1QxTzU3MktrckFCeXdmU19FaGdrVjFGU0d0eGt6ekpCR1NKZnEzMlFxMQ?oc=5"
+  },
+  {
+    "date": "2026-11-19",
+    "brand": "popmart",
+    "type": "营销",
+    "market": "全球",
+    "impact": 3,
+    "title": "泡泡玛特将LABUBU搬上大银幕",
+    "note": "IP影视化延伸品牌生命周期，是其内容化战略信号，竞品需评估头部IP跨媒介竞争加剧。",
+    "source": "Foro3D",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNX2dlbU1LaTZ6U1JMcTU4WlYtZ0hXNVVVY3RjVzZtZ056ZFd1dkZZY3MwU2tLUVhXeFV5WEMxV3B0TTBDQ0hMY3RLTFBscUdJRl9lZWJwLUZsVTEwLUtUT28zR2VQQWYtTUVRNHpuLXl2RFhYcVRtTkxYM0lJZDhFUHcxZXdaWWQxSnBwT3BHTmRKMUkyc1RsZTJkTnI?oc=5"
+  },
+  {
+    "date": "2026-11-19",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "UGREEN绿联联手泡泡玛特推HACIPUPU系列",
+    "note": "3C品牌联名拓展IP授权边界，显示其IP商业化多元化，竞品可关注跨界合作带来的渠道曝光。",
+    "source": "YugaTech",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNUJlNmZjMWhOZnFwRjdyRkVuUHNFSlRoWGRzVnJBUUxnRmRhRHl1b0ZheXgzUlF6c2oycGM1RFlGaUxtcXJ3cDJETy04MFJsZjdBYTB3WTZUQXpzd3g0ZVpSMXp4ZnY5Wkl3NVlfby1UQlVJUEE3cVdCNElkczNmcGZsbkp6Q2JQeVJOVU5CZXYxbmZOYlVubURXdElIZ05NaENoTGFuaWR0bVk?oc=5"
+  },
+  {
+    "date": "2026-11-19",
+    "brand": "popmart",
+    "type": "营销",
+    "market": "中国",
+    "impact": 2,
+    "title": "泡泡玛特11月19日回购49万股耗资6966万港元",
+    "note": "连续回购释放管理层信心信号，属资本运作，对竞品经营层面影响有限。",
+    "source": "英为财情",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFByWEs0V1E3aFNvWnVDYWZfRmF2OUVEQkZZUGg4N2NKcE1mVmxWQ0U2Rmx6N1VBcS1NRElkRDVXUjZ3Y1NzVl9odFBMQjhqU0FmczZIRUtvR2xEX19nREZXVjJhVnE1ZEs4RGRndDllcVo?oc=5"
+  },
+  {
+    "date": "2026-11-18",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "名创优品Q3营收增14.3%净利降34.4%",
+    "note": "增收不增利，海外失速与AI投资浮亏拖累利润，需跟踪其海外模型调整与利润率修复节奏。",
+    "source": "快消品网",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5XdkVWMjFwVEcxQ2NPa2g5Zzg0UE15UW9wemI4cEZJQm5qZm5OTDdYOXFhbERLYWxTYkdGNUxyTUJRUGNpdE0yQ0k2cEZpMnlQcEtXUk4zOEE2dWM?oc=5"
+  },
+  {
     "date": "2026-11-18",
     "brand": "miniso",
     "type": "战略",
     "market": "全球",
-    "impact": 5,
-    "title": "叶国富承认海外战略模型没搞透，转向可持续增长",
-    "note": "创始人公开承认海外打法未成型，意味着出海节奏或放缓，竞品可趁机抢占海外货架与渠道。",
+    "impact": 4,
+    "title": "叶国富承认海外战略模型没搞透",
+    "note": "海外扩张遇阻是名创当前最大短板，跟踪其后续海外开店节奏与本地化调整，判断对竞品的区域压力变化。",
     "source": "京报网",
     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBKbHJkVFRoQnlieDRnUzY5dVIwWElHeFN0VG02ZlBiTUxiRHVFWEVzZDdtMkp0QlNjZGpmQ2IydjRKYUdHT2V0UDVPamhEOWMwRG5hb0R6eWdoYnFHX2c?oc=5"
   },
@@ -746,9 +812,9 @@ const SEED_EVENTS = [
     "brand": "miniso",
     "type": "产品",
     "market": "中国",
-    "impact": 4,
-    "title": "名创50元以上产品Q3贡献近两成，价格上行",
-    "note": "IP化推动客单价上探，直接对标泡泡玛特价格带；跟踪者需观察其品类升级对中端市场的挤压。",
+    "impact": 3,
+    "title": "名创50元以上产品Q3销售贡献近两成",
+    "note": "价格带上移显示IP化转型初见效，竞品需关注其核心品类升级对中端市场的挤压。",
     "source": "每日经济新闻",
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1EVDZodjJmWm1lM01MZVNMOENWRkQtLUJfUXdDdFN4aV9PaENxUUx4SFF6a3RJNFpCSEgwMHZ3MTc4SlJtcG5Val9OVnZqRGFOdkJ4SThZOHVVU210b21LVTBSRlZDdw?oc=5"
   },
@@ -758,8 +824,8 @@ const SEED_EVENTS = [
     "type": "开店",
     "market": "北美",
     "impact": 3,
-    "title": "多伦多首家Miniso Land将进驻购物中心",
-    "note": "乐园型大店首次落地加拿大，验证其海外大店模型；竞品应跟踪该店型坪效与复制速度。",
+    "title": "多伦多首家Miniso Land将开业",
+    "note": "北美大店业态落地，是其海外门店升级试验，跟踪单店模型表现以评估海外扩张可行性。",
     "source": "Toronto.com",
     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQak9MdVlVYnV1TGxRRnVJT1Y4YkFjUER0bUI0bXJnR1NUWFBCbG1jbzJRckxiM2hCT3FfNUtGMU90UHRHU21qeU12TVFSekh2TzNJVGg4U2h2SFRGRWhFY2dQSzlJQlZjVUtDdm96eXFHOEhpM0pMTDFuZkRBTEJYcUd3cDZGUjZURmRHaFNwRG1hWkxRdkFSNW5pd3JHNDJzOWtmcjRVWnVGaHZrc3hwbmxDY1M5NFJHYVBWYkdtOU9DcTREUVpWUDRBWl9EWmZlVG43cWZQSU9mTUdpZ0hwQg?oc=5"
   },
@@ -769,8 +835,8 @@ const SEED_EVENTS = [
     "type": "人事",
     "market": "全球",
     "impact": 2,
-    "title": "名创授出1241.1万份受限制股份单位",
-    "note": "约占已发行股份1.02%，属常规股权激励；跟踪者可留意核心团队绑定与后续人事变动信号。",
+    "title": "名创授出1241万份受限制股份单位",
+    "note": "股权激励绑定核心团队，属常规治理动作，对竞争格局影响有限，可略作记录。",
     "source": "观点网",
     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5nSmMxRzZVVGQ0NDBrRVlsV3pVTDgtWkpUR1duNHhIY2w4NnA3cHE3VUlOc1ROMVBqRkFKWEZiWFp6U253T25hSW9OMnJFV0VQd2lqMUdKVlU2cHc1Q2RTNlNR?oc=5"
   },
@@ -1213,72 +1279,6 @@ const SEED_EVENTS = [
     "note": "借K-pop男团拓展IP联名矩阵，是应对Labubu降温的拉新手段，需评估其对年轻客群与海外渠道的拉动。",
     "source": "Forbes",
     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWnlySVdCTk42bG5vZ0Fjb3pTVEs1azhCWVhoUHZJVjQwdXcwR0FNRnZFbmJka1FYdzBzcXZ4MnN1YmF6QTV3blF5aFRwLTQ2OS1JTlFoYXM5LUc1X1VNazFEMUxlanUzcUIxQUVkR2U5Uk40c2dRamM5ODJteXB1Wklzd3JUQ0FDU05tLUN2dDVUVXpwMjBYU3hSRFBsMGxUYnVRMTdKeGhCSmJVOUxyN0tGUm9uQQ?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "daiso",
-    "type": "人事",
-    "market": "韩国",
-    "impact": 2,
-    "title": "EY韩国将大创会长朴正夫评为年度企业家",
-    "note": "韩国大创创始人获认可，反映其本土化经营强势，需关注其在韩低价零售与IP杂货的扩张节奏。",
-    "source": "헤럴드경제",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5vVm9XZlFHV0pRWlJKakxwSTVpQkxKY0c0VnMyZkpPVkRHZTdVRV80UmtrU2NCbTZwZXgxUFNEM2VnOHY1cjZDWm9pR2pyRWl3T0JsNEF1OA?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "miniso",
-    "type": "营销",
-    "market": "中国",
-    "impact": 3,
-    "title": "MINISO GALLERY登陆上海艺术周，8位签约艺术家作品亮相",
-    "note": "名创以签约艺术家和艺术展形式提升品牌调性，是其从平价杂货向IP艺术零售升级的信号，需关注其艺术家资源积累。",
-    "source": "品玩",
-    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBERDNDajZfd1VwTkdNZFZ0R25xdGJXMm95S1ZMYTJ6TUJRLVM0ZEFudWNsYU9IcGYyYmY1Rlg1SU5SSS1GNDhkQw?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "miniso",
-    "type": "开店",
-    "market": "东南亚",
-    "impact": 4,
-    "title": "名创MINISO LAND登陆曼谷CentralWorld",
-    "note": "泰国落地MINISO LAND大店，与印尼SUPER MINISO同步推进，显示东南亚正成为其大店IP业态的试验场，需跟踪单店模型。",
-    "source": "Branding in Asia",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQY0pnQi1uWDNieGY1b1VDNkcwZzlUdjU1R3Z3YTBQWFNLTFJZWGFhaGhQbWdMVE9KSC1qYnRqd2taVUttcjItendUTS1WbnFIajF5OENtWHA1eTc4SERBM3hSQ0lYeTlPcFdzNGd0VHlOZFpTcHIzNGp0blA4dkpkZ1Bwa0J6M2p0azVn?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "miniso",
-    "type": "财报",
-    "market": "全球",
-    "impact": 5,
-    "title": "名创优品将于11月17日盘前发布财报",
-    "note": "财报是本周最高优先级事件，需提前梳理其大店战略、海外增速与IP授权成本等看点，财报后立即更新竞品对比。",
-    "source": "Moomoo",
-    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNT1RZUC13WnUwdXZqV3VmWmpLelllaExyWEJkRi1GcTZQcWVzaUdOc3ZZYmwtZE9WQTV3aDBnYnowMmpxR2IydjNsblNNb2tMVEpUZ3FHaUVHTTRzbXBpZER1QnZ6THlQZ3RudDNFb09XY0tNWHgtNXJUZmJpdEF4WFBxc2xPbS1CY2tacV9fOEVzX2toSDhMcWJ5aXBwZGcwUWVuNzAxbWtTV2FDamc?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "popmart",
-    "type": "舆情",
-    "market": "全球",
-    "impact": 4,
-    "title": "泡泡玛特海外降温，从排队抢购到现货充足",
-    "note": "海外由抢购转为现货充足，反映供需与热度回落，与北美销售下滑相互印证，需评估其海外门店扩张节奏是否面临调整。",
-    "source": "新浪财经",
-    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA4Y2xldm9yOXZ5MG9DNnFudGVQRTFzdnVEX01ybU5rTmJ6YXNtdmFNMmVNbzhsTmhKTk4yellZQ3NNRzZ0M2ZuT183TjJRLS1ybmptRl9PeXVmeXJQQU1qUnk0c182THd3RjVmLTRoVE1kRU1vdmFTQ1NvTjIxYkE?oc=5"
-  },
-  {
-    "date": "2026-11-12",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "全球",
-    "impact": 4,
-    "title": "泡泡玛特与UGREEN推出HACIPUPU联名系列",
-    "note": "IP授权向3C数码品类延伸，是泡泡玛特扩大IP变现边界的动作，需关注其非盲盒品类授权收入占比变化。",
-    "source": "Voice of ASIA",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOYVhtUm0ydkxsYmZNMkNIWkl3cnRDbm1CQjduSWRfcm9peXh2dDRuS1JvT2RTa2NsaTV3ejBuRUl0QkIzekpwMGZDanVIWS05a0FyQ0lpMHJoSXlSUmVqNk8wU1dJNHI1T1EzU3lNR1N2Q042Q2RnNW1sVHFTUWd1blVmYjVkYTFSOGxYZVRBbTNpbkpTcnV4OWJUc25iTVBVZzZqekZGUDhNbVk2X1o2bnlMUQ?oc=5"
   }
 ];
 
