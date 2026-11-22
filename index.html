@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-22';
+const SNAPSHOT_DATE = '2026-11-23';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -731,26 +731,59 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
   {
+    "date": "2026-11-22",
+    "brand": "daiso",
+    "type": "产品",
+    "market": "韩国",
+    "impact": 2,
+    "title": "Re:NK在大创韩国上架六款独家产品",
+    "note": "韩妆品牌借大创渠道做独家专供，显示大创正强化美妆品类差异化，需关注其对名创美妆货架的挤压。",
+    "source": "THE ELEC",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1MN0ZIZGthdGNxUFdQRURVX3VlZHNWNVRyTWFDOUNkSE5CTmRUcHhtY1FMQWZWN0dZQnFDb0dkT2lqU3JYYUtJd1JLZ19sUE1PZnRKLUV6VER6OFllX2E1VUNBRUhzcFk?oc=5"
+  },
+  {
+    "date": "2026-11-22",
+    "brand": "fivebelow",
+    "type": "产品",
+    "market": "北美",
+    "impact": 2,
+    "title": "Five Below推15美元苏斯博士主题圣诞树",
+    "note": "以低价节日IP单品抢圣诞季流量，属季节性选品打法，可对照名创北美节日货品定价策略。",
+    "source": "AOL.com",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBpTDdSS1NtY3VNdjFTaFlRY29XdDNod0hsSnU4d0QzclplWERXXzByYzhzZ3NSUnVXcHVZU3lDVEJhWERKaWlMSW85cWFaV1hRdlFFX2pMYmlpczhPUFFmSTBnYy1PZkk1S1R2eEFCUmJlTTZCSVVndk1TcWotdw?oc=5"
+  },
+  {
+    "date": "2026-11-21",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "名创优品Q3营收逆势增长14.3%",
+    "note": "消费承压下仍双位数增长，需拆解增长来自海外门店扩张还是IP联名拉动，判断其韧性来源。",
+    "source": "旅日侨网",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWUtxQk1yUURZVkxWRUQzNTl0UDhQMkV2R2lnV2Fwbl9GZEFCM3Z2dVp4aDUxVk1YSm5UMG1xbHdQUXFUY19EOFVKaXpTbG04OHluaC1yU242Q3QwRFVTTFVLNzN4eklRRFZXRXR5c2ppUWxQOVJHMlhsVHJwc25RUXBEOW9sejZMT1E?oc=5"
+  },
+  {
     "date": "2026-11-21",
     "brand": "popmart",
     "type": "产品",
     "market": "中国",
     "impact": 3,
-    "title": "泡泡玛特Zsiga新品补货，门店再现排队",
-    "note": "新IP接棒LABUBU热度，验证其IP孵化与饥饿营销能力，需关注排队热度可持续性。",
+    "title": "泡泡玛特Zsiga新品补货门店排长队",
+    "note": "Zsiga接棒LABUBU成为新爆款，验证其IP矩阵接力能力，需跟踪该IP热度持续性及对名创IP策略的压力。",
     "source": "21财经",
     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQRnlhaktjSEU3OU5kZ0ZZUG1JQk44OENGb0Y1MUNDVFpiOWd2OGhvdnhjNGRMMkVrUUd1ZTJtVk5iS1R3V1FZQU9oc05ocVBISHRYOVp5amR6eEg1NmxwTkFEZjZrSUg1aFB2MFdaREJxaEJnZ3NtYmQyYlE1eE1iVHJOTnlfZ2NGSmZGLVBXdw?oc=5"
   },
   {
-    "date": "2026-11-20",
+    "date": "2026-11-21",
     "brand": "miniso",
-    "type": "财报",
-    "market": "全球",
-    "impact": 5,
-    "title": "名创优品Q3营收增14.3%，前三季181.2亿",
-    "note": "营收逆势增长但利润承压，需关注其IP化与提价策略对客单价和毛利的实际拉动。",
-    "source": "旅日侨网",
-    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQWUtxQk1yUURZVkxWRUQzNTl0UDhQMkV2R2lnV2Fwbl9GZEFCM3Z2dVp4aDUxVk1YSm5UMG1xbHdQUXFUY19EOFVKaXpTbG04OHluaC1yU242Q3QwRFVTTFVLNzN4eklRRFZXRXR5c2ppUWxQOVJHMlhsVHJwc25RUXBEOW9sejZMT1E?oc=5"
+    "type": "营销",
+    "market": "中国",
+    "impact": 2,
+    "title": "名创优品联动时代少年团七周年活动",
+    "note": "借头部偶像团体周年节点做粉丝营销，属日常声量运营，可观察其对年轻客群拉新的实际转化。",
+    "source": "手机新浪网",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1URDBzVXZpQkY5TTJfR3BzRmRjTmJSMXBsaHlGWnBzcE4xcTZwczh5UTgzX0pNVUt3VnpiZlEtUXo1dzdoN2JRLVNqV25ZeUFrN2RnVXRiOXBRRUNVUXBhMzdNRQ?oc=5"
   },
   {
     "date": "2026-11-20",
@@ -1246,39 +1279,6 @@ const SEED_EVENTS = [
     "note": "高管小额减持属常规披露，信号弱，仅作内部人交易动向备查。",
     "source": "Investing.com",
     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOay1aZ2FvNHJ2X2taQTE0RjFwLWgyNzZINUtVLWh4Sk1QOWJNYlBEd0lzVTRoUXBGS2hwRW9OZ2NfbjNUSEt1b0tjUS1PcXVvMFZfSlVqWGZpLVQ1OTVxTmdLYWNnLTdaYnp2bDRWOXY3THh2VmtLeFZiUFU1eFBja2VTeWtVVDZTZThrenhOM2haS2w4N1JhRExySGJyR2R5N2c4bjZUSHFjRXkzVGc0?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "miniso",
-    "type": "战略",
-    "market": "北美",
-    "impact": 1,
-    "title": "名创优品ADR获券商共识目标价15.27美元",
-    "note": "仅汇总分析师目标价，无新增经营信息，属弱信号，可作投资者情绪参考。",
-    "source": "MarketBeat",
-    "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNSEZTVjF6X3hya1k2Z0R3T3F4WDhNT1VaTXVvWUZ6RnFEazBaWTBLRlA1dTJNX1ZUQlExOUdReGlWVDBJeEJ3anhMbmRTbERjWU5qeUFfMmVqWk42WU5ma2NqX0U4cU00eUJxM3hhRWo0YXQ1S1NYNFlMUHRidnRaSlB0QVV0UHRJY09BM1lxTkZVR1JwQkxUSDBpRDRCbVFJR2R4allvSHJ6d0E5WjhyWU50cldkYm5MTnBjRFdFSDdvZUx3ZEhkQUMyNWROaWNrblRxcVZ3TVh5Ym5uVDFyN2I1b1pmWVJSNzYzRXFnbVk2SnNSUndJaGR0R0l6dExyTUZpODFZNXNhaXlUMEVQRQ?oc=5"
-  },
-  {
-    "date": "2026-11-14",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "北美",
-    "impact": 3,
-    "title": "Skechers×泡泡玛特PUCKY推出联名服饰",
-    "note": "IP授权进入鞋服赛道，扩大北美曝光，属轻资产变现路径，需评估其对名创IP联名矩阵的挤压。",
-    "source": "Hype.MY",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdzhnWGJQMmw1NkxWRy1yOVhBRDdJNkl4ckJpLVMwVzJpZXJKMnV6eHAtY2JTLUFpNTlkRGZ2eVBCZzc1al9wVE1LTjNuLU0yWUVncHRjcHVlM1V1NjloVG5zc2s1SzVFVHB3eDRncVZHT2tqTnBIVHdlQTFXQlRnVWZkOTFOQ0JfQVhzZnBUNS1Ccktrb1l2dGtqT1lXRjFY?oc=5"
-  },
-  {
-    "date": "2026-11-14",
-    "brand": "popmart",
-    "type": "舆情",
-    "market": "中国",
-    "impact": 2,
-    "title": "外挂群控3000部手机抢LABUBU案宣判",
-    "note": "黄牛技术化抢购反映热门IP供需失衡与二级市场乱象，提示名创在限量发售机制上需前置风控。",
-    "source": "Sohu",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBjeWJFTFVpYTNJd2x1QmdMMVhqNElTbmtpNlJRMzl3YjVEMTFDRkQzT0g5TTBBLVRMSzZaLTItcVhjYkIwUFhtdnVwQmQtdF95dUE?oc=5"
   }
 ];
 
