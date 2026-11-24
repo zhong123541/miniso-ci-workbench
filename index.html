@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-23';
+const SNAPSHOT_DATE = '2026-11-24';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -730,6 +730,127 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
+  {
+    "date": "2026-11-24",
+    "brand": "miniso",
+    "type": "舆情",
+    "market": "中国",
+    "impact": 3,
+    "title": "名创优品涨价引质疑，客单价上调4%~6%",
+    "note": "涨价策略引发消费者“变贵”感知，需关注其对性价比定位与复购的潜在侵蚀。",
+    "source": "36氪",
+    "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ieXlZdUN2WmdjVVVoSVhzRThySlBWT3BKUGctQzdldmF4enVOUnlVSVUxVXNNdExUZXFZV0k3QUVZQWxTUzRBS1hIUWxOTVU?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "miniso",
+    "type": "财报",
+    "market": "全球",
+    "impact": 5,
+    "title": "名创优品Q3业绩转折，小摩下调目标价至28港元",
+    "note": "Q3业绩现正面转折但海外增速放缓，机构下调盈利预测，需关注海外扩张节奏与利润率压力。",
+    "source": "新浪财经",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBJX3JfR3llcHMxSzlXMzkteTVfNFZmbTdRQkVNZXp0RjY0UFVmczZwOHJRZHZaX1VIek44RVhPSUV0bjZwMzRVSWwzZC1oeHZMTDlZRTFiSTZ4dW5OR1l1UG01eUtWdG5RZ29Wc2hod0VwbGJJZUJlcw?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "miniso",
+    "type": "战略",
+    "market": "全球",
+    "impact": 4,
+    "title": "名创优品MSCI ESG评级升至AAA",
+    "note": "ESG评级升至行业领先，有助提升海外机构投资者信心与欧美市场准入形象。",
+    "source": "MINISO",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RSTFwbTdIRHI5Q2Z1Qk1BQW5MMjlWdEg1UjZpb0VxOUZGRFJkWkd0NWd4bHBZZllha3dzUW5xazZDSG9nQ0k0cmZfZ0NPWV9vUHlZQQ?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "miniso",
+    "type": "联名",
+    "market": "全球",
+    "impact": 3,
+    "title": "名创优品联名Chiikawa推出牛仔主题秋冬系列",
+    "note": "持续绑定Chiikawa头部IP推季节限定，强化潮玩化选品，需跟踪其对年轻客群的拉动。",
+    "source": "玩具人",
+    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1ScFBuN3RlQThvQXBsQXlkcmdkVWh6SHJRZ3RMc19jamJ3MUtXRk9hb0VjcEdCaUd4WFh3WXFBWWFZMWNYbW53N3dQQ1lKbU5Z?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "战略",
+    "market": "全球",
+    "impact": 4,
+    "title": "泡泡玛特王宁：今年练内功，明年优化PTS展览体验",
+    "note": "管理层强调健康度优先于扩张，明年优化展会体验，反映其从高速增长转向精细化运营。",
+    "source": "观点网",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5zUmV3R09Fa0ZyRE4wVDIzTlhjRktfczlrcFh4TU8xWTBsSWEtYlVZSXA3bUZTanYxNmp4WWVYZGpQRzRkVUNkSEhsUTdwN1VsVlRoWTZONGFNdDFrNDZYWEd3?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "开店",
+    "market": "欧洲",
+    "impact": 4,
+    "title": "泡泡玛特将在英国伯明翰新街开设大型门店",
+    "note": "圣诞前落地英国核心商圈大店，欧洲线下网络加速，需跟踪其对名创欧洲布局的挤压。",
+    "source": "Yahoo News UK",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5sNzJKWHU5N0VYOUVoa2FOUnhYbmpkTDhaRWQ2TFl5emJ3Nl9yLWpiZmR1Wkp0UjRROFkzOERQUjBJd1l2ZlluYlczZm9rNFEwY0QxTDRsSTJrNG9oSWhwNkYtTllUNHVNa3hHRFgyLXBhNjQ?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "供应链",
+    "market": "北美",
+    "impact": 3,
+    "title": "Grosnor获泡泡玛特分销权，Labubu进入加拿大零售",
+    "note": "借本地分销商拓加拿大渠道，北美渗透从直营转向分销，值得关注其渠道策略复制性。",
+    "source": "The Toy Book",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBVTHNWMXJXSm5LWWlYMFJGX1dTZWprUHdSWUo2LXRfaU1WeGIxTEpNRkRlWlVaamRlRUlIcmRtREctREQwQjFJeHg3UzJ0a2wwZl9GRVkzNnU3Mi1PUTB3anVCek0xdw?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "营销",
+    "market": "北美",
+    "impact": 2,
+    "title": "泡泡玛特联手纽约Tavern on the Green办节日活动",
+    "note": "借地标场景做节日营销，强化北美品牌曝光，属常规IP营销动作。",
+    "source": "BroadwayWorld",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUDhSUmtjQVVGaFUxcG5LRlRJMWplYWlUWU12XzN2M2lTeDBjQVlJanZtdWRvLWYwUkVDcW1OT084MDZOWmUtRzFZZ1dmZlhSZ3AzdTZHVmZHU1ZzazRnaDU4WmxXRHBMc3NCNlRhSFBGUVExWmdLcHZ1MVFqd1E1SUdiSHpTRGxPR3U1Z2E1OWU4VElWWm93aFdEdU9SNEZkZlBlSnBkMnA2bVBSRW1McEhqdDFiSGdwNm1zdk9QTkc1SXc?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "开店",
+    "market": "亚太",
+    "impact": 3,
+    "title": "泡泡玛特扩建澳洲Chadstone店，设巨型Twinkle装置",
+    "note": "澳洲门店升级加装置引流，体现其海外大店+IP场景化打法，可对标名创门店体验。",
+    "source": "Inside Retail Australia",
+    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNbHlPUXotcVVCajJVNjVHb3hqVVJiQ2JZYjJBX2J6VWJKaHplbGVLcDltbXdGOXFjbVBfRlYxdlllcHhuSi11djJtWGFQY0NrYk1QS2dfOTh0S0lxSDEzWlJHa0d4TDBlRkFVcEpJTlpOeXZ0QzQtQ09CVUNDclVLNXFFZ25EbTVFSFlMMndLNFluajV1d01tT0ViU19xNzVSaThvV2lCRmRIT3E1cUFzSWFFNXd5LTdxLVdFVWhHc1h3VG5jQkxfWlB0QkM?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "popmart",
+    "type": "产品",
+    "market": "中国",
+    "impact": 3,
+    "title": "泡泡玛特Zsiga新品补货，门店排长队",
+    "note": "Zsiga成新爆款IP，补货即引发抢购，显示其IP矩阵接力能力，需跟踪新IP热度持续性。",
+    "source": "广州日报新花城",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdDR4RGpxZndIUmY2T1hWVW5mSmdzaFk0elBpU2RFQV9QeVJVTGVCdVI3TTdvRkJSTkZ6UXc5bUVKMlVwQmtEUXpDZVY5bTk3cmx0Vlp6SjFxUGQ5UGNBbmhvMFRWSlIxUXp6STYwUVktNEdmaHpGWVMyZHlDcDBYSjlfbG1Cb0ZveEE?oc=5"
+  },
+  {
+    "date": "2026-11-23",
+    "brand": "daiso",
+    "type": "产品",
+    "market": "韩国",
+    "impact": 2,
+    "title": "大创都市型防滑IZEN冬季用品脱销",
+    "note": "冬季安全用品在韩热销，反映大创季节性选品敏捷，可关注其品类机会。",
+    "source": "매일경제",
+    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5MaXRFNzZ0cTNkYU04M0MzYU9xOFRBUndkd2VZS3c2Tlp4TWV3Z0VZbGhELXQzZ1hFZVVVeWdiUzc5SmozcjZibXhIdGE3TnQyWmtV?oc=5"
+  },
   {
     "date": "2026-11-22",
     "brand": "daiso",
@@ -1158,127 +1279,6 @@ const SEED_EVENTS = [
     "note": "持续大额回购释放管理层对估值的信心，也反映二级市场承压，可侧面观察其增长预期。",
     "source": "证券之星",
     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5DUzYtaFlVUTRhdTAwYjJpZ0pOLVdVX2dUbFVGLWM3bTVfcm0yTVJhUFBYQmF1OERCWVFvYnpEWmZBT1lZTGh1R1hkS0xJOFE3YW5ocTQ3WnVjbzVhYXQtSQ?oc=5"
-  },
-  {
-    "date": "2026-11-17",
-    "brand": "popmart",
-    "type": "舆情",
-    "market": "中国",
-    "impact": 2,
-    "title": "泡泡玛特热度降温，从排队抢购到遇冷",
-    "note": "LABUBU后缺新爆款、二级市场溢价回落，若热度持续走低将影响新品与联名的销售转化。",
-    "source": "凤凰网",
-    "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9sMTVqdHJ5QS1xWHI2SkcxcmFRcUNkMzdiRUthTDA1M0JWcGdpWDhDMGFWWlNfMDVMSktwSHNsREVCR0xXY2duUEtfZ2E?oc=5"
-  },
-  {
-    "date": "2026-11-16",
-    "brand": "miniso",
-    "type": "财报",
-    "market": "全球",
-    "impact": 5,
-    "title": "名创优品11月17日发布Q3财报，市场聚焦盈利修复",
-    "note": "财报是本周核心事件，需关注国内GMV增长与利润率能否同步回升，判断渠道扩张的盈利代价。",
-    "source": "TradingView",
-    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPMktORUljTzBsZXZqdHc2RmRzUEpLT01fdVVIODN0SWhxeXJXWTA2RlhMTGtleVluOUZ1aVhfNGtYMV9aOXdaVWhlSWUxNVR4LWpWX3daVnZaMC1Rd1JLbVB6LTF1NjR1cmtvZlBSdUlEQTJDYkMweWJMOXh0cFU4VzIzMmozQ1RoWExzQVJpcGlPN1NaNGRYVktnLVVhUGNZOVAxSDhNY2N0OVA2Q2hlMkdDSlItMnplcW9hRUxrbUdBMWlYTVE4NjVyUkxrQ2phSnZXS0pGcUx1ZUNp?oc=5"
-  },
-  {
-    "date": "2026-11-16",
-    "brand": "miniso",
-    "type": "财报",
-    "market": "中国",
-    "impact": 4,
-    "title": "港股名创优品涨超3%，预告国内GMV较快增长",
-    "note": "股价异动反映市场对国内GMV增长的预期，可与财报数据交叉验证渠道下沉与同店表现。",
-    "source": "英为财情 Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE80eVRmN0dNRWRBQ2lBSlhTRVkyN0g4YnZkUXFYYmxXeUJHMURlSnVQdzdlNlR2TjVjdmc5UkJRRFBmZG1BTi1fbjJORmhXNXI4akJTbTVZZXhlLUE4OFRFeXBSa1pqZ2hYN0x0SlB0Y2s?oc=5"
-  },
-  {
-    "date": "2026-11-16",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "中国",
-    "impact": 3,
-    "title": "淄博琉璃×泡泡玛特MOLLY限量99个上线秒空",
-    "note": "地方非遗联名验证其IP跨界能力，限量打法维持稀缺性，可关注是否复制到其他城市文旅合作。",
-    "source": "Sohu",
-    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQS3RsdFYyanhqTFdHdkI1Q1pxa2JIdEphajR2YU5uc3JwbEpKZnpIM3FjbWJQN2RkVkdxTENPMnk1V2ZsdkRpdjU2YWctZ3RDcXhvZXQ1aE5aYkZodE5QLV9rUkg0OTJueEE2QW8tZldMM0hzNVZlWDgybkNaajBBa1h3ckhhand6U3U0eA?oc=5"
-  },
-  {
-    "date": "2026-11-16",
-    "brand": "popmart",
-    "type": "舆情",
-    "market": "中国",
-    "impact": 2,
-    "title": "泡泡玛特商标维权涉202份文书引关注",
-    "note": "商标战反映IP护城河建设投入，可观察其维权策略是否影响山寨竞品与渠道生态。",
-    "source": "知产力",
-    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9ZcWl5NTdjbEM2T2R6QUhGNXhER1hQZ3ZMRXlEcUdwSndldG9qWERqbW5ZbXRzMHV2LWh3TVpkQUlpOU9vQWVBY3FrT2xpbk5YRlEyd1hOZTg?oc=5"
-  },
-  {
-    "date": "2026-11-16",
-    "brand": "popmart",
-    "type": "战略",
-    "market": "中国",
-    "impact": 2,
-    "title": "泡泡玛特投资的卡牌玩家跨界光伏引曲线上市猜测",
-    "note": "被投企业资本动作或影响其生态布局，需确认是否涉及卡牌业务协同，暂作弱信号跟踪。",
-    "source": "Sohu",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE04WnQ5RkJfR3J3a2JfTWgtS1Y0alZGY0pPMnZZYVp5WV9YQmxPNDZsdU05MlllSEN5VmtyQ3Y1QjBvMUZZSXktTUhZSXN1Yy1leUE?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "popmart",
-    "type": "舆情",
-    "market": "全球",
-    "impact": 4,
-    "title": "泡泡玛特销售下滑引外媒质疑Labubu热度消退",
-    "note": "南华早报等外媒聚焦其玩具销售骤降与IP生命周期风险，若持续发酵将影响海外渠道与投资者预期，需跟踪后续财报数据。",
-    "source": "South China Morning Post",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdk1oNVRlcXhrYzRqdGdqVTFUb05GdVJZWjlISjZ3RVlCOGNxT0xhZGo2NHdheF9aSmhpRV9NRS1hWFFNMGJLd1Y3cHRxQXdqbVRWRkpZMlI4TS1LbDhFY0xTd09NaEZSc2g0VEx4UkYySEk3MFRsZ0VYeUNibm5FT24wOC1NbVpXdFd1N0lKei1uVVhHSW9LOHVjNWZGSW1TcTJBZHotb1UteVhIeEFjbGNNTHNKUXlRUVhuQk84X19VUQ?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "popmart",
-    "type": "供应链",
-    "market": "中国",
-    "impact": 3,
-    "title": "泡泡玛特持续回购股份并全部注销",
-    "note": "回购注销释放管理层对估值信心信号，但结合销售遇冷报道，反映其正以资本手段对冲市场情绪，需关注后续IP推新节奏。",
-    "source": "手机新浪网",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5wRzJhdC1taDBBaC1YSVhNVDc5QVRSaTZNcjQzM0NKb1FJMmtJb2YwbE5kOU5QV2Y2U21BckNmNEg5OFpaOVcyRUNHMVA4LW5JRW5RdEJEOGlJRk1ULWxHMEVJZG5rVXJmRzdRM0s5N1BqY0k?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "popmart",
-    "type": "联名",
-    "market": "东南亚",
-    "impact": 3,
-    "title": "泡泡玛特HACIPUPU联名UGREEN推数码配件",
-    "note": "IP向3C配件延伸，拓宽使用场景与客单价，显示其跨界授权加速，名创可关注同类IP×实用品类组合机会。",
-    "source": "TechBarrista",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5ieTNhaWxTSWdnX3FvQ3ZaamlUZzllRmdVQk5VRjVIUkdWRmd6U3N6elh6YTNMOUxnQ0RTOUtTbjFUYWc4VDlVYWdqYVdRamZXcncySlJaa3lxZDNjLS1nTnVjY3Ztd3k0Z0hOUHItaHplWUk?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "fivebelow",
-    "type": "产品",
-    "market": "北美",
-    "impact": 2,
-    "title": "Five Below推5美元史努比宠物玩具",
-    "note": "以低价IP宠物周边切入节日礼品场景，强化性价比心智，名创可对照其IP授权成本与选品节奏。",
-    "source": "AOL.com",
-    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4wTU5uRGFlWVU2a0hKNERuRFZSVXZNTHdSMzlTSFNfLW9TU01QNC1zamJxOWxjeXpXTzRqdTZiaFdITmVaaG5BTFh4WUdkTHpQQ0czUkVaQjhtT1E3aEx1dFh4LUxlU1N6Q19uOU1Ga09pNVE2eG9SbHFreGQ0Zw?oc=5"
-  },
-  {
-    "date": "2026-11-15",
-    "brand": "fivebelow",
-    "type": "人事",
-    "market": "北美",
-    "impact": 1,
-    "title": "Five Below首席会计官减持13.7万美元股票",
-    "note": "高管小额减持属常规披露，信号弱，仅作内部人交易动向备查。",
-    "source": "Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOay1aZ2FvNHJ2X2taQTE0RjFwLWgyNzZINUtVLWh4Sk1QOWJNYlBEd0lzVTRoUXBGS2hwRW9OZ2NfbjNUSEt1b0tjUS1PcXVvMFZfSlVqWGZpLVQ1OTVxTmdLYWNnLTdaYnp2bDRWOXY3THh2VmtLeFZiUFU1eFBja2VTeWtVVDZTZThrenhOM2haS2w4N1JhRExySGJyR2R5N2c4bjZUSHFjRXkzVGc0?oc=5"
   }
 ];
 
