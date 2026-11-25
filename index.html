@@ -711,7 +711,7 @@
    单文件、零依赖、离线可用。数据快照 + 手动更新。
    ========================================================= */
 
-const SNAPSHOT_DATE = '2026-11-25';
+const SNAPSHOT_DATE = '2026-11-26';
 
 /* ---------- 品牌 ---------- */
 const BRANDS = [
@@ -731,13 +731,57 @@ const TYPES = ['财报','开店','联名','新品','IP','战略','趋势','券�
 /* ---------- 内置数据（快照） ---------- */
 const SEED_EVENTS = [
   {
+    "date": "2026-11-25",
+    "brand": "miniso",
+    "type": "联名",
+    "market": "全球",
+    "title": "MINISO×Chiikawa推出牛仔主题秋冬系列",
+    "impact": 3,
+    "note": "头部IP联名持续加码，验证IP授权投入节奏，需评估其对泡泡玛特自有IP的差异化竞争压力。",
+    "source": "玩具人 TOY PEOPLE",
+    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1ScFBuN3RlQThvQXBsQXlkcmdkVWh6SHJRZ3RMc19jamJ3MUtXRk9hb0VjcEdCaUd4WFh3WXFBWWFZMWNYbW53N3dQQ1lKbU5Z?oc=5"
+  },
+  {
+    "date": "2026-11-25",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "东南亚",
+    "impact": 3,
+    "title": "泡泡玛特×Lenskart推出PUCKY眼镜联名",
+    "note": "IP向生活方式品类授权延伸，是提升单IP变现天花板的路径，需跟踪联名品类扩张速度。",
+    "source": "NYLON SINGAPORE",
+    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORGlwN0l4Rk9lNGFrUFJiT3d4Z3ZVLUs1TGF0YTBWUzh2ZGpOT1hDUkJvZHktQV9SNXlVQ19qejhIdFJTOW9wYi1ScHR5SmpielBySzdWOG9wZVFSbVhRSmlnek02cTEzX0piU0dycGo0U3lkdUNTWllZdXFDc0NoSXFjaGw0dEVpWTU0b2RDcnVpQkFSOWJXVA?oc=5"
+  },
+  {
+    "date": "2026-11-25",
+    "brand": "popmart",
+    "type": "联名",
+    "market": "北美",
+    "impact": 3,
+    "title": "Shake Shack×POP MART连推五周Nyota联名",
+    "note": "餐饮跨界周更玩法强化北美本地化营销，是海外市场渗透的观察点，需评估其对名创北美门店的注意力争夺。",
+    "source": "ContentGrip",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE13b0U3dEZYM0dVaEZkbER5ZmJ1eTJOWTBvWHEtWkw5UXc4RkR0RFdjS0ZKQ1hNM1FoREpMMThnQW5rcGN5czdOV0JUZkU5ZEU3MWhhRGdmTUNOSU9wbnZHQWFCRXdMdw?oc=5"
+  },
+  {
+    "date": "2026-11-25",
+    "brand": "popmart",
+    "type": "舆情",
+    "market": "中国",
+    "impact": 2,
+    "title": "泡泡玛特高管称“炼内功”被指转守势",
+    "note": "管理层口径转向防守，反映增长压力，需对比名创扩张姿态判断双方攻守位置变化。",
+    "source": "on.cc東網",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQYm9uT2ZRajctLTB3cnBZVUVpZ0xOUTF6akFoZWQ3VXJ0OTBfMGNJLWdYREtFcnNhZlVhVmZ4aXR0QkpvbW1aamYzemx0Yk5HUHNLbHdqZjJodHRMblNUWG1VdFdTaXZONHZkOXdVWjFudnRIS2sweklJcDRXWDRnUVlrVjVTZ0hwTmlZeVVjc2RRTkk?oc=5"
+  },
+  {
     "date": "2026-11-24",
     "brand": "miniso",
     "type": "财报",
     "market": "全球",
     "impact": 5,
     "title": "名创优品前三季营收181.2亿元",
-    "note": "营收规模继续领先，但股价四日跌超两成，说明市场更关注海外直营扩张与IP投入对利润的短期压制，需跟踪盈利拐点。",
+    "note": "三季报是核心跟踪基准，需对比泡泡玛特同期腰斩表现，判断IP零售整体景气度与名创份额变化。",
     "source": "中华网财经",
     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9HS29VZHh4UEdtNzNlZEpuOE1uc1ViOXBWaU9uT0RSTHFUaXR2d1I0ZjktSTE1UGtObXlIaGc0eG9mSWtQNXYxSlFSZHZFa0EyU3ZpQjN4SDFjOGtMRHpRSXltUmhYUi1LM2ZveERjSzliMTQ?oc=5"
   },
@@ -746,22 +790,22 @@ const SEED_EVENTS = [
     "brand": "miniso",
     "type": "战略",
     "market": "中国",
-    "impact": 3,
-    "title": "名创优品提价4%~6%引发消费者感知变贵",
-    "note": "小幅提价却带来明显“变贵”体感，反映其性价比心智脆弱；竞品可借机强化价格锚点，争夺价格敏感客群。",
+    "impact": 4,
+    "title": "名创优品涨价4%~6%并加码IP化转型",
+    "note": "平价定位向IP溢价迁移，短期或流失价格敏感客群，需跟踪客单价与复购数据及对TOP TOY的挤压。",
     "source": "杭州网",
     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBXZGlNX2R4ZGVUUy11NjRlSnA4MDdEUjUzSk1VbXpQeWlpTXRjQ3h3OXVRMWRoRUFhMk11MFdVSjFvVEQwTW5KaE9FUkdnamJHcVV5d1FiemhtSU54bHpwdnJ4WWV1WGJXN21WYzRR?oc=5"
   },
   {
     "date": "2026-11-24",
     "brand": "miniso",
-    "type": "营销",
+    "type": "开店",
     "market": "中国",
     "impact": 3,
-    "title": "名创优品联动时代少年团七周年直播盲盒",
-    "note": "借头部偶像团体做粉丝运营与盲盒转化，是其内容化营销的典型打法，需评估其对年轻客群分流的实际效果。",
-    "source": "手机新浪网",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9SX0dZMWlNaFZoWmdicEhSeGN2dmh0M2J0YU5NeEJtNDJTVkJENC1nSkgwX0swcE43ZHZPdVRjTDBxa3ZTNEhoWmpVOFppVmU0dnJiVUlLWkk3RzNNU1pCd3NkZjRtQ1VPbnN1eWlLUzBIdw?oc=5"
+    "title": "MINISO LAND山东首店台东试营业",
+    "note": "大店模式向二三线商圈复制，验证“逛场”战略可复制性，是渠道升级进度的观察窗口。",
+    "source": "鲁网",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE03Qndkc1FnaF83cWhBbmtKQmM4U2xDbFZTNC1CX193bWtzd0hLN0FlSXRXZy1tZVMxNWpaNWtuOHpnek43cVAxZFJOa1lWd1kyaUZZX3ZUZVVxMTlFZTNMNDBKVE4tc01ycF9qa0o5SjE?oc=5"
   },
   {
     "date": "2026-11-24",
@@ -769,19 +813,30 @@ const SEED_EVENTS = [
     "type": "开店",
     "market": "东南亚",
     "impact": 4,
-    "title": "MINISO LAND旗舰店落地曼谷CentralWorld",
-    "note": "大店模式复制到东南亚核心商圈，标志其海外从铺量转向场景化大店，将抬高当地潮玩零售的体验门槛。",
+    "title": "MINISO LAND落地曼谷CentralWorld",
+    "note": "大店业态输出海外核心商圈，标志东南亚从铺量转向旗舰体验，需关注对当地潮玩竞品的分流。",
     "source": "ANTARA News",
     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQTS1KcGlvZ2ZvN2xwQklaOFhYYko3OV9mdTY2bElxRUFHUjYwaDFyNFF3bF9wM2FDTXUwMGZQd1VYRzVOWGozdTFoa3RCelBaN0tvcE43SG41dWRCQ2oxQ0hqLTRrSWVnWlB3TWRENHRaWGI4UXFvOWFuOFhXdjJvQW9fcDRUbGNEZnRwX1RMSm15U2hCaGVXQUF3SjhjcDVQZE5aVF9jZVBYNFJlSy1QeHl2WURuMjYwN1pHQ0xqWWdRTkFnZlFKTjQwSVN1MEXSAdQBQVVfeXFMUHhScXdhVjREellKSVNTME04Q1NwQ28tX2pqOFM2NkxfOWFBcDZ4ZFdrMEtrbGMzRXhJODIzMkk1Y29hdTNVRzdlN2ZiMUNNT21DcWVxUlREWmVWS2ZLbF9sWU5GNUlyVTJzRDFvT0x0eVB6aFFCMkxaZ2ZPdDJjQW1FWERNOUxHWm1pRlV5dVdadTNBTURkNHVubWk4dmNQVkF3VmJ5TzgtMkRyRWgxcUE2YmRGMmEtQ1kyRGlBVTBTTFhyc3otT3F4elZvU0hwamk0ZlY?oc=5"
   },
   {
     "date": "2026-11-24",
+    "brand": "miniso",
+    "type": "营销",
+    "market": "中国",
+    "impact": 2,
+    "title": "时代少年团代言直播盲盒游戏",
+    "note": "明星代言+直播玩法是日常拉新手段，关注其对年轻客群转化效率及后续代言续约信号。",
+    "source": "手机新浪网",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9SX0dZMWlNaFZoWmdicEhSeGN2dmh0M2J0YU5NeEJtNDJTVkJENC1nSkgwX0swcE43ZHZPdVRjTDBxa3ZTNEhoWmpVOFppVmU0dnJiVUlLWkk3RzNNU1pCd3NkZjRtQ1VPbnN1eWlLUzBIdw?oc=5"
+  },
+  {
+    "date": "2026-11-24",
     "brand": "popmart",
     "type": "财报",
-    "market": "中国",
+    "market": "全球",
     "impact": 5,
-    "title": "泡泡玛特三季度收益同比降45%~50%",
-    "note": "头部潮玩增速大幅转负，验证行业集体降温；竞品需重估潮玩赛道景气度与自身库存、上新节奏风险。",
+    "title": "泡泡玛特Q3收益同比降45%~50%",
+    "note": "头部潮玩营收近腰斩，是行业景气拐点核心信号，需评估对名创IP战略与TOP TOY扩张节奏的连带影响。",
     "source": "第一财经",
     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAtNV9BS0RTcXdIczE3Y0NvN2oyRmtETllPY0h3UVI5eTA4SnI5ZE5reElTRXhZSm9RZVZuV25QRTh3V1RVc3ZHa1VpMmRhcGI1OWxv?oc=5"
   },
@@ -792,7 +847,7 @@ const SEED_EVENTS = [
     "market": "中国",
     "impact": 3,
     "title": "泡泡玛特联手腾讯将碳捕集材料用于DIMOO",
-    "note": "以环保材料做产品差异化与ESG叙事，属潮玩材料创新信号，可关注其是否形成成本或营销壁垒。",
+    "note": "材料创新绑定ESG叙事，属差异化产品壁垒尝试，需观察是否形成可复用的成本或话题优势。",
     "source": "新浪财经",
     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1hejJWYWZ1alZPNFBNemsycXhaZ3J5S2lTaHd2amdYeGhYZW05ZUlWSGk4RkVqdF8wZl8zVVM5c1FEamZDTzF6VmYtSVBNeXBqV3VGX1hmbVAyQ3J6eDBEUExNUDZkbVdjU1pnbjdmVzZTN1BDakFOaw?oc=5"
   },
@@ -817,17 +872,6 @@ const SEED_EVENTS = [
     "note": "涨价策略引发消费者“变贵”感知，需关注其对性价比定位与复购的潜在侵蚀。",
     "source": "36氪",
     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1ieXlZdUN2WmdjVVVoSVhzRThySlBWT3BKUGctQzdldmF4enVOUnlVSVUxVXNNdExUZXFZV0k3QUVZQWxTUzRBS1hIUWxOTVU?oc=5"
-  },
-  {
-    "date": "2026-11-23",
-    "brand": "miniso",
-    "type": "联名",
-    "market": "全球",
-    "impact": 3,
-    "title": "名创优品推Chiikawa牛仔风秋冬联名系列",
-    "note": "持续绑定Chiikawa等热门IP推季节限定，是其IP化战略的落地节奏，需跟踪联名上新频率与售罄速度。",
-    "source": "玩具人 TOY PEOPLE",
-    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1ScFBuN3RlQThvQXBsQXlkcmdkVWh6SHJRZ3RMc19jamJ3MUtXRk9hb0VjcEdCaUd4WFh3WXFBWWFZMWNYbW53N3dQQ1lKbU5Z?oc=5"
   },
   {
     "date": "2026-11-23",
@@ -1235,50 +1279,6 @@ const SEED_EVENTS = [
     "note": "北美大店业态落地，是其海外门店升级试验，跟踪单店模型表现以评估海外扩张可行性。",
     "source": "Toronto.com",
     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQak9MdVlVYnV1TGxRRnVJT1Y4YkFjUER0bUI0bXJnR1NUWFBCbG1jbzJRckxiM2hCT3FfNUtGMU90UHRHU21qeU12TVFSekh2TzNJVGg4U2h2SFRGRWhFY2dQSzlJQlZjVUtDdm96eXFHOEhpM0pMTDFuZkRBTEJYcUd3cDZGUjZURmRHaFNwRG1hWkxRdkFSNW5pd3JHNDJzOWtmcjRVWnVGaHZrc3hwbmxDY1M5NFJHYVBWYkdtOU9DcTREUVpWUDRBWl9EWmZlVG43cWZQSU9mTUdpZ0hwQg?oc=5"
-  },
-  {
-    "date": "2026-11-18",
-    "brand": "miniso",
-    "type": "人事",
-    "market": "全球",
-    "impact": 2,
-    "title": "名创授出1241万份受限制股份单位",
-    "note": "股权激励绑定核心团队，属常规治理动作，对竞争格局影响有限，可略作记录。",
-    "source": "观点网",
-    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5nSmMxRzZVVGQ0NDBrRVlsV3pVTDgtWkpUR1duNHhIY2w4NnA3cHE3VUlOc1ROMVBqRkFKWEZiWFp6U253T25hSW9OMnJFV0VQd2lqMUdKVlU2cHc1Q2RTNlNR?oc=5"
-  },
-  {
-    "date": "2026-11-17",
-    "brand": "miniso",
-    "type": "财报",
-    "market": "全球",
-    "impact": 5,
-    "title": "名创优品Q3营收66.3亿增14.3%，净利降35.7%",
-    "note": "增收不增利延续，海外仅增1.7%成短板；跟踪者应关注其海外模型调整与利润修复节奏。",
-    "source": "凤凰网",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBEZUZzeHBtTlVCX0pQSlh2V3lYNmtwOVNqLURSSTVQR0YzMVJoQllySjYtSi04WlNZXzlHdk85d1BWT3hTampFZVlVYXJUNkN6cnc?oc=5"
-  },
-  {
-    "date": "2026-11-17",
-    "brand": "miniso",
-    "type": "战略",
-    "market": "中国",
-    "impact": 4,
-    "title": "名创2027年将继续淘汰低效门店，门店达8665家",
-    "note": "门店从扩张转向提质，低效店出清将释放商圈点位，是竞品选址与加盟招商的窗口期。",
-    "source": "证券之星",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9vYlBjc0Nqb3pYYl9yeWltNUZPdGc0LXA2aWFUV0dDMG1EMHFQano4d05LODgzVHQ2WTBNVERSVHgxb01oUmZlY2RrWC1OU2xjcUFWelRSWTdFUHpQcy1BeA?oc=5"
-  },
-  {
-    "date": "2026-11-17",
-    "brand": "toptoy",
-    "type": "财报",
-    "market": "中国",
-    "impact": 4,
-    "title": "TOP TOY第三季营收5亿同比降13%，门店362家",
-    "note": "TOP TOY逆势下滑，与泡泡玛特增长形成反差；跟踪者应关注其IPO进程与门店模型是否调整。",
-    "source": "Sohu",
-    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdTc0XzloV2h2Sm1MN1pwZXNWYVY1TlNybTlwUWJ1eWxSNVJvS2ZMUUZaQnpUc2xJVGhaUXp6NTBkeHNDOTM5VkZMRjlRQ2RyQzVQVHdQTmg2NmFLMXhJVWpmZEU2TU1yVUdQNWI3LUNkYURKT3NZS3FPNi1aLWF1NU5JTGg2czVM?oc=5"
   }
 ];
 
